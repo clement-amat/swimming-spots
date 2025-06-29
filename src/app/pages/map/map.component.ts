@@ -16,6 +16,9 @@ import { environment } from '../../../environments/environment';
 import { spotTypeMapping } from './spot-type-mapping';
 import { SwimmingSpotType } from '@app/shared/models/swimming-spot.model';
 
+// Déclaration de mapboxgl comme variable globale
+declare const mapboxgl: any;
+
 @Component({
   selector: 'app-map',
   imports: [],
@@ -74,7 +77,10 @@ export class MapComponent implements OnInit, AfterViewInit {
   private async initMap(): Promise<void> {
     if (this.mapInitialized) return;
 
-    const mapboxgl = await import('mapbox-gl');
+    if (typeof mapboxgl === 'undefined') {
+      console.error("mapboxgl n'est pas disponible");
+      return;
+    }
 
     const mapOptions: MapboxOptions = {
       accessToken: environment.mapbox.accessToken,
