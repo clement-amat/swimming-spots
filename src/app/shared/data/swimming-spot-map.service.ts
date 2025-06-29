@@ -17,6 +17,8 @@ export interface SwimmingSpotGeoJSON {
       type: string;
       city: string;
       region: string;
+      lat: string;
+      lng: string;
     };
   }>;
 }
@@ -42,10 +44,6 @@ export class SwimmingSpotMapService {
       return !isNaN(lng) && !isNaN(lat) && lng !== 0 && lat !== 0;
     });
 
-    console.log(
-      `Transformation: ${spots.length} points bruts → ${validSpots.length} points valides`
-    );
-
     return {
       type: 'FeatureCollection',
       features: validSpots.map((spot) => {
@@ -64,6 +62,8 @@ export class SwimmingSpotMapService {
             type: spot.type,
             city: spot.city,
             region: spot.region,
+            lat: latStr,
+            lng: lngStr,
           },
         };
       }),
