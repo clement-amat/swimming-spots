@@ -8,7 +8,7 @@
 .layout-main {
   flex: 1;
   overflow: hidden;
-  height: calc(100vh - 120px); /* 100vh - hauteur approximative du header */
+  height: calc(100vh - var(--header-height));
 }
 
 .header {
@@ -18,7 +18,7 @@
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
   box-sizing: border-box;
-  height: 120px; /* 100vh - hauteur approximative du header */
+  height: var(--header-height); /* 100vh - hauteur approximative du header */
 }
 
 .header-content {
@@ -40,4 +40,55 @@
 .header-subtitle {
   color: #dbeafe;
   margin: 0;
+}
+
+.header-logo {
+  background: white;
+  padding: 7px 8px 4px;
+  border-radius: 100%;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+  }
+
+  .header-content {
+    gap: 0.5rem;
+  }
+
+  .header-title {
+    font-size: 1.25rem;
+  }
+
+  .header-subtitle {
+    font-size: 0.875rem;
+  }
+
+  .header-logo {
+    padding: 5px 6px 3px;
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0.75rem;
+  }
+
+  .header-title {
+    font-size: 1.125rem;
+  }
+
+  .header-subtitle {
+    font-size: 0.75rem;
+  }
+
+  .header-logo {
+    padding: 4px 5px 2px;
+    width: 28px;
+    height: 28px;
+  }
 }

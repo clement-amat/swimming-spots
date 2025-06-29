@@ -1,0 +1,64 @@
+<div
+  class="drawer-overlay"
+  [class.open]="swimmingSpot"
+  (click)="closeDrawer.emit()"
+>
+  <div
+    class="drawer-container"
+    [class.open]="swimmingSpot"
+    (click)="$event.stopPropagation()"
+  >
+    <div class="drawer-header">
+      <button
+        class="close-button"
+        (click)="onCloseClick($event)"
+        aria-label="Fermer"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    @if (swimmingSpot) {
+    <div class="drawer-content">
+      <div class="spot-header">
+        <h2 class="spot-name">{{ swimmingSpot.name }}</h2>
+        <div class="spot-location">
+          <span class="city">{{ swimmingSpot.city }}</span>
+          <span class="department">{{ swimmingSpot.department }}</span>
+        </div>
+      </div>
+
+      <div class="maps-link-container">
+        <a
+          [href]="
+            'https://www.google.com/maps?q=' +
+            swimmingSpot.lat +
+            ',' +
+            swimmingSpot.lng
+          "
+          target="_blank"
+          rel="noopener noreferrer"
+          class="maps-link"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+            />
+          </svg>
+          Ouvrir dans Google Maps
+        </a>
+      </div>
+    </div>
+    }
+  </div>
+</div>

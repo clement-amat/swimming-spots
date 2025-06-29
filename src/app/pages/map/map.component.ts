@@ -14,14 +14,18 @@ import { isPlatformBrowser } from '@angular/common';
 import type { Map, MapboxOptions } from 'mapbox-gl';
 import { environment } from '../../../environments/environment';
 import { spotTypeMapping } from './spot-type-mapping';
-import { SwimmingSpotType } from '@app/shared/models/swimming-spot.model';
+import {
+  SwimmingSpotType,
+  SwimmingSpot,
+} from '@app/shared/models/swimming-spot.model';
+import { SwimmingSpotDrawerComponent } from './swimming-spot-drawer/swimming-spot-drawer.component';
 
 // Déclaration de mapboxgl comme variable globale
 declare const mapboxgl: any;
 
 @Component({
   selector: 'app-map',
-  imports: [],
+  imports: [SwimmingSpotDrawerComponent],
   providers: [SwimmingSpotMapService, SwimmingSpotsService],
   templateUrl: './map.component.html',
   styleUrl: './map.component.css',
@@ -30,6 +34,9 @@ export class MapComponent implements OnInit, AfterViewInit {
   private map!: Map;
   private swimmingSpotsGeoJSON: SwimmingSpotGeoJSON | null = null;
   private mapInitialized = false;
+
+  // Propriétés pour le drawer
+  selectedSpot: SwimmingSpot | null = null;
 
   // Propriété pour la légende dynamique
   legendItems: Array<{ color: string; label: string }> = [];
@@ -128,5 +135,47 @@ export class MapComponent implements OnInit, AfterViewInit {
         'circle-stroke-color': '#ffffff',
       },
     });
+
+    // Ajouter l'événement de clic sur les points de baignade
+    this.map.on('click', 'swimming-spots-circles', (e: any) => {
+      if (e.features.length > 0) {
+        const feature = e.features[0];
+        const properties = feature.properties;
+
+        // Créer un objet SwimmingSpot à partir des propriétés du GeoJSON
+        const swimmingSpot: SwimmingSpot = {
+          region: properties.region,
+          department: properties.department,
+          code: properties.code,
+          situationUpdate: properties.situationUpdate,
+          name: properties.name,
+          insee: properties.insee,
+          city: properties.city,
+          ueDeclarationDate: properties.ueDeclarationDate,
+          type: properties.type as SwimmingSpotType,
+          lng: properties.lng,
+          lat: properties.lat,
+        };
+
+        this.openDrawer(swimmingSpot);
+      }
+    });
+
+    // Changer le curseur au survol des points
+    this.map.on('mouseenter', 'swimming-spots-circles', () => {
+      this.map.getCanvas().style.cursor = 'pointer';
+    });
+
+    this.map.on('mouseleave', 'swimming-spots-circles', () => {
+      this.map.getCanvas().style.cursor = '';
+    });
+  }
+
+  openDrawer(spot: SwimmingSpot): void {
+    this.selectedSpot = spot;
+  }
+
+  closeDrawer(): void {
+    this.selectedSpot = null;
   }
 }

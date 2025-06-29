@@ -3,7 +3,7 @@
 
 .map-container {
   width: 100%;
-  height: calc(100vh - 120px);
+  height: calc(100vh - var(--header-height));
   position: relative;
 }
 
