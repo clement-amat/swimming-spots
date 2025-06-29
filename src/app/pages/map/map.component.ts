@@ -13,6 +13,8 @@ import { SwimmingSpotsService } from '@data/swimming-spots.service';
 import { isPlatformBrowser } from '@angular/common';
 import type { Map, MapboxOptions } from 'mapbox-gl';
 import { environment } from '../../../environments/environment';
+import { spotTypeMapping } from './spot-type-mapping';
+import { SwimmingSpotType } from '@app/shared/models/swimming-spot.model';
 
 @Component({
   selector: 'app-map',
@@ -26,12 +28,16 @@ export class MapComponent implements OnInit, AfterViewInit {
   private swimmingSpotsGeoJSON: SwimmingSpotGeoJSON | null = null;
   private mapInitialized = false;
 
+  // Propriété pour la légende dynamique
+  legendItems: Array<{ color: string; label: string }> = [];
+
   constructor(
     private swimmingSpotMapService: SwimmingSpotMapService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   ngOnInit(): void {
+    this.generateLegendItems();
     this.loadSwimmingSpotsGeoJSON();
   }
 
@@ -39,6 +45,15 @@ export class MapComponent implements OnInit, AfterViewInit {
     if (isPlatformBrowser(this.platformId) && !this.mapInitialized) {
       await this.initMap();
     }
+  }
+
+  private generateLegendItems(): void {
+    this.legendItems = Object.entries(spotTypeMapping).map(
+      ([type, config]) => ({
+        color: config.color,
+        label: type,
+      })
+    );
   }
 
   private loadSwimmingSpotsGeoJSON(): void {
@@ -74,7 +89,6 @@ export class MapComponent implements OnInit, AfterViewInit {
     this.mapInitialized = true;
 
     this.map.on('load', () => {
-      console.log('Carte Mapbox chargée avec succès');
       this.addSwimmingSpotsLayer();
       this.map.resize();
     });
@@ -83,15 +97,15 @@ export class MapComponent implements OnInit, AfterViewInit {
   private addSwimmingSpotsLayer(): void {
     if (!this.map || !this.swimmingSpotsGeoJSON) return;
 
-    console.log('Ajout de la couche des points de baignade...');
-
-    // Ajouter la source GeoJSON
     this.map.addSource('swimming-spots', {
       type: 'geojson',
       data: this.swimmingSpotsGeoJSON,
     });
 
-    // Ajouter la couche des cercles
+    const colorArray = Object.entries(spotTypeMapping).flatMap(
+      ([key, value]) => [key, value.color]
+    );
+
     this.map.addLayer({
       id: 'swimming-spots-circles',
       type: 'circle',
@@ -101,25 +115,12 @@ export class MapComponent implements OnInit, AfterViewInit {
         'circle-color': [
           'match',
           ['get', 'type'],
-          'Lac',
-          '#4A90E2',
-          'Rivière',
-          '#50E3C2',
-          'Mer',
-          '#0077BE',
-          'Étang',
-          '#7ED321',
-          'Piscine',
-          '#F5A623',
-          '#9B9B9B', // couleur par défaut
+          ...colorArray,
+          '#9B9B9B', // default color
         ],
         'circle-stroke-width': 2,
         'circle-stroke-color': '#ffffff',
       },
     });
-
-    console.log(
-      `${this.swimmingSpotsGeoJSON.features.length} points de baignade ajoutés à la carte`
-    );
   }
 }

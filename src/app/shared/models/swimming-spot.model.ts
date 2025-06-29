@@ -1,9 +1,8 @@
 export enum SwimmingSpotType {
   LAKE = 'Lac',
   RIVER = 'Rivière',
-  SEA = 'Mer',
-  POND = 'Étang',
-  POOL = 'Piscine',
+  COASTAL_WATER = 'Eau côtière',
+  TRANSITIONAL_WATER = 'Eau de transition',
 }
 
 export interface SwimmingSpot {

@@ -1,6 +1,9 @@
+/* Import des styles Mapbox */
+@import "mapbox-gl/dist/mapbox-gl.css";
+
 .map-container {
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 120px);
   position: relative;
 }
 
@@ -12,5 +15,53 @@
   left: 0;
 }
 
-/* Import des styles Mapbox */
-@import "mapbox-gl/dist/mapbox-gl.css";
+/* Panel de légende */
+.legend-panel {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-width: 180px;
+  z-index: 1000;
+}
+
+.legend-header {
+  margin-bottom: 12px;
+}
+
+.legend-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.legend-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #555;
+}
+
+.legend-marker {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}

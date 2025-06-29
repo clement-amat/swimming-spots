@@ -1,3 +1,18 @@
 <div class="map-container">
   <div id="map" class="map"></div>
+
+  <!-- Panel de légende -->
+  <div class="legend-panel">
+    <div class="legend-header">
+      <h3 class="legend-title">Types de spots</h3>
+    </div>
+    <div class="legend-items">
+      @for (item of legendItems; track item.label) {
+      <div class="legend-item">
+        <div class="legend-marker" [style.background-color]="item.color"></div>
+        <span>{{ item.label }}</span>
+      </div>
+      }
+    </div>
+  </div>
 </div>
