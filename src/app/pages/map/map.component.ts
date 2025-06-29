@@ -19,11 +19,12 @@ import { environment } from '../../../environments/environment';
   imports: [],
   providers: [SwimmingSpotMapService, SwimmingSpotsService],
   templateUrl: './map.component.html',
-  styleUrl: './map.component.scss',
+  styleUrl: './map.component.css',
 })
 export class MapComponent implements OnInit, AfterViewInit {
   private map!: Map;
   private swimmingSpotsGeoJSON: SwimmingSpotGeoJSON | null = null;
+  private mapInitialized = false;
 
   constructor(
     private swimmingSpotMapService: SwimmingSpotMapService,
@@ -35,7 +36,7 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   async ngAfterViewInit(): Promise<void> {
-    if (isPlatformBrowser(this.platformId)) {
+    if (isPlatformBrowser(this.platformId) && !this.mapInitialized) {
       await this.initMap();
     }
   }
@@ -56,21 +57,26 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   private async initMap(): Promise<void> {
+    if (this.mapInitialized) return;
+
     const mapboxgl = await import('mapbox-gl');
 
     const mapOptions: MapboxOptions = {
       accessToken: environment.mapbox.accessToken,
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v12',
-      center: [2.2137, 46.2276], // Centre de la France
+      center: [2.2137, 46.2276],
       zoom: 6,
+      attributionControl: false,
     };
 
     this.map = new mapboxgl.Map(mapOptions);
+    this.mapInitialized = true;
 
     this.map.on('load', () => {
       console.log('Carte Mapbox chargée avec succès');
       this.addSwimmingSpotsLayer();
+      this.map.resize();
     });
   }
 
