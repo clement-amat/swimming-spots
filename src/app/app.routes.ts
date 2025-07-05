@@ -9,12 +9,7 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/map',
-        pathMatch: 'full',
-      },
-      {
-        path: 'map',
-        component: MapComponent,
+        component: MapComponent
       },
       {
         path: 'spot/:id',

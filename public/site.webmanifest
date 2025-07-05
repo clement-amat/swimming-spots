@@ -1,0 +1,30 @@
+{
+  "name": "Ça Baigne ! - Spots de Baignade en France",
+  "short_name": "Ça Baigne !",
+  "description": "Découvrez les meilleurs spots de baignade en France avec notre carte interactive",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#2563eb",
+  "theme_color": "#1d4ed8",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/icons/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["travel", "lifestyle", "sports"],
+  "lang": "fr",
+  "dir": "ltr"
+} 
