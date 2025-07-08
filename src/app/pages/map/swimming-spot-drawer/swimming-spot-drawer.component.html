@@ -33,9 +33,26 @@
       <div class="spot-header">
         <h2 class="spot-name">{{ swimmingSpot.name }}</h2>
         <div class="spot-location">
-          <span class="city">{{ swimmingSpot.city }}</span>
+          <span class="city">{{ swimmingSpot.city  }}</span>
           <span class="department">{{ swimmingSpot.department }}</span>
         </div>
+      </div>
+
+      <div class="spot-details">
+        <div class="spot-type">
+          <span class="type-icon">{{ swimmingSpot.type | spotTypeIcon }}</span>
+          <span class="type-label">{{ swimmingSpot.type }}</span>
+        </div>
+        
+        <div class="spot-region">
+          <span class="region-label">{{ swimmingSpot.region }}</span>
+        </div>
+        
+        @if (swimmingSpot.situationUpdate) {
+          <div class="spot-situation">
+            <span class="situation-label">{{ swimmingSpot.situationUpdate }}</span>
+          </div>
+        }
       </div>
 
       <div class="maps-link-container">

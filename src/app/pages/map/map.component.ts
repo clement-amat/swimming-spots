@@ -136,13 +136,11 @@ export class MapComponent implements OnInit, AfterViewInit {
       },
     });
 
-    // Ajouter l'événement de clic sur les points de baignade
     this.map.on('click', 'swimming-spots-circles', (e: any) => {
       if (e.features.length > 0) {
         const feature = e.features[0];
         const properties = feature.properties;
 
-        // Créer un objet SwimmingSpot à partir des propriétés du GeoJSON
         const swimmingSpot: SwimmingSpot = {
           region: properties.region,
           department: properties.department,
