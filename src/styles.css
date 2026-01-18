@@ -1,6 +1,67 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: #359EFF;
+  --color-background-light: #f8fafc;
+  --color-background-dark: #0f172a;
+  --color-card-light: #ffffff;
+  --color-card-dark: #1e293b;
+  --color-ocean-deep: #075985;
+  --color-nav-bg: #F8FAFC;
+  --color-sidebar-bg: #F0F4F7;
+  --font-family-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  --font-family-sans: "Inter", system-ui, sans-serif;
+  --radius-default: 16px;
+}
+
+.bg-background-light {
+  background-color: var(--color-background-light);
+}
+
+.bg-background-dark {
+  background-color: var(--color-background-dark);
+}
+
+.bg-card-light {
+  background-color: var(--color-card-light);
+}
+
+.bg-card-dark {
+  background-color: var(--color-card-dark);
+}
+
+.text-ocean-deep {
+  color: var(--color-ocean-deep);
+}
+
+.bg-nav-bg {
+  background-color: var(--color-nav-bg);
+}
+
+.bg-sidebar-bg {
+  background-color: var(--color-sidebar-bg);
+}
+
 :root {
-  --header-height: 110px;
+  --header-height: 64px;
   --drawer-padding: 20px;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #475569;
 }
 
 @media (max-width: 768px) {
@@ -23,4 +84,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Inter", sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
