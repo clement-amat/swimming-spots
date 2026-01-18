@@ -17,4 +17,12 @@ export interface SwimmingSpot {
   type: SwimmingSpotType;
   lng: string;
   lat: string;
+  score?: number;
+  images?: Array<{
+    url: string;
+    title: string;
+    description: string;
+    license: string;
+    score: number;
+  }>;
 }

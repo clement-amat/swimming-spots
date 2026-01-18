@@ -5,10 +5,6 @@ import {
   Inject,
   PLATFORM_ID,
 } from '@angular/core';
-import {
-  SwimmingSpotMapService,
-  SwimmingSpotGeoJSON,
-} from '@data/swimming-spot-map.service';
 import { SwimmingSpotsService } from '@data/swimming-spots.service';
 import { isPlatformBrowser } from '@angular/common';
 import type { Map, MapboxOptions } from 'mapbox-gl';
@@ -19,6 +15,7 @@ import {
   SwimmingSpot,
 } from '@app/shared/models/swimming-spot.model';
 import { SwimmingSpotDrawerComponent } from './swimming-spot-drawer/swimming-spot-drawer.component';
+import { SwimmingSpotGeoJSON } from '@app/shared/models/swimming-spot-geojson.model';
 
 // Déclaration de mapboxgl comme variable globale
 declare const mapboxgl: any;
@@ -26,7 +23,7 @@ declare const mapboxgl: any;
 @Component({
   selector: 'app-map',
   imports: [SwimmingSpotDrawerComponent],
-  providers: [SwimmingSpotMapService, SwimmingSpotsService],
+  providers: [SwimmingSpotsService],
   templateUrl: './map.component.html',
   styleUrl: './map.component.css',
 })
@@ -42,11 +39,11 @@ export class MapComponent implements OnInit, AfterViewInit {
   legendItems: Array<{ color: string; label: string }> = [];
 
   constructor(
-    private swimmingSpotMapService: SwimmingSpotMapService,
+    private swimmingSpotsService: SwimmingSpotsService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.generateLegendItems();
     this.loadSwimmingSpotsGeoJSON();
   }
@@ -67,7 +64,7 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   private loadSwimmingSpotsGeoJSON(): void {
-    this.swimmingSpotMapService.getSwimmingSpotsGeoJSON().subscribe({
+    this.swimmingSpotsService.getSwimmingSpots().subscribe({
       next: (geoJSON) => {
         console.log(
           `GeoJSON récupéré: ${geoJSON.features.length} points de baignade`
