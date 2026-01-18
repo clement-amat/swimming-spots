@@ -11,12 +11,11 @@ import {
   SwimmingSpotImage,
   SwimmingSpotType,
 } from '@app/shared/models/swimming-spot.model';
-import { SpotTypeIconPipe } from '@app/shared/pipes/spot-type-icon.pipe';
 
 @Component({
   selector: 'app-drawer',
   standalone: true,
-  imports: [CommonModule, SpotTypeIconPipe],
+  imports: [CommonModule],
   templateUrl: './swimming-spot-drawer.component.html',
   styleUrl: './swimming-spot-drawer.component.css',
 })

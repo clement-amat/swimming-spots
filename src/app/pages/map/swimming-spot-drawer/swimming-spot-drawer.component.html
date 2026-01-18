@@ -1,27 +1,8 @@
-<div
-  class="drawer-overlay"
-  [class.open]="swimmingSpot"
-  (click)="closeDrawer.emit()"
->
-  <div
-    class="drawer-container"
-    [class.open]="swimmingSpot"
-    (click)="$event.stopPropagation()"
-  >
-    <div class="drawer-header">
-      <button
-        class="close-button"
-        (click)="onCloseClick($event)"
-        aria-label="Fermer"
-      >
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
+<div class="drawer-overlay" [class.open]="swimmingSpot" (click)="closeDrawer.emit()">
+  <div class="drawer-container" [class.open]="swimmingSpot" (click)="$event.stopPropagation()">
+    <div class="absolute z-[1] right-0 flex justify-end p-6 border-b border-white/20">
+      <button class="close-button" (click)="onCloseClick($event)" aria-label="Fermer">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
@@ -31,67 +12,48 @@
     @if (swimmingSpot) {
     <div class="drawer-content">
       @if (images.length) {
-        <div class="images-container">
-          <div class="images-grid" [attr.data-count]="images.length">
-            <div class="image-item" *ngFor="let image of images; let i = index">
-              <img [alt]="image.title || swimmingSpot.name" [src]="image.url" />
-              @if (swimmingSpot.images && swimmingSpot.images.length > 3 && i === 0) {
-                <div class="image-badge">
-                  <span class="material-symbols-outlined">photo_library</span>
-                  {{ swimmingSpot.images.length }} Photos
-                </div>
-              }
+      <div class="images-container">
+        <div class="images-grid" [attr.data-count]="images.length">
+          <div class="image-item" *ngFor="let image of images; let i = index">
+            <img [alt]="image.title || swimmingSpot.name" [src]="image.url" />
+            @if (swimmingSpot.images && swimmingSpot.images.length > 3 && i === 0) {
+            <div class="image-badge">
+              <span class="material-symbols-outlined">photo_library</span>
+              {{ swimmingSpot.images.length }} Photos
             </div>
+            }
           </div>
         </div>
+      </div>
       }
-      
-      <div class="content-wrapper">
-      <div class="spot-header">
-        <h1 class="spot-title">{{ swimmingSpot.name }}</h1>
-        <p class="spot-location">
-          <span class="material-symbols-outlined location-icon">location_on</span>
-          {{ swimmingSpot.city }}{{ swimmingSpot.department ? ', ' + swimmingSpot.department : '' }}
-        </p>
-      </div>
 
-      <div class="spot-details">
-        <div class="spot-type">
-          <span class="type-icon">{{ swimmingSpot.type | spotTypeIcon }}</span>
-          <span class="type-label">{{ swimmingSpot.type }}</span>
+      <div class="content-wrapper" [class.mt-10]="images.length === 0">
+        <div class="spot-header">
+          <h1 class="spot-title">{{ swimmingSpot.name }}</h1>
+          <p class="spot-location">
+            <span class="material-symbols-outlined location-icon">location_on</span>
+            {{ swimmingSpot.city }}{{ swimmingSpot.department ? ', ' + swimmingSpot.department : '' }}
+          </p>
         </div>
-        
-        <div class="spot-region">
-          <span class="region-label">{{ swimmingSpot.region }}</span>
-        </div>
-        
-        @if (swimmingSpot.situationUpdate) {
-          <div class="spot-situation">
-            <span class="situation-label">{{ swimmingSpot.situationUpdate }}</span>
-          </div>
-        }
-      </div>
 
-      <div class="maps-link-container">
-        <a
-          [href]="
+        <div class="spot-details">
+
+        </div>
+
+        <div class="maps-link-container">
+          <a [href]="
             'https://www.google.com/maps?q=' +
             swimmingSpot.lat +
             ',' +
             swimmingSpot.lng
-          "
-          target="_blank"
-          rel="noopener noreferrer"
-          class="maps-link"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-            />
-          </svg>
-          Ouvrir dans Google Maps
-        </a>
-      </div>
+          " target="_blank" rel="noopener noreferrer" class="maps-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+            </svg>
+            Ouvrir dans Google Maps
+          </a>
+        </div>
       </div>
     </div>
     }
