@@ -8,6 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 import {
   SwimmingSpot,
+  SwimmingSpotImage,
   SwimmingSpotType,
 } from '@app/shared/models/swimming-spot.model';
 import { SpotTypeIconPipe } from '@app/shared/pipes/spot-type-icon.pipe';
@@ -59,5 +60,9 @@ export class SwimmingSpotDrawerComponent {
       default:
         return '#9E9E9E';
     }
+  }
+
+  get images(): SwimmingSpotImage[] {
+    return (this.swimmingSpot?.images || []).slice(0, 3);
   }
 }

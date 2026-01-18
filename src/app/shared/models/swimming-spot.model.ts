@@ -5,6 +5,14 @@ export enum SwimmingSpotType {
   TRANSITIONAL_WATER = 'Eau de transition',
 }
 
+export interface SwimmingSpotImage {
+  url: string;
+  title: string;
+  description: string;
+  license: string;
+  score: number;
+}
+
 export interface SwimmingSpot {
   region: string;
   department: string;
@@ -18,11 +26,5 @@ export interface SwimmingSpot {
   lng: string;
   lat: string;
   score?: number;
-  images?: Array<{
-    url: string;
-    title: string;
-    description: string;
-    license: string;
-    score: number;
-  }>;
+  images?: SwimmingSpotImage[];
 }

@@ -30,12 +30,29 @@
 
     @if (swimmingSpot) {
     <div class="drawer-content">
-      <div class="spot-header">
-        <h2 class="spot-name">{{ swimmingSpot.name }}</h2>
-        <div class="spot-location">
-          <span class="city">{{ swimmingSpot.city  }}</span>
-          <span class="department">{{ swimmingSpot.department }}</span>
+      @if (images.length) {
+        <div class="images-container">
+          <div class="images-grid" [attr.data-count]="images.length">
+            <div class="image-item" *ngFor="let image of images; let i = index">
+              <img [alt]="image.title || swimmingSpot.name" [src]="image.url" />
+              @if (swimmingSpot.images && swimmingSpot.images.length > 3 && i === 0) {
+                <div class="image-badge">
+                  <span class="material-symbols-outlined">photo_library</span>
+                  {{ swimmingSpot.images.length }} Photos
+                </div>
+              }
+            </div>
+          </div>
         </div>
+      }
+      
+      <div class="content-wrapper">
+      <div class="spot-header">
+        <h1 class="spot-title">{{ swimmingSpot.name }}</h1>
+        <p class="spot-location">
+          <span class="material-symbols-outlined location-icon">location_on</span>
+          {{ swimmingSpot.city }}{{ swimmingSpot.department ? ', ' + swimmingSpot.department : '' }}
+        </p>
       </div>
 
       <div class="spot-details">
@@ -74,6 +91,7 @@
           </svg>
           Ouvrir dans Google Maps
         </a>
+      </div>
       </div>
     </div>
     }

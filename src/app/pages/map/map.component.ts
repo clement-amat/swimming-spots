@@ -137,26 +137,18 @@ export class MapComponent implements OnInit, AfterViewInit {
       if (e.features.length > 0) {
         const feature = e.features[0];
         const properties = feature.properties;
-
+        
         const swimmingSpot: SwimmingSpot = {
-          region: properties.region,
-          department: properties.department,
-          code: properties.code,
-          situationUpdate: properties.situationUpdate,
-          name: properties.name,
-          insee: properties.insee,
-          city: properties.city,
-          ueDeclarationDate: properties.ueDeclarationDate,
-          type: properties.type as SwimmingSpotType,
-          lng: properties.lng,
-          lat: properties.lat,
+          ...properties,
+          images: typeof properties.images === 'string' 
+            ? JSON.parse(properties.images) 
+            : properties.images
         };
 
         this.openDrawer(swimmingSpot);
       }
     });
 
-    // Changer le curseur au survol des points
     this.map.on('mouseenter', 'swimming-spots-circles', () => {
       this.map.getCanvas().style.cursor = 'pointer';
     });
