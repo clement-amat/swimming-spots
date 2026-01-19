@@ -1,0 +1,8 @@
+<div
+    class="bg-white dark:bg-slate-800 p-4 rounded-2xl flex flex-col items-center text-center shadow-sm border border-slate-100 dark:border-slate-700/50">
+    <span class="material-symbols-outlined text-primary mb-2">{{ icon() }}</span>
+    <span [class]="value().length > 10 ? 'leading-none text-sm font-bold' : 'text-lg font-bold'">{{ value() }}</span>
+    <span
+        [class]="label().length > 15 ? 'text-[8px] text-slate-400 uppercase font-bold tracking-wider' : 'text-[10px] text-slate-400 uppercase font-bold tracking-wider'">{{
+        label() }}</span>
+</div>

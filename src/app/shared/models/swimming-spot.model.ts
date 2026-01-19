@@ -13,6 +13,21 @@ export interface SwimmingSpotImage {
   score: number;
 }
 
+export interface SiteDetails {
+  surveillance?: boolean;
+  amenities?: boolean;
+  animalsAllowed?: boolean;
+  showers?: boolean;
+  drinkingWater?: boolean;
+  wheelchairAccess?: boolean;
+  toilets?: boolean;
+  lifeguard?: boolean;
+  seasonStart?: string;
+  seasonEnd?: string;
+  lastWaterQuality?: string;
+  lastTestDate?: string;
+}
+
 export interface SwimmingSpot {
   region: string;
   department: string;
@@ -27,4 +42,5 @@ export interface SwimmingSpot {
   lat: string;
   score?: number;
   images?: SwimmingSpotImage[];
+  siteDetails?: SiteDetails;
 }

@@ -142,7 +142,10 @@ export class MapComponent implements OnInit, AfterViewInit {
           ...properties,
           images: typeof properties.images === 'string' 
             ? JSON.parse(properties.images) 
-            : properties.images
+            : properties.images,
+            siteDetails: typeof properties.images === 'string' 
+            ? JSON.parse(properties.siteDetails) 
+            : properties.siteDetails
         };
 
         this.openDrawer(swimmingSpot);

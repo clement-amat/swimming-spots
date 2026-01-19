@@ -11,11 +11,13 @@ import {
   SwimmingSpotImage,
   SwimmingSpotType,
 } from '@app/shared/models/swimming-spot.model';
+import { StatCardComponent } from '@app/shared/ui/card/stat-card/stat-card.component';
+import { TagComponent } from '@app/shared/ui/tag/tag.component';
 
 @Component({
   selector: 'app-drawer',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, StatCardComponent, TagComponent],
   templateUrl: './swimming-spot-drawer.component.html',
   styleUrl: './swimming-spot-drawer.component.css',
 })

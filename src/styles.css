@@ -12,7 +12,10 @@
   --color-sidebar-bg: #F0F4F7;
   --font-family-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
   --font-family-sans: "Inter", system-ui, sans-serif;
-  --radius-default: 16px;
+  --radius-default: 1rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
 }
 
 /* Remove this line to implement darkmode switch following user preferences */

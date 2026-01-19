@@ -37,7 +37,39 @@
         </div>
 
         <div class="spot-details">
+          <div class="grid grid-cols-3 gap-3 mb-8">
+            <app-stat-card icon="thermostat" value="22°C" label="Water"></app-stat-card>
+            <app-stat-card icon="health_and_safety" value="Maîtres-Nageurs" label="Sur place"
+              [class.opacity-30]="!swimmingSpot.siteDetails?.lifeguard"></app-stat-card>
+            <app-stat-card icon="chair_umbrella" value="Aménagé" label="Équipements"
+              [class.opacity-30]="!swimmingSpot.siteDetails?.amenities"></app-stat-card>
+          </div>
 
+          @if (swimmingSpot.siteDetails) {
+          <div class="mb-8">
+            <h3 class="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-4">Détails</h3>
+            <div class="grid grid-cols-2 gap-3">
+              @if (swimmingSpot.siteDetails.showers) {
+              <app-tag icon="shower" label="Douche"></app-tag>
+              }
+              @if (swimmingSpot.siteDetails.toilets) {
+              <app-tag icon="wc" label="WC"></app-tag>
+              }
+              @if (swimmingSpot.siteDetails.drinkingWater) {
+              <app-tag icon="water_drop" label="Point d'eau potable"></app-tag>
+              }
+              @if (swimmingSpot.siteDetails.lifeguard) {
+              <app-tag icon="security" label="Poste de secours"></app-tag>
+              }
+              @if (swimmingSpot.siteDetails.animalsAllowed) {
+              <app-tag icon="pets" label="Chiens autorisés"></app-tag>
+              }
+              @if (swimmingSpot.siteDetails.wheelchairAccess) {
+              <app-tag icon="accessible" label="Accessible"></app-tag>
+              }
+            </div>
+          </div>
+          }
         </div>
 
         <div class="maps-link-container">
