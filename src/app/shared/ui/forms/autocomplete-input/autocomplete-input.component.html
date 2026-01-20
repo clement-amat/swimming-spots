@@ -1,0 +1,35 @@
+<div class="autocomplete-container relative">
+  <div
+    class="flex items-center bg-slate-200/50 dark:bg-slate-800 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700">
+    <span class="material-symbols-outlined text-slate-500 text-lg mr-2">
+      {{ isLoading ? 'progress_activity' : 'search' }}
+    </span>
+    <input [formControl]="searchControl" [placeholder]="placeholder" (keydown)="onKeyDown($event)"
+      (blur)="onInputBlur()"
+      class="bg-transparent border-none focus:ring-0 text-sm w-48 placeholder-slate-500 text-slate-900 dark:text-slate-100 outline-none"
+      type="text" autocomplete="off" role="combobox" [attr.aria-expanded]="showDropdown"
+      [attr.aria-controls]="showDropdown ? 'autocomplete-dropdown' : null" aria-autocomplete="list" />
+  </div>
+
+  <div *ngIf="showDropdown" id="autocomplete-dropdown"
+    class="dropdown absolute top-full mt-2 left-0 right-0 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 max-h-80 overflow-y-auto z-50"
+    role="listbox">
+    <div *ngFor="let option of options; let i = index"
+      class="option flex items-center px-4 py-3 cursor-pointer transition-colors hover:bg-slate-100 dark:hover:bg-slate-700"
+      [class.selected]="i === selectedIndex" [class.bg-slate-100]="i === selectedIndex"
+      [class.dark:bg-slate-700]="i === selectedIndex" (mousedown)="selectOption(option, i)" role="option"
+      [attr.aria-selected]="i === selectedIndex">
+      <span class="material-symbols-outlined text-slate-600 dark:text-slate-400 text-xl mr-3">
+        {{ option.icon }}
+      </span>
+      <span class="text-sm text-slate-900 dark:text-slate-100 flex-1">
+        {{ option.label }}
+      </span>
+    </div>
+
+    <div *ngIf="options.length === 0 && !isLoading"
+      class="px-4 py-3 text-sm text-slate-500 dark:text-slate-400 text-center">
+      Aucun résultat
+    </div>
+  </div>
+</div>

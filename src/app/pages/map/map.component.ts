@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { SwimmingSpotsService } from '@data/swimming-spots.service';
 import { isPlatformBrowser } from '@angular/common';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import type { Map, MapboxOptions } from 'mapbox-gl';
 import { environment } from '../../../environments/environment';
 import { spotTypeMapping } from './spot-type-mapping';
@@ -16,6 +17,7 @@ import {
 } from '@app/shared/models/swimming-spot.model';
 import { SwimmingSpotDrawerComponent } from './swimming-spot-drawer/swimming-spot-drawer.component';
 import { SwimmingSpotGeoJSON } from '@app/shared/models/swimming-spot-geojson.model';
+import { MapControlService } from '@app/shared/maps/map-control.service';
 
 // Déclaration de mapboxgl comme variable globale
 declare const mapboxgl: any;
@@ -40,12 +42,34 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   constructor(
     private swimmingSpotsService: SwimmingSpotsService,
+    private mapControlService: MapControlService,
     @Inject(PLATFORM_ID) private platformId: Object
-  ) {}
+  ) {
+    // Subscribe to map control in constructor to use takeUntilDestroyed
+    this.mapControlService.onCenterMap()
+      .pipe(takeUntilDestroyed())
+      .subscribe(coordinates => {
+        this.centerMapOn(coordinates.lon, coordinates.lat);
+      });
+  }
 
   ngOnInit(): void { 
     this.generateLegendItems();
     this.loadSwimmingSpotsGeoJSON();
+  }
+
+  private centerMapOn(lon: number, lat: number): void {
+    if (!this.map || !this.mapInitialized) {
+      console.warn('Map not initialized yet');
+      return;
+    }
+
+    this.map.flyTo({
+      center: [lon, lat],
+      zoom: 11,
+      essential: true,
+      duration: 2000
+    });
   }
 
   async ngAfterViewInit(): Promise<void> {

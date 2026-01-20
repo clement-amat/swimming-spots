@@ -1,16 +1,22 @@
 <div class="layout-container">
-  <header class="h-16 border-b border-slate-200 dark:border-slate-800 bg-nav-bg dark:bg-card-dark px-6 flex items-center justify-between z-20 relative shadow-sm">
+  <header
+    class="h-16 border-b border-slate-200 dark:border-slate-800 bg-nav-bg dark:bg-card-dark px-6 flex items-center justify-between z-20 relative shadow-sm">
     <div class="flex items-center gap-8">
       <div class="flex items-center gap-2">
-        <div class="w-9 h-9 bg-primary rounded-full flex items-center justify-center text-white shadow-lg shadow-primary/20">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg>
+        <div
+          class="w-9 h-9 bg-primary rounded-full flex items-center justify-center text-white shadow-lg shadow-primary/20">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" />
+            <path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" />
+            <path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" />
+          </svg>
         </div>
-        <span class="text-xl font-extrabold tracking-tight text-ocean-deep dark:text-primary font-display">Ça Baigne !</span>
+        <span class="text-xl font-extrabold tracking-tight text-ocean-deep dark:text-primary font-display">Ça Baigne
+          !</span>
       </div>
-      <div class="flex items-center bg-slate-200/50 dark:bg-slate-800 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700">
-        <span class="material-symbols-outlined text-slate-500 text-lg mr-2">search</span>
-        <input class="bg-transparent border-none focus:ring-0 text-sm w-48 placeholder-slate-500" placeholder="Rechercher" type="text"/>
-      </div>
+      <app-autocomplete-input [searchFn]="searchLocations" [placeholder]="'Rechercher une ville, une adresse...'"
+        [minChars]="3" (optionSelected)="onLocationSelected($event)"></app-autocomplete-input>
     </div>
     <div class="flex items-center gap-4">
     </div>
