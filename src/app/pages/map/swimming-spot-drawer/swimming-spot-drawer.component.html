@@ -1,6 +1,9 @@
 <div class="drawer-overlay" [class.open]="swimmingSpot" (click)="closeDrawer.emit()">
-  <div class="drawer-container" [class.open]="swimmingSpot" (click)="$event.stopPropagation()">
-    <div class="absolute z-[1] right-0 flex justify-end p-6 border-b border-white/20">
+  <div
+    class="drawer-container w-[440px] bg-sidebar-bg dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 overflow-y-auto custom-scrollbar flex flex-col z-10"
+    [class.open]="swimmingSpot" (click)="$event.stopPropagation()">
+    @if (swimmingSpot) {
+    <div class="absolute z-[1] right-0 flex justify-end p-6">
       <button class="close-button" (click)="onCloseClick($event)" aria-label="Fermer">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -9,84 +12,96 @@
       </button>
     </div>
 
-    @if (swimmingSpot) {
-    <div class="drawer-content">
-      @if (images.length) {
-      <div class="images-container">
-        <div class="images-grid" [attr.data-count]="images.length">
-          <div class="image-item" *ngFor="let image of images; let i = index">
-            <img [alt]="image.title || swimmingSpot.name" [src]="image.url" />
-            @if (swimmingSpot.images && swimmingSpot.images.length > 3 && i === 0) {
-            <div class="image-badge">
-              <span class="material-symbols-outlined">photo_library</span>
-              {{ swimmingSpot.images.length }} Photos
-            </div>
-            }
-          </div>
-        </div>
-      </div>
-      }
-
-      <div class="content-wrapper" [class.mt-10]="images.length === 0">
-        <div class="spot-header">
-          <h1 class="spot-title">{{ swimmingSpot.name }}</h1>
-          <p class="spot-location">
-            <span class="material-symbols-outlined location-icon">location_on</span>
-            {{ swimmingSpot.city }}{{ swimmingSpot.department ? ', ' + swimmingSpot.department : '' }}
-          </p>
-        </div>
-
-        <div class="spot-details">
-          <div class="grid grid-cols-3 gap-3 mb-8">
-            <app-stat-card icon="thermostat" value="22°C" label="Water"></app-stat-card>
-            <app-stat-card icon="health_and_safety" value="Maîtres-Nageurs" label="Sur place"
-              [class.opacity-30]="!swimmingSpot.siteDetails?.lifeguard"></app-stat-card>
-            <app-stat-card icon="chair_umbrella" value="Aménagé" label="Équipements"
-              [class.opacity-30]="!swimmingSpot.siteDetails?.amenities"></app-stat-card>
-          </div>
-
-          @if (swimmingSpot.siteDetails) {
-          <div class="mb-8">
-            <h3 class="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-4">Détails</h3>
-            <div class="grid grid-cols-2 gap-3">
-              @if (swimmingSpot.siteDetails.showers) {
-              <app-tag icon="shower" label="Douche"></app-tag>
-              }
-              @if (swimmingSpot.siteDetails.toilets) {
-              <app-tag icon="wc" label="WC"></app-tag>
-              }
-              @if (swimmingSpot.siteDetails.drinkingWater) {
-              <app-tag icon="water_drop" label="Point d'eau potable"></app-tag>
-              }
-              @if (swimmingSpot.siteDetails.lifeguard) {
-              <app-tag icon="security" label="Poste de secours"></app-tag>
-              }
-              @if (swimmingSpot.siteDetails.animalsAllowed) {
-              <app-tag icon="pets" label="Chiens autorisés"></app-tag>
-              }
-              @if (swimmingSpot.siteDetails.wheelchairAccess) {
-              <app-tag icon="accessible" label="Accessible"></app-tag>
-              }
-            </div>
+    @if (images.length) {
+    <div class="p-4">
+      <div class="images-grid" [attr.data-count]="images.length">
+        <div class="image-item" *ngFor="let image of images; let i = index">
+          <img [alt]="image.title || swimmingSpot.name" [src]="image.url" />
+          @if (swimmingSpot.images && swimmingSpot.images.length > 3 && i === 0) {
+          <div class="image-badge">
+            <span class="material-symbols-outlined">photo_library</span>
+            {{ swimmingSpot.images.length }} Photos
           </div>
           }
         </div>
+      </div>
+    </div>
+    }
 
-        <div class="maps-link-container">
-          <a [href]="
-            'https://www.google.com/maps?q=' +
-            swimmingSpot.lat +
-            ',' +
-            swimmingSpot.lng
-          " target="_blank" rel="noopener noreferrer" class="maps-link">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-            </svg>
-            Ouvrir dans Google Maps
-          </a>
+    <div class="px-6 pb-28 flex-1" [class.pt-8]="images.length === 0">
+      @if (swimmingSpot.siteDetails?.lastWaterQuality) {
+      <div class="flex flex-wrap gap-2 mb-4">
+        <app-chip [color]="swimmingSpot.siteDetails?.lastWaterQuality | waterQualityChipsColor">
+          Qualité de l'eau: {{ swimmingSpot.siteDetails?.lastWaterQuality | waterQualityLabel }}
+        </app-chip>
+      </div>
+      }
+      <h1 class="text-2xl font-extrabold text-slate-800 dark:text-white mb-2 leading-tight font-display">
+        {{ swimmingSpot.name }}
+      </h1>
+      <p class="text-slate-500 dark:text-slate-400 text-sm mb-8 flex items-center gap-1">
+        <span class="material-symbols-outlined text-base text-primary">location_on</span>
+        {{ swimmingSpot.city }}{{ swimmingSpot.department ? ', ' + swimmingSpot.department : '' }}, France
+      </p>
+
+      <div class="grid grid-cols-3 gap-3 mb-8">
+        <app-stat-card icon="thermostat" value="22°C" label="Water"></app-stat-card>
+        <app-stat-card icon="health_and_safety" value="Maîtres-Nageurs" label="Sur place"
+          [class.opacity-30]="!swimmingSpot.siteDetails?.lifeguard"></app-stat-card>
+        <app-stat-card icon="chair_umbrella" value="Aménagé" label="Équipements"
+          [class.opacity-30]="!swimmingSpot.siteDetails?.amenities"></app-stat-card>
+      </div>
+
+      @if (swimmingSpot.siteDetails) {
+      <div class="mb-8">
+        <h3 class="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-4">Détails</h3>
+        <div class="grid grid-cols-2 gap-3">
+          @if (swimmingSpot.siteDetails.showers) {
+          <app-tag icon="shower" label="Douche"></app-tag>
+          }
+          @if (swimmingSpot.siteDetails.toilets) {
+          <app-tag icon="wc" label="WC"></app-tag>
+          }
+          @if (swimmingSpot.siteDetails.drinkingWater) {
+          <app-tag icon="water_drop" label="Point d'eau potable"></app-tag>
+          }
+          @if (swimmingSpot.siteDetails.lifeguard) {
+          <app-tag icon="security" label="Poste de secours"></app-tag>
+          }
+          @if (swimmingSpot.siteDetails.animalsAllowed) {
+          <app-tag icon="pets" label="Chiens autorisés"></app-tag>
+          }
+          @if (swimmingSpot.siteDetails.wheelchairAccess) {
+          <app-tag icon="accessible" label="Accessible"></app-tag>
+          }
         </div>
       </div>
+      }
+    </div>
+
+    <div
+      class="sticky bottom-0 bg-sidebar-bg/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 p-4 grid grid-cols-4 gap-3">
+      <button
+        class="cursor-pointer flex flex-col items-center justify-center py-2 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">
+        <span class="material-symbols-outlined font-light">favorite</span>
+        <span class="text-[10px] font-bold mt-1">Favoris</span>
+      </button>
+      <button
+        class="cursor-pointer flex flex-col items-center justify-center py-2 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">
+        <span class="material-symbols-outlined font-light">share</span>
+        <span class="text-[10px] font-bold mt-1">Partager</span>
+      </button>
+      <a [href]="
+          'https://www.google.com/maps?q=' +
+          swimmingSpot.lat +
+          ',' +
+          swimmingSpot.lng
+        " target="_blank" rel="noopener noreferrer"
+        class="group cursor-pointer col-span-2 bg-primary hover:bg-opacity-90 active:scale-95 text-white font-bold text-sm py-3.5 rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-200">
+        <span
+          class="material-symbols-outlined text-xl transition-transform duration-200 group-hover:translate-x-0.5">directions</span>
+        Voir sur Google Maps
+      </a>
     </div>
     }
   </div>

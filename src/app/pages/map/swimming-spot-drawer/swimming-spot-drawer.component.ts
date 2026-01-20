@@ -13,11 +13,14 @@ import {
 } from '@app/shared/models/swimming-spot.model';
 import { StatCardComponent } from '@app/shared/ui/card/stat-card/stat-card.component';
 import { TagComponent } from '@app/shared/ui/tag/tag.component';
+import { ChipComponent } from '@app/shared/ui/chip/chip.component';
+import { WaterQualityChipsColorPipe } from '@app/shared/pipes/water-quality-chips-color.pipe';
+import { WaterQualityLabelPipe } from '@app/shared/pipes/water-quality-label.pipe';
 
 @Component({
   selector: 'app-drawer',
   standalone: true,
-  imports: [CommonModule, StatCardComponent, TagComponent],
+  imports: [CommonModule, StatCardComponent, TagComponent, ChipComponent, WaterQualityChipsColorPipe, WaterQualityLabelPipe],
   templateUrl: './swimming-spot-drawer.component.html',
   styleUrl: './swimming-spot-drawer.component.css',
 })

@@ -5,6 +5,13 @@ export enum SwimmingSpotType {
   TRANSITIONAL_WATER = 'Eau de transition',
 }
 
+export enum WaterQuality {
+  EXCELLENT = 'Excellent',
+  BON = 'Bon',
+  MOYEN = 'Moyen',
+  MAUVAIS = 'Mauvais',
+}
+
 export interface SwimmingSpotImage {
   url: string;
   title: string;
@@ -24,7 +31,7 @@ export interface SiteDetails {
   lifeguard?: boolean;
   seasonStart?: string;
   seasonEnd?: string;
-  lastWaterQuality?: string;
+  lastWaterQuality?: WaterQuality;
   lastTestDate?: string;
 }
 
