@@ -12,7 +12,7 @@ export const routes: Routes = [
         component: MapComponent
       },
       {
-        path: 'spot/:id',
+        path: 'spot/:code',
         loadComponent: () =>
           import('./pages/spot-detail/spot-detail.component').then(
             (m) => m.SpotDetailComponent

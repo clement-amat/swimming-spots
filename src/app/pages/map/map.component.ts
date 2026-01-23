@@ -8,6 +8,9 @@ import {
 import { SwimmingSpotsService } from '@data/swimming-spots.service';
 import { isPlatformBrowser } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Router } from '@angular/router';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { takeUntilDestroyed as takeUntilDestroyedRxjs } from '@angular/core/rxjs-interop';
 import type { Map, MapboxOptions } from 'mapbox-gl';
 import { environment } from '../../../environments/environment';
 import { spotTypeMapping } from './spot-type-mapping';
@@ -25,7 +28,6 @@ declare const mapboxgl: any;
 @Component({
   selector: 'app-map',
   imports: [SwimmingSpotDrawerComponent],
-  providers: [SwimmingSpotsService],
   templateUrl: './map.component.html',
   styleUrl: './map.component.css',
 })
@@ -33,27 +35,37 @@ export class MapComponent implements OnInit, AfterViewInit {
   private map!: Map;
   private swimmingSpotsGeoJSON: SwimmingSpotGeoJSON | null = null;
   private mapInitialized = false;
+  private isMobile = false;
 
-  // Propriétés pour le drawer
   selectedSpot: SwimmingSpot | null = null;
 
-  // Propriété pour la légende dynamique
   legendItems: Array<{ color: string; label: string }> = [];
 
   constructor(
     private swimmingSpotsService: SwimmingSpotsService,
     private mapControlService: MapControlService,
-    @Inject(PLATFORM_ID) private platformId: Object
+    private router: Router,
+    private breakpointObserver: BreakpointObserver,
+    @Inject(PLATFORM_ID) private platformId: Object,
   ) {
     // Subscribe to map control in constructor to use takeUntilDestroyed
-    this.mapControlService.onCenterMap()
+    this.mapControlService
+      .onCenterMap()
       .pipe(takeUntilDestroyed())
-      .subscribe(coordinates => {
+      .subscribe((coordinates) => {
         this.centerMapOn(coordinates.lon, coordinates.lat);
+      });
+
+    // Détecter les changements de breakpoint mobile
+    this.breakpointObserver
+      .observe(['(max-width: 768px)'])
+      .pipe(takeUntilDestroyedRxjs())
+      .subscribe((result) => {
+        this.isMobile = result.matches;
       });
   }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.generateLegendItems();
     this.loadSwimmingSpotsGeoJSON();
   }
@@ -68,7 +80,7 @@ export class MapComponent implements OnInit, AfterViewInit {
       center: [lon, lat],
       zoom: 11,
       essential: true,
-      duration: 2000
+      duration: 2000,
     });
   }
 
@@ -83,7 +95,7 @@ export class MapComponent implements OnInit, AfterViewInit {
       ([type, config]) => ({
         color: config.color,
         label: type,
-      })
+      }),
     );
   }
 
@@ -91,7 +103,7 @@ export class MapComponent implements OnInit, AfterViewInit {
     this.swimmingSpotsService.getSwimmingSpots().subscribe({
       next: (geoJSON) => {
         console.log(
-          `GeoJSON récupéré: ${geoJSON.features.length} points de baignade`
+          `GeoJSON récupéré: ${geoJSON.features.length} points de baignade`,
         );
         this.swimmingSpotsGeoJSON = geoJSON;
         this.addSwimmingSpotsLayer();
@@ -137,7 +149,7 @@ export class MapComponent implements OnInit, AfterViewInit {
     });
 
     const colorArray = Object.entries(spotTypeMapping).flatMap(
-      ([key, value]) => [key, value.color]
+      ([key, value]) => [key, value.color],
     );
 
     this.map.addLayer({
@@ -161,15 +173,17 @@ export class MapComponent implements OnInit, AfterViewInit {
       if (e.features.length > 0) {
         const feature = e.features[0];
         const properties = feature.properties;
-        
+
         const swimmingSpot: SwimmingSpot = {
           ...properties,
-          images: typeof properties.images === 'string' 
-            ? JSON.parse(properties.images) 
-            : properties.images,
-            siteDetails: typeof properties.images === 'string' 
-            ? JSON.parse(properties.siteDetails) 
-            : properties.siteDetails
+          images:
+            typeof properties.images === 'string'
+              ? JSON.parse(properties.images)
+              : properties.images,
+          siteDetails:
+            typeof properties.images === 'string'
+              ? JSON.parse(properties.siteDetails)
+              : properties.siteDetails,
         };
 
         this.openDrawer(swimmingSpot);
@@ -186,7 +200,13 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   openDrawer(spot: SwimmingSpot): void {
-    this.selectedSpot = spot;
+    if (this.isMobile) {
+      this.router.navigate(['/spot', spot.code], {
+        state: { swimmingSpot: spot },
+      });
+    } else {
+      this.selectedSpot = spot;
+    }
   }
 
   closeDrawer(): void {

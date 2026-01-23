@@ -1,6 +1,14 @@
 .autocomplete-container {
   position: relative;
   min-width: 250px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .autocomplete-container {
+    min-width: 0;
+    flex: 1;
+  }
 }
 
 .material-symbols-outlined.progress_activity {

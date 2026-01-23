@@ -1,1 +1,20 @@
-<p>spot-detail works!</p>
+<div class="spot-detail-page">
+  <header class="spot-detail-header">
+    <button class="back-button" (click)="goBack()" aria-label="Retour">
+      <span class="material-symbols-outlined">arrow_back</span>
+    </button>
+  </header>
+
+  @if (loading) {
+  <div class="loading-container">
+    <p>Chargement...</p>
+  </div>
+  } @else if (swimmingSpot) {
+  <app-swimming-spot-detail [swimmingSpot]="swimmingSpot"></app-swimming-spot-detail>
+  } @else {
+  <div class="error-container">
+    <p>Spot de baignade introuvable</p>
+    <button class="back-link" (click)="goBack()">Retour à la carte</button>
+  </div>
+  }
+</div>

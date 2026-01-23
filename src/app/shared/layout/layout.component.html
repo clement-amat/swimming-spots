@@ -1,8 +1,8 @@
 <div class="layout-container">
   <header
     class="h-16 border-b border-slate-200 dark:border-slate-800 bg-nav-bg dark:bg-card-dark px-6 flex items-center justify-between z-20 relative shadow-sm">
-    <div class="flex items-center gap-8">
-      <div class="flex items-center gap-2">
+    <div class="flex items-center gap-2 md:gap-8 flex-1">
+      <div class="flex items-center gap-2 flex-shrink-0">
         <div
           class="w-9 h-9 bg-primary rounded-full flex items-center justify-center text-white shadow-lg shadow-primary/20">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -12,13 +12,15 @@
             <path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" />
           </svg>
         </div>
-        <span class="text-xl font-extrabold tracking-tight text-ocean-deep dark:text-primary font-display">Ça Baigne
+        <span
+          class="hidden md:inline text-xl font-extrabold tracking-tight text-ocean-deep dark:text-primary font-display">Ça
+          Baigne
           !</span>
       </div>
-      <app-autocomplete-input [searchFn]="searchLocations" [placeholder]="'Rechercher une ville, une adresse...'"
+      <app-autocomplete-input class="flex-1 md:flex-initial" [searchFn]="searchLocations" [placeholder]="'Rechercher une ville, un lieu'"
         [minChars]="3" (optionSelected)="onLocationSelected($event)"></app-autocomplete-input>
     </div>
-    <div class="flex items-center gap-4">
+    <div class="hidden sm:flex items-center gap-4">
     </div>
   </header>
 
