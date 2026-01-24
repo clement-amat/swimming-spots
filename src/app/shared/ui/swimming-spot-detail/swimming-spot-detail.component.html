@@ -1,95 +1,90 @@
 @if (swimmingSpot) {
-  <div class="swimming-spot-detail-wrapper">
-    @if (images.length) {
-    <div class="p-4">
-      <div class="images-grid" [attr.data-count]="images.length">
-        <div class="image-item" *ngFor="let image of images; let i = index">
-          <img [alt]="image.title || swimmingSpot.name" [src]="image.url" />
-          @if (swimmingSpot.images && swimmingSpot.images.length > 3 && i === 0) {
-          <div class="image-badge">
-            <span class="material-symbols-outlined">photo_library</span>
-            {{ swimmingSpot.images.length }} Photos
-          </div>
-          }
+<div class="swimming-spot-detail-wrapper">
+  @if (images.length) {
+  <div class="p-4">
+    <div class="images-grid" [attr.data-count]="images.length">
+      <div class="image-item" *ngFor="let image of images; let i = index">
+        <img [alt]="image.title || swimmingSpot.name" [src]="image.url" />
+        @if (swimmingSpot.images && swimmingSpot.images.length > 3 && i === 0) {
+        <div class="image-badge">
+          <span class="material-symbols-outlined">photo_library</span>
+          {{ swimmingSpot.images.length }} Photos
         </div>
+        }
+      </div>
+    </div>
+  </div>
+  }
+
+  <div class="px-6 pb-28 flex-1" [class.pt-8]="images.length === 0">
+    @if (swimmingSpot.siteDetails?.lastWaterQuality) {
+    <div class="flex flex-wrap gap-2 mb-4">
+      <app-chip [color]="swimmingSpot.siteDetails?.lastWaterQuality | waterQualityChipsColor">
+        Qualité de l'eau: {{ swimmingSpot.siteDetails?.lastWaterQuality | waterQualityLabel }}
+      </app-chip>
+    </div>
+    }
+    <h1 class="text-2xl font-extrabold text-slate-800 dark:text-white mb-2 leading-tight font-display">
+      {{ swimmingSpot.name }}
+    </h1>
+    <p class="text-slate-500 dark:text-slate-400 text-sm mb-8 flex items-center gap-1">
+      <span class="material-symbols-outlined text-base text-primary">location_on</span>
+      {{ swimmingSpot.city }}{{ swimmingSpot.department ? ', ' + swimmingSpot.department : '' }}, France
+    </p>
+
+    <div class="grid grid-cols-3 gap-3 mb-8">
+      <app-stat-card icon="thermostat" value="22°C" label="Water"></app-stat-card>
+      <app-stat-card icon="health_and_safety" value="Maîtres-Nageurs" label="Sur place"
+        [class.opacity-30]="!swimmingSpot.siteDetails?.lifeguard"></app-stat-card>
+      <app-stat-card icon="chair_umbrella" value="Aménagé" label="Équipements"
+        [class.opacity-30]="!swimmingSpot.siteDetails?.amenities"></app-stat-card>
+    </div>
+
+    @if (swimmingSpot.siteDetails) {
+    <div class="mb-8">
+      <h3 class="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-4">Détails</h3>
+      <div class="grid grid-cols-2 gap-3">
+        @if (swimmingSpot.siteDetails.showers) {
+        <app-tag icon="shower" label="Douche"></app-tag>
+        }
+        @if (swimmingSpot.siteDetails.toilets) {
+        <app-tag icon="wc" label="WC"></app-tag>
+        }
+        @if (swimmingSpot.siteDetails.drinkingWater) {
+        <app-tag icon="water_drop" label="Point d'eau potable"></app-tag>
+        }
+        @if (swimmingSpot.siteDetails.lifeguard) {
+        <app-tag icon="security" label="Poste de secours"></app-tag>
+        }
+        @if (swimmingSpot.siteDetails.animalsAllowed) {
+        <app-tag icon="pets" label="Chiens autorisés"></app-tag>
+        }
+        @if (swimmingSpot.siteDetails.wheelchairAccess) {
+        <app-tag icon="accessible" label="Accessible"></app-tag>
+        }
       </div>
     </div>
     }
+  </div>
 
-    <div class="px-6 pb-28 flex-1" [class.pt-8]="images.length === 0">
-      @if (swimmingSpot.siteDetails?.lastWaterQuality) {
-      <div class="flex flex-wrap gap-2 mb-4">
-        <app-chip [color]="swimmingSpot.siteDetails?.lastWaterQuality | waterQualityChipsColor">
-          Qualité de l'eau: {{ swimmingSpot.siteDetails?.lastWaterQuality | waterQualityLabel }}
-        </app-chip>
-      </div>
-      }
-      <h1 class="text-2xl font-extrabold text-slate-800 dark:text-white mb-2 leading-tight font-display">
-        {{ swimmingSpot.name }}
-      </h1>
-      <p class="text-slate-500 dark:text-slate-400 text-sm mb-8 flex items-center gap-1">
-        <span class="material-symbols-outlined text-base text-primary">location_on</span>
-        {{ swimmingSpot.city }}{{ swimmingSpot.department ? ', ' + swimmingSpot.department : '' }}, France
-      </p>
-
-      <div class="grid grid-cols-3 gap-3 mb-8">
-        <app-stat-card icon="thermostat" value="22°C" label="Water"></app-stat-card>
-        <app-stat-card icon="health_and_safety" value="Maîtres-Nageurs" label="Sur place"
-          [class.opacity-30]="!swimmingSpot.siteDetails?.lifeguard"></app-stat-card>
-        <app-stat-card icon="chair_umbrella" value="Aménagé" label="Équipements"
-          [class.opacity-30]="!swimmingSpot.siteDetails?.amenities"></app-stat-card>
-      </div>
-
-      @if (swimmingSpot.siteDetails) {
-      <div class="mb-8">
-        <h3 class="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-4">Détails</h3>
-        <div class="grid grid-cols-2 gap-3">
-          @if (swimmingSpot.siteDetails.showers) {
-          <app-tag icon="shower" label="Douche"></app-tag>
-          }
-          @if (swimmingSpot.siteDetails.toilets) {
-          <app-tag icon="wc" label="WC"></app-tag>
-          }
-          @if (swimmingSpot.siteDetails.drinkingWater) {
-          <app-tag icon="water_drop" label="Point d'eau potable"></app-tag>
-          }
-          @if (swimmingSpot.siteDetails.lifeguard) {
-          <app-tag icon="security" label="Poste de secours"></app-tag>
-          }
-          @if (swimmingSpot.siteDetails.animalsAllowed) {
-          <app-tag icon="pets" label="Chiens autorisés"></app-tag>
-          }
-          @if (swimmingSpot.siteDetails.wheelchairAccess) {
-          <app-tag icon="accessible" label="Accessible"></app-tag>
-          }
-        </div>
-      </div>
-      }
-    </div>
-
-    <div
-      class="sticky bottom-0 bg-sidebar-bg/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 p-4 grid grid-cols-4 gap-3">
-      <button
-        class="cursor-pointer flex flex-col items-center justify-center py-2 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">
-        <span class="material-symbols-outlined font-light">favorite</span>
-        <span class="text-[10px] font-bold mt-1">Favoris</span>
-      </button>
-      <button
-        class="cursor-pointer flex flex-col items-center justify-center py-2 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">
-        <span class="material-symbols-outlined font-light">share</span>
-        <span class="text-[10px] font-bold mt-1">Partager</span>
-      </button>
-      <a [href]="
+  <div
+    class="sticky bottom-0 bg-sidebar-bg/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 p-4 flex justify-between items-center gap-3">
+    <button
+      class="cursor-pointer flex flex-col items-center justify-center py-2 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">
+      <span class="material-symbols-outlined font-light">share</span>
+      <span class="text-[10px] font-bold mt-1">Partager</span>
+    </button>
+    <a [href]="
           'https://www.google.com/maps?q=' +
           swimmingSpot.lat +
           ',' +
           swimmingSpot.lng
         " target="_blank" rel="noopener noreferrer"
-        class="group cursor-pointer col-span-2 bg-primary hover:bg-opacity-90 active:scale-95 text-white font-bold text-sm py-3.5 rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-200">
-        <span
-          class="material-symbols-outlined text-xl transition-transform duration-200 group-hover:translate-x-0.5">directions</span>
-        Voir sur Google Maps
-      </a>
-    </div>
+      class="group cursor-pointer bg-primary hover:bg-opacity-90 active:scale-95 text-white font-bold text-sm py-3.5 px-6 rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-200">
+      <span
+        class="material-symbols-outlined text-xl transition-transform duration-200 group-hover:translate-x-0.5">directions</span>
+      Obtenir les directions
+    </a>
   </div>
+</div>
 }

@@ -3,6 +3,14 @@ import { CommonModule } from '@angular/common';
 
 type ChipColor = 'green' | 'yellow' | 'orange';
 
+const colorClassMap: Record<ChipColor, string> = {
+  green: 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300',
+  yellow:
+    'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-300',
+  orange:
+    'bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300',
+};
+
 @Component({
   selector: 'app-chip',
   standalone: true,
@@ -13,8 +21,5 @@ type ChipColor = 'green' | 'yellow' | 'orange';
 export class ChipComponent {
   color = input<ChipColor>('green');
 
-  colorClass = computed(() => {
-    const color = this.color();
-    return `bg-${color}-100 text-${color}-700 dark:bg-${color}-900/40 dark:text-${color}-300`;
-  });
+  colorClass = computed(() => colorClassMap[this.color()]);
 }

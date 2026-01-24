@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { SwimmingSpotsService } from '@app/shared/data/swimming-spots.service';
 import { SwimmingSpot } from '@app/shared/models/swimming-spot.model';
 import { SwimmingSpotDetailComponent } from '@app/shared/ui/swimming-spot-detail/swimming-spot-detail.component';
@@ -19,7 +19,8 @@ export class SpotDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private swimmingSpotsService: SwimmingSpotsService
+    private swimmingSpotsService: SwimmingSpotsService,
+    @Inject(PLATFORM_ID) private platformId: Object,
   ) {}
 
   ngOnInit(): void {
@@ -30,11 +31,13 @@ export class SpotDetailComponent implements OnInit {
       return;
     }
 
-    const navigationState = history.state;
-    if (navigationState?.swimmingSpot) {
-      this.swimmingSpot = navigationState.swimmingSpot;
-      this.loading = false;
-      return;
+    if (isPlatformBrowser(this.platformId)) {
+      const navigationState = history.state;
+      if (navigationState?.swimmingSpot) {
+        this.swimmingSpot = navigationState.swimmingSpot;
+        this.loading = false;
+        return;
+      }
     }
 
     this.swimmingSpotsService.getSwimmingSpotByCode(code).subscribe({

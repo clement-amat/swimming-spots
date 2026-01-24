@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AutocompleteInputComponent, AutocompleteOption } from '@app/shared/ui/forms/autocomplete-input/autocomplete-input.component';
+import {
+  AutocompleteInputComponent,
+  AutocompleteOption,
+} from '@app/shared/ui/forms/autocomplete-input/autocomplete-input.component';
 import { GeocodingService } from '@app/shared/data/geocoding.service';
 import { MapControlService } from '@app/shared/maps/map-control.service';
 
@@ -15,21 +18,33 @@ import { MapControlService } from '@app/shared/maps/map-control.service';
 export class LayoutComponent {
   constructor(
     private geocodingService: GeocodingService,
-    private mapControlService: MapControlService
+    private mapControlService: MapControlService,
+    private router: Router,
   ) {}
 
   searchLocations = (query: string): Observable<AutocompleteOption[]> => {
     return this.geocodingService.searchLocations(query).pipe(
-      map(results => results.map(result => ({
-        label: result.label,
-        icon: 'location_on',
-        value: result.coordinates
-      })))
+      map((results) =>
+        results.map((result) => ({
+          label: result.label,
+          icon: 'location_on',
+          value: result.coordinates,
+        })),
+      ),
     );
   };
 
   onLocationSelected(option: AutocompleteOption): void {
     const coordinates = option.value;
-    this.mapControlService.centerMapOn(coordinates);
+
+    if (this.router.url !== '/') {
+      this.router.navigate(['/']).then(() => {
+        this.mapControlService.whenMapReady().subscribe(() => {
+          this.mapControlService.centerMapOn(coordinates);
+        });
+      });
+    } else {
+      this.mapControlService.centerMapOn(coordinates);
+    }
   }
 }

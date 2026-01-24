@@ -2,6 +2,7 @@ import {
   Component,
   OnInit,
   AfterViewInit,
+  OnDestroy,
   Inject,
   PLATFORM_ID,
 } from '@angular/core';
@@ -31,7 +32,7 @@ declare const mapboxgl: any;
   templateUrl: './map.component.html',
   styleUrl: './map.component.css',
 })
-export class MapComponent implements OnInit, AfterViewInit {
+export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   private map!: Map;
   private swimmingSpotsGeoJSON: SwimmingSpotGeoJSON | null = null;
   private mapInitialized = false;
@@ -114,8 +115,14 @@ export class MapComponent implements OnInit, AfterViewInit {
     });
   }
 
+  ngOnDestroy(): void {
+    this.mapControlService.setMapReady(false);
+  }
+
   private async initMap(): Promise<void> {
     if (this.mapInitialized) return;
+
+    this.mapControlService.setMapReady(false);
 
     if (typeof mapboxgl === 'undefined') {
       console.error("mapboxgl n'est pas disponible");
@@ -137,6 +144,7 @@ export class MapComponent implements OnInit, AfterViewInit {
     this.map.on('load', () => {
       this.addSwimmingSpotsLayer();
       this.map.resize();
+      this.mapControlService.setMapReady(true);
     });
   }
 
