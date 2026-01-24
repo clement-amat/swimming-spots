@@ -6,13 +6,14 @@ import {
   HostListener,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { SwimmingSpot } from '@app/shared/models/swimming-spot.model';
 import { SwimmingSpotDetailComponent } from '@app/shared/ui/swimming-spot-detail/swimming-spot-detail.component';
 
 @Component({
   selector: 'app-drawer',
   standalone: true,
-  imports: [CommonModule, SwimmingSpotDetailComponent],
+  imports: [CommonModule, RouterModule, SwimmingSpotDetailComponent],
   templateUrl: './swimming-spot-drawer.component.html',
   styleUrl: './swimming-spot-drawer.component.css',
 })

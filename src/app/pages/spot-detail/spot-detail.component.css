@@ -1,3 +1,4 @@
+/* Mobile view styles */
 .spot-detail-page {
   height: 100%;
   background-color: #f0f4f7;
@@ -63,4 +64,17 @@
 .back-link:hover {
   background: rgb(37 99 235);
   transform: translateY(-1px);
+}
+
+/* Desktop view styles */
+.spot-detail-desktop {
+  height: 100%;
+  background-color: #f1f5f9;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.dark .spot-detail-desktop {
+  background-color: rgb(15 23 42);
 }

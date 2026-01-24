@@ -1,0 +1,22 @@
+@if (siteDetails(); as details) {
+<div class="grid gap-3" [class.grid-cols-2]="columns() === 2" [class.grid-cols-3]="columns() === 3">
+  @if (details.showers) {
+  <app-tag icon="shower" label="Douche"></app-tag>
+  }
+  @if (details.toilets) {
+  <app-tag icon="wc" label="WC"></app-tag>
+  }
+  @if (details.drinkingWater) {
+  <app-tag icon="water_drop" label="Point d'eau potable"></app-tag>
+  }
+  @if (details.lifeguard) {
+  <app-tag icon="security" label="Poste de secours"></app-tag>
+  }
+  @if (details.animalsAllowed) {
+  <app-tag icon="pets" label="Chiens autorisés"></app-tag>
+  }
+  @if (details.wheelchairAccess) {
+  <app-tag icon="accessible" label="Accessible"></app-tag>
+  }
+</div>
+}

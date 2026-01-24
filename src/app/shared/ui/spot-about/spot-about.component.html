@@ -1,0 +1,10 @@
+<section class="bg-white dark:bg-card-dark p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
+  <h2 class="text-xl font-extrabold text-slate-800 dark:text-white mb-6 font-display">À propos de ce spot</h2>
+  <div class="prose prose-slate max-w-none">
+    @for (paragraph of description(); track $index) {
+    <p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed" [class.mt-4]="$index > 0">
+      {{ paragraph }}
+    </p>
+    }
+  </div>
+</section>

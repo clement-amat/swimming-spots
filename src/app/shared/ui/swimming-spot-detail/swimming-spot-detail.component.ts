@@ -2,10 +2,10 @@ import { Component, input, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SwimmingSpot } from '@app/shared/models/swimming-spot.model';
 import { StatCardComponent } from '@app/shared/ui/card/stat-card/stat-card.component';
-import { TagComponent } from '@app/shared/ui/tag/tag.component';
-import { ChipComponent } from '@app/shared/ui/chip/chip.component';
-import { WaterQualityChipsColorPipe } from '@app/shared/pipes/water-quality-chips-color.pipe';
-import { WaterQualityLabelPipe } from '@app/shared/pipes/water-quality-label.pipe';
+import { SpotFacilitiesComponent } from '@app/shared/ui/spot-facilities/spot-facilities.component';
+import { GoogleMapsUrlPipe } from '@app/shared/pipes/google-maps-url.pipe';
+import { SpotLocationPipe } from '@app/shared/pipes/spot-location.pipe';
+import { SpotWaterQualityChipComponent } from '@app/shared/ui/spot-water-quality-chip/spot-water-quality-chip.component';
 import { getSpotLabel } from '@app/shared/tools/spot-label.tool';
 
 @Component({
@@ -14,10 +14,10 @@ import { getSpotLabel } from '@app/shared/tools/spot-label.tool';
   imports: [
     CommonModule,
     StatCardComponent,
-    TagComponent,
-    ChipComponent,
-    WaterQualityChipsColorPipe,
-    WaterQualityLabelPipe,
+    SpotFacilitiesComponent,
+    GoogleMapsUrlPipe,
+    SpotLocationPipe,
+    SpotWaterQualityChipComponent,
   ],
   templateUrl: './swimming-spot-detail.component.html',
   styleUrl: './swimming-spot-detail.component.css',

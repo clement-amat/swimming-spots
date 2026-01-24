@@ -1,0 +1,64 @@
+@let spot = swimmingSpot();
+
+<section class="relative h-[550px] w-full mt-4 px-4 group">
+  <div class="w-full h-full rounded-3xl overflow-hidden relative flex gap-1 bg-white dark:bg-card-dark">
+    <!-- Main image -->
+    <div class="flex-1 h-full relative overflow-hidden">
+      @if (mainImage(); as image) {
+      <img [alt]="image.title || spot.name" [src]="image.url" class="w-full h-full object-cover" />
+      } @else {
+      <div class="w-full h-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
+        <span class="material-symbols-outlined text-6xl text-slate-400">image</span>
+      </div>
+      }
+    </div>
+
+    <!-- Secondary images (desktop only) -->
+    @if (secondaryImages().length > 0) {
+    <div class="hidden md:flex flex-col gap-1 w-1/3 h-full">
+      @for (image of secondaryImages(); track image.url) {
+      <div class="flex-1 relative overflow-hidden">
+        <img [alt]="image.title || spot.name" [src]="image.url" class="w-full h-full object-cover" />
+      </div>
+      }
+      @if (secondaryImages().length === 1) {
+      <div class="flex-1 relative overflow-hidden bg-slate-200 dark:bg-slate-700"></div>
+      }
+    </div>
+    }
+
+    <div class="absolute inset-0 hero-gradient pointer-events-none"></div>
+
+    <div
+      class="absolute bottom-10 left-10 right-10 flex flex-col md:flex-row md:items-end justify-between gap-6 pointer-events-auto">
+      <div class="flex-1 max-w-2xl">
+        <div class="flex flex-wrap gap-2 mb-4">
+          @if (spot.siteDetails?.lastWaterQuality) {
+          <app-spot-water-quality-chip [quality]="spot.siteDetails!.lastWaterQuality!"></app-spot-water-quality-chip>
+          }
+        </div>
+
+        <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-2 font-display drop-shadow-lg">
+          {{ spot.name }}
+        </h1>
+
+        <p class="text-white/90 text-base flex items-center gap-2 font-medium">
+          <span class="material-symbols-outlined text-primary">location_on</span>
+          {{ spot | spotLocation }}
+        </p>
+      </div>
+
+      <div class="flex gap-3">
+        <button class="btn-tonal !w-auto !h-auto !rounded-2xl py-3.5 px-4">
+          <span class="material-symbols-outlined text-xl">share</span>
+        </button>
+        <a [href]="spot | googleMapsUrl" target="_blank" rel="noopener noreferrer"
+          class="group cursor-pointer bg-primary hover:bg-opacity-90 active:scale-95 text-white font-bold text-sm py-3.5 px-6 rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-200">
+          <span
+            class="material-symbols-outlined text-xl transition-transform duration-200 group-hover:translate-x-0.5">directions</span>
+          Obtenir les directions
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

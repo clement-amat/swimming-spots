@@ -8,7 +8,7 @@ export function getSpotLabel(score: number | undefined): SpotLabel {
   if (!score || score < 30) {
     return {
       emoji: '🗿',
-      title: 'Épreuve de Koh_lanta',
+      title: 'Épreuve de Koh-Lanta',
       subtitle: 'Accès difficile',
     };
   }

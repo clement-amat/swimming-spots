@@ -1,0 +1,278 @@
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lac d'Annecy - Plage d'Albigny | DeepOcean</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#359EFF",
+                        "sidebar-bg": "#F0F4F7",
+                        "nav-bg": "#F8FAFC",
+                        "background-dark": "#0f172a",
+                        "card-dark": "#1e293b",
+                        "ocean-deep": "#075985",
+                        "sand-grey": "#F1F5F9"
+                    },
+                    fontFamily: {
+                        display: ["Plus Jakarta Sans", "Inter", "sans-serif"],
+                        sans: ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        DEFAULT: "1rem",
+                        lg: "1.25rem",
+                        xl: "1.5rem",
+                        "2xl": "2rem",
+                        "3xl": "2.5rem"
+                    }
+                }
+            }
+        };
+    </script>
+<style type="text/tailwindcss">
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.8) 100%);
+        }
+        .water-drop-pin {
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+        }
+    </style>
+</head>
+<body class="bg-[#F1F5F9] dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen overflow-x-hidden">
+<header class="h-16 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-card-dark px-8 flex items-center justify-between sticky top-0 z-50 shadow-sm">
+<div class="flex items-center gap-10">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">waves</span>
+</div>
+<span class="text-xl font-extrabold tracking-tight text-ocean-deep dark:text-primary font-display">DeepOcean</span>
+</div>
+<div class="hidden md:flex items-center bg-slate-100 dark:bg-slate-800 px-4 py-2 rounded-full border border-slate-200/60 dark:border-slate-700">
+<span class="material-symbols-outlined text-slate-500 text-lg mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-64 placeholder-slate-500" placeholder="Search for lakes, beaches..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden lg:flex items-center gap-8">
+<a class="font-bold text-slate-500 dark:text-slate-400 hover:text-primary transition-colors text-sm" href="#">Explore</a>
+<a class="font-bold text-slate-500 dark:text-slate-400 hover:text-primary transition-colors text-sm" href="#">Planner</a>
+<a class="font-bold text-slate-500 dark:text-slate-400 hover:text-primary transition-colors text-sm" href="#">Community</a>
+</nav>
+<button class="bg-primary hover:bg-opacity-90 text-white px-6 py-2 rounded-full font-bold text-sm transition-all shadow-md shadow-primary/20">
+            Login
+        </button>
+</div>
+</header>
+<main class="max-w-[1440px] mx-auto pb-20">
+<section class="relative h-[550px] w-full mt-4 px-4 group">
+<div class="w-full h-full rounded-3xl overflow-hidden relative flex gap-1 bg-white dark:bg-card-dark">
+<div class="flex-1 h-full relative overflow-hidden">
+<img alt="Lac d'Annecy Main" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNF7dC5fF5LBf6XiIRQZ_C2hHyks-satHHoigh9axAgGLxdvE7a-vonlLSuUUdgOePok_bZAQs7ErSEQe1Ptr3YzIVTsxF2MgChR0894TTev0GZ88NVz9gSpJnHTgH6Y0elX6FEhgustAeWuJREbNwilew9Q94n3f614k-SuUmp43XCFz52z6zKuhsbzWsvSGGOR75QLfyypS7nklUWX-7mbiZhFze9DoQcjr2x3Q8vmDYn7dO0qPPLdvgZvEsLt3rQDYK6briZrDn"/>
+</div>
+<div class="hidden md:flex flex-col gap-1 w-1/3 h-full">
+<div class="flex-1 relative overflow-hidden">
+<img alt="Lac d'Annecy Side 1" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsf4MGV_wf5_hJmP0cAp1VXG5Nr27POP9GNkZXAyZ3EIq_o1cXvpVc7Tt4jN8hSAK9sWQVQUmz6EeM5Jq3Eu9SMxZ0HrkQrUK151EjvkOnfMr_iW55WfWhHZ5jirOf-pYvbqI-vk_pjw5iQLupp2hizQpXXbAV9yId7Q1Ix50yFveR-5ImcEvNjJvk2XRdDT3skgn-ISfxF5mmJej72nqvYoLekeno4-I97foVp9_1Tx_UbFPlwr-avhwYCfUiS_rkkQeoLcdoDgJk"/>
+</div>
+<div class="flex-1 relative overflow-hidden">
+<img alt="Lac d'Annecy Side 2" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdLWDCQqsoFGnjQ9MhLGaTwVIWuSCsMREQnaCuGgXXOi_LkGnCmyKuo2ZDM4vq3SnYuDJmiSnqSUyFnO-gM11_hfUq958w3Nrbb0C3HbwNjR3ZIfW1YR3w50O9piuE8CT3cGXHHzWiD9KVlchwu7CRdticYND0xqWoYDYyDYY6GAS80XFQ2lHnU-cXlaR9hOc9nKj96UPmJRRtf9C4owV-FPmjxx2wNL88bq1oSLURP3ZP3rW1HTLvbgCsJXqw-BjAvW7SjhF6bpmR"/>
+</div>
+</div>
+<div class="absolute inset-0 hero-gradient pointer-events-none"></div>
+<div class="absolute bottom-10 left-10 right-10 flex flex-col md:flex-row md:items-end justify-between gap-6 pointer-events-auto">
+<div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-4 py-1.5 bg-white/20 backdrop-blur-md text-white text-[11px] font-black rounded-full uppercase tracking-widest border border-white/30">France</span>
+<span class="px-4 py-1.5 bg-green-500/80 backdrop-blur-md text-white text-[11px] font-black rounded-full uppercase tracking-widest flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">verified</span> Excellent Water
+                        </span>
+<span class="px-4 py-1.5 bg-blue-500/80 backdrop-blur-md text-white text-[11px] font-black rounded-full uppercase tracking-widest flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">flag</span> Blue Flag
+                        </span>
+</div>
+<h1 class="text-5xl font-extrabold text-white mb-2 font-display drop-shadow-lg">Lac d'Annecy - Plage d'Albigny</h1>
+<p class="text-white/90 text-lg flex items-center gap-2 font-medium">
+<span class="material-symbols-outlined text-primary">location_on</span> Annecy, Haute-Savoie
+                    </p>
+</div>
+<div class="flex gap-3">
+<button class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white p-4 rounded-2xl border border-white/20 transition-all">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<button class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white p-4 rounded-2xl border border-white/20 transition-all">
+<span class="material-symbols-outlined">share</span>
+</button>
+<button class="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-2 shadow-xl">
+<span class="material-symbols-outlined">directions</span> Get Directions
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-12 gap-8 px-4 mt-8">
+<div class="col-span-12 lg:col-span-8 space-y-10">
+<section class="bg-white dark:bg-card-dark p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
+<h2 class="text-2xl font-extrabold text-slate-800 dark:text-white mb-6 font-display">Facilities</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="flex items-center gap-4 bg-slate-50 dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-100 dark:border-slate-700/50">
+<div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-500 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">wc</span>
+</div>
+<div>
+<p class="text-sm font-bold">Toilets &amp; Showers</p>
+<p class="text-[11px] text-slate-500 font-medium">Free, cleaned hourly</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-slate-50 dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-100 dark:border-slate-700/50">
+<div class="w-12 h-12 rounded-xl bg-green-50 text-green-500 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">security</span>
+</div>
+<div>
+<p class="text-sm font-bold">Lifeguard</p>
+<p class="text-[11px] text-slate-500 font-medium">Daily 10:00 - 19:00</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-slate-50 dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-100 dark:border-slate-700/50">
+<div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">accessible</span>
+</div>
+<div>
+<p class="text-sm font-bold">Accessibility</p>
+<p class="text-[11px] text-slate-500 font-medium">Water chairs available</p>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-white dark:bg-card-dark p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
+<h2 class="text-2xl font-extrabold text-slate-800 dark:text-white mb-6 font-display">About this spot</h2>
+<div class="prose prose-slate max-w-none">
+<p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+                        Plage d'Albigny is arguably the most beautiful and largest beach on the shores of Lake Annecy. Known for its crystal-clear turquoise waters and the stunning backdrop of the French Alps, it offers a perfect mix of sandy areas and lush green lawns.
+                    </p>
+<p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mt-4">
+                        The beach is free to access and particularly popular with families due to its shallow entry points. During the summer months, the water temperature reaches a pleasant 22-24°C.
+                    </p>
+</div>
+</section>
+<section class="bg-white dark:bg-card-dark p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="flex justify-between items-end mb-6">
+<h2 class="text-2xl font-extrabold text-slate-800 dark:text-white font-display">Photo Gallery</h2>
+<button class="text-primary font-bold text-sm hover:underline">View all 24 photos</button>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<img alt="Gallery 1" class="w-full h-48 object-cover rounded-2xl shadow-sm hover:opacity-90 cursor-pointer transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsf4MGV_wf5_hJmP0cAp1VXG5Nr27POP9GNkZXAyZ3EIq_o1cXvpVc7Tt4jN8hSAK9sWQVQUmz6EeM5Jq3Eu9SMxZ0HrkQrUK151EjvkOnfMr_iW55WfWhHZ5jirOf-pYvbqI-vk_pjw5iQLupp2hizQpXXbAV9yId7Q1Ix50yFveR-5ImcEvNjJvk2XRdDT3skgn-ISfxF5mmJej72nqvYoLekeno4-I97foVp9_1Tx_UbFPlwr-avhwYCfUiS_rkkQeoLcdoDgJk"/>
+<img alt="Gallery 2" class="w-full h-48 object-cover rounded-2xl shadow-sm hover:opacity-90 cursor-pointer transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdLWDCQqsoFGnjQ9MhLGaTwVIWuSCsMREQnaCuGgXXOi_LkGnCmyKuo2ZDM4vq3SnYuDJmiSnqSUyFnO-gM11_hfUq958w3Nrbb0C3HbwNjR3ZIfW1YR3w50O9piuE8CT3cGXHHzWiD9KVlchwu7CRdticYND0xqWoYDYyDYY6GAS80XFQ2lHnU-cXlaR9hOc9nKj96UPmJRRtf9C4owV-FPmjxx2wNL88bq1oSLURP3ZP3rW1HTLvbgCsJXqw-BjAvW7SjhF6bpmR"/>
+<div class="relative group cursor-pointer h-48">
+<img alt="Gallery 3" class="w-full h-full object-cover rounded-2xl shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwzpvot9iaC32R8RQ0O38KlhNSvguTn2fwHr_Kr1c9TyQ1yBU8BVmBGmEFq5f4j5lwt3fTfdh4SdAZMJGdImM5c6fyNngFOOYz4zeqpDzdzBzyuuGrDnSg7LKQQCUpbnaVGQLdkMlkqB_z14Gx9_tWOM7ePtzeg2-NhIkNRcaQeM1exdQsHhmDA_9P1qFDRu0_rkl6_hDmd4fpfptztw7SS--vxJk3XweYVyEVCuX9ke9AnA8EQ6k1ie_uiTOV-cPpBz3_z3g1gqsq"/>
+<div class="absolute inset-0 bg-black/40 rounded-2xl flex items-center justify-center text-white font-bold group-hover:bg-black/50 transition-all">
+                            +12 photos
+                        </div>
+</div>
+</div>
+</section>
+</div>
+<div class="col-span-12 lg:col-span-4">
+<div class="space-y-6 sticky top-24">
+<section class="bg-white dark:bg-card-dark p-2 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+<div class="relative h-[300px] w-full rounded-xl overflow-hidden group">
+<img alt="Map background" class="w-full h-full object-cover brightness-95 saturate-150" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwzpvot9iaC32R8RQ0O38KlhNSvguTn2fwHr_Kr1c9TyQ1yBU8BVmBGmEFq5f4j5lwt3fTfdh4SdAZMJGdImM5c6fyNngFOOYz4zeqpDzdzBzyuuGrDnSg7LKQQCUpbnaVGQLdkMlkqB_z14Gx9_tWOM7ePtzeg2-NhIkNRcaQeM1exdQsHhmDA_9P1qFDRu0_rkl6_hDmd4fpfptztw7SS--vxJk3XweYVyEVCuX9ke9AnA8EQ6k1ie_uiTOV-cPpBz3_z3g1gqsq"/>
+<div class="absolute inset-0 bg-blue-500/5 pointer-events-none"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[120%] z-10">
+<div class="relative water-drop-pin">
+<div class="w-10 h-10 bg-primary rounded-full rounded-bl-none rotate-45 flex items-center justify-center border-2 border-white shadow-xl">
+<span class="material-symbols-outlined text-white -rotate-45 text-xl">water_drop</span>
+</div>
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-primary/20 blur-sm rounded-full"></div>
+</div>
+</div>
+<div class="absolute top-4 left-4 flex flex-col gap-2">
+<div class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-1 rounded-xl shadow-lg border border-slate-200/50 dark:border-slate-700/50 flex flex-col">
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors border-b border-slate-100 dark:border-slate-800">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300 text-sm">add</span>
+</button>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300 text-sm">remove</span>
+</button>
+</div>
+</div>
+<div class="absolute bottom-4 left-4">
+<div class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-xl border border-slate-200/50 dark:border-slate-700/50">
+<span class="text-[10px] font-mono text-slate-500">45.9085° N, 6.1432° E</span>
+</div>
+</div>
+</div>
+</section>
+<div class="bg-white dark:bg-card-dark rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 space-y-6">
+<h3 class="text-lg font-black text-slate-800 dark:text-white font-display mb-2">The Essentials</h3>
+<div class="bg-slate-50 dark:bg-slate-900/50 p-5 rounded-2xl border border-slate-100 dark:border-slate-700/50">
+<div class="flex justify-between items-center mb-6">
+<div>
+<p class="text-[10px] text-slate-400 font-black uppercase tracking-widest mb-1">Water Temp</p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">thermostat</span>
+<span class="text-2xl font-black text-slate-800 dark:text-white">22°C</span>
+</div>
+</div>
+<div class="text-right">
+<p class="text-[10px] text-slate-400 font-black uppercase tracking-widest mb-1">Real-time</p>
+<span class="text-sm font-bold text-green-500 flex items-center justify-end gap-1">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Rising
+                                </span>
+</div>
+</div>
+<div class="h-24 w-full flex items-end gap-1 px-1">
+<div class="flex-1 bg-slate-200 dark:bg-slate-700 h-[60%] rounded-t-lg"></div>
+<div class="flex-1 bg-slate-200 dark:bg-slate-700 h-[65%] rounded-t-lg"></div>
+<div class="flex-1 bg-slate-200 dark:bg-slate-700 h-[75%] rounded-t-lg"></div>
+<div class="flex-1 bg-primary h-[85%] rounded-t-lg relative">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-primary">22°</div>
+</div>
+<div class="flex-1 bg-slate-200 dark:bg-slate-700 h-[80%] rounded-t-lg"></div>
+<div class="flex-1 bg-slate-200 dark:bg-slate-700 h-[70%] rounded-t-lg"></div>
+<div class="flex-1 bg-slate-200 dark:bg-slate-700 h-[75%] rounded-t-lg"></div>
+</div>
+<div class="flex justify-between mt-2 px-1">
+<span class="text-[9px] font-bold text-slate-400">MON</span>
+<span class="text-[9px] font-bold text-slate-400">TUE</span>
+<span class="text-[9px] font-bold text-slate-400">WED</span>
+<span class="text-[9px] font-bold text-primary">THU</span>
+<span class="text-[9px] font-bold text-slate-400">FRI</span>
+<span class="text-[9px] font-bold text-slate-400">SAT</span>
+<span class="text-[9px] font-bold text-slate-400">SUN</span>
+</div>
+</div>
+<div class="space-y-4 pt-2">
+<button class="w-full bg-primary hover:bg-opacity-90 text-white font-black py-4 rounded-2xl flex items-center justify-center gap-2 shadow-xl shadow-primary/20 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">directions</span>
+                            Get Route Details
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<button class="fixed bottom-8 right-8 bg-white dark:bg-card-dark p-4 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 z-50 text-slate-500 hover:text-primary transition-all flex items-center justify-center group" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-symbols-outlined dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined hidden dark:block text-amber-400">light_mode</span>
+<span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 ml-0 group-hover:ml-2 font-bold text-xs uppercase tracking-wider">Switch Theme</span>
+</button>
+
+</body></html>

@@ -1,3 +1,39 @@
+@if (loading()) {
+<div class="spot-detail-page">
+  <div class="loading-container">
+    <p>Chargement...</p>
+  </div>
+</div>
+} @else if (swimmingSpot()) {
+
+@if (isDesktop()) {
+<div class="spot-detail-desktop">
+  <div class="fixed z-50 top-20 left-8">
+    <button class="btn-tonal bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-lg" (click)="goBack()"
+      aria-label="Retour">
+      <span class="material-symbols-outlined text-sm">arrow_back</span>
+    </button>
+  </div>
+
+  <main class="max-w-[1200px] mx-auto pb-20">
+    <app-spot-hero-gallery [swimmingSpot]="swimmingSpot()!"></app-spot-hero-gallery>
+
+    <div class="grid grid-cols-12 gap-8 px-4 mt-8">
+      <div class="col-span-12 lg:col-span-8 space-y-10">
+        <app-spot-facilities [siteDetails]="swimmingSpot()!.siteDetails" [columns]="3"></app-spot-facilities>
+        <app-spot-about [swimmingSpot]="swimmingSpot()!"></app-spot-about>
+        <app-spot-gallery [images]="swimmingSpot()!.images || []" [spotName]="swimmingSpot()!.name"></app-spot-gallery>
+      </div>
+
+      <div class="col-span-12 lg:col-span-4">
+        <div class="space-y-6 sticky top-24">
+          <app-spot-map-card [lat]="swimmingSpot()!.lat" [lng]="swimmingSpot()!.lng"></app-spot-map-card>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+} @else {
 <div class="spot-detail-page">
   <div class="absolute z-[1] left-0 flex justify-end p-6">
     <button class="btn-tonal" (click)="goBack()" aria-label="Fermer">
@@ -5,18 +41,17 @@
     </button>
   </div>
 
-  <div [class.mt-12]="!swimmingSpot?.images?.length">
-    @if (loading) {
-    <div class="loading-container">
-      <p>Chargement...</p>
-    </div>
-    } @else if (swimmingSpot) {
-    <app-swimming-spot-detail [swimmingSpot]="swimmingSpot"></app-swimming-spot-detail>
-    } @else {
-    <div class="error-container">
-      <p>Spot de baignade introuvable</p>
-      <button class="back-link" (click)="goBack()">Retour à la carte</button>
-    </div>
-    }
+  <div [class.mt-12]="!swimmingSpot()!.images?.length">
+    <app-swimming-spot-detail [swimmingSpot]="swimmingSpot()!"></app-swimming-spot-detail>
   </div>
 </div>
+}
+
+} @else {
+<div class="spot-detail-page">
+  <div class="error-container">
+    <p>Spot de baignade introuvable</p>
+    <button class="back-link" (click)="goBack()">Retour à la carte</button>
+  </div>
+</div>
+}
