@@ -9,7 +9,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './stat-card.component.css',
 })
 export class StatCardComponent {
-  icon = input.required<string>();
+  icon = input<string>();
+  emoji = input<string>();
   value = input.required<string>();
   label = input.required<string>();
 }

@@ -1,14 +1,14 @@
-@if (swimmingSpot) {
+@if (swimmingSpot(); as spot) {
 <div class="swimming-spot-detail-wrapper">
-  @if (images.length) {
+  @if (images().length) {
   <div class="p-4">
-    <div class="images-grid" [attr.data-count]="images.length">
-      <div class="image-item" *ngFor="let image of images; let i = index">
-        <img [alt]="image.title || swimmingSpot.name" [src]="image.url" />
-        @if (swimmingSpot.images && swimmingSpot.images.length > 3 && i === 0) {
+    <div class="images-grid" [attr.data-count]="images().length">
+      <div class="image-item" *ngFor="let image of images(); let i = index">
+        <img [alt]="image.title || spot.name" [src]="image.url" />
+        @if (spot.images && spot.images.length > 3 && i === 0) {
         <div class="image-badge">
           <span class="material-symbols-outlined">photo_library</span>
-          {{ swimmingSpot.images.length }} Photos
+          {{ spot.images.length }} Photos
         </div>
         }
       </div>
@@ -16,50 +16,51 @@
   </div>
   }
 
-  <div class="px-6 pb-28 flex-1" [class.pt-8]="images.length === 0">
-    @if (swimmingSpot.siteDetails?.lastWaterQuality) {
+  <div class="px-6 pb-28 flex-1" [class.pt-8]="images().length === 0">
+    @if (spot.siteDetails?.lastWaterQuality) {
     <div class="flex flex-wrap gap-2 mb-4">
-      <app-chip [color]="swimmingSpot.siteDetails?.lastWaterQuality | waterQualityChipsColor">
-        Qualité de l'eau: {{ swimmingSpot.siteDetails?.lastWaterQuality | waterQualityLabel }}
+      <app-chip [color]="spot.siteDetails?.lastWaterQuality | waterQualityChipsColor">
+        Qualité de l'eau: {{ spot.siteDetails?.lastWaterQuality | waterQualityLabel }}
       </app-chip>
     </div>
     }
     <h1 class="text-2xl font-extrabold text-slate-800 dark:text-white mb-2 leading-tight font-display">
-      {{ swimmingSpot.name }}
+      {{ spot.name }}
     </h1>
     <p class="text-slate-500 dark:text-slate-400 text-sm mb-8 flex items-center gap-1">
       <span class="material-symbols-outlined text-base text-primary">location_on</span>
-      {{ swimmingSpot.city }}{{ swimmingSpot.department ? ', ' + swimmingSpot.department : '' }}, France
+      {{ spot.city }}{{ spot.department ? ', ' + spot.department : '' }}, France
     </p>
 
     <div class="grid grid-cols-3 gap-3 mb-8">
-      <app-stat-card icon="thermostat" value="22°C" label="Water"></app-stat-card>
+      <app-stat-card [emoji]="spotLabel().emoji" [value]="spotLabel().title"
+        [label]="spotLabel().subtitle"></app-stat-card>
       <app-stat-card icon="health_and_safety" value="Maîtres-Nageurs" label="Sur place"
-        [class.opacity-30]="!swimmingSpot.siteDetails?.lifeguard"></app-stat-card>
+        [class.opacity-30]="!spot.siteDetails?.lifeguard"></app-stat-card>
       <app-stat-card icon="chair_umbrella" value="Aménagé" label="Équipements"
-        [class.opacity-30]="!swimmingSpot.siteDetails?.amenities"></app-stat-card>
+        [class.opacity-30]="!spot.siteDetails?.amenities"></app-stat-card>
     </div>
 
-    @if (swimmingSpot.siteDetails) {
+    @if (spot.siteDetails) {
     <div class="mb-8">
       <h3 class="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-4">Détails</h3>
       <div class="grid grid-cols-2 gap-3">
-        @if (swimmingSpot.siteDetails.showers) {
+        @if (spot.siteDetails.showers) {
         <app-tag icon="shower" label="Douche"></app-tag>
         }
-        @if (swimmingSpot.siteDetails.toilets) {
+        @if (spot.siteDetails.toilets) {
         <app-tag icon="wc" label="WC"></app-tag>
         }
-        @if (swimmingSpot.siteDetails.drinkingWater) {
+        @if (spot.siteDetails.drinkingWater) {
         <app-tag icon="water_drop" label="Point d'eau potable"></app-tag>
         }
-        @if (swimmingSpot.siteDetails.lifeguard) {
+        @if (spot.siteDetails.lifeguard) {
         <app-tag icon="security" label="Poste de secours"></app-tag>
         }
-        @if (swimmingSpot.siteDetails.animalsAllowed) {
+        @if (spot.siteDetails.animalsAllowed) {
         <app-tag icon="pets" label="Chiens autorisés"></app-tag>
         }
-        @if (swimmingSpot.siteDetails.wheelchairAccess) {
+        @if (spot.siteDetails.wheelchairAccess) {
         <app-tag icon="accessible" label="Accessible"></app-tag>
         }
       </div>
@@ -76,9 +77,9 @@
     </button>
     <a [href]="
           'https://www.google.com/maps?q=' +
-          swimmingSpot.lat +
+          spot.lat +
           ',' +
-          swimmingSpot.lng
+          spot.lng
         " target="_blank" rel="noopener noreferrer"
       class="group cursor-pointer bg-primary hover:bg-opacity-90 active:scale-95 text-white font-bold text-sm py-3.5 px-6 rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-200">
       <span
