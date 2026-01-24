@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit, forwardRef, HostListener, ElementRef } from '@angular/core';
+import { Component, input, output, forwardRef, HostListener, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, FormControl, ReactiveFormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -26,10 +26,10 @@ export interface AutocompleteOption {
   ]
 })
 export class AutocompleteInputComponent implements ControlValueAccessor {
-  @Input() searchFn!: (query: string) => Observable<AutocompleteOption[]>;
-  @Input() placeholder: string = 'Rechercher';
-  @Input() minChars: number = 3;
-  @Output() optionSelected = new EventEmitter<AutocompleteOption>();
+  searchFn = input.required<(query: string) => Observable<AutocompleteOption[]>>();
+  placeholder = input<string>('Rechercher');
+  minChars = input<number>(3);
+  optionSelected = output<AutocompleteOption>();
 
   searchControl = new FormControl('');
   options: AutocompleteOption[] = [];
@@ -41,20 +41,19 @@ export class AutocompleteInputComponent implements ControlValueAccessor {
   private onTouched: () => void = () => {};
 
   constructor(private elementRef: ElementRef) {
-    // Setup search in constructor to use takeUntilDestroyed
     this.searchControl.valueChanges.pipe(
       debounceTime(300),
       distinctUntilChanged(),
       takeUntilDestroyed(),
       switchMap(query => {
-        if (!query || query.length < this.minChars) {
+        if (!query || query.length < this.minChars()) {
           this.options = [];
           this.showDropdown = false;
           return of([]);
         }
 
         this.isLoading = true;
-        return this.searchFn(query).pipe(
+        return this.searchFn()(query).pipe(
           catchError(() => {
             this.isLoading = false;
             return of([]);

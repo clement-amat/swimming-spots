@@ -1,10 +1,10 @@
-<div class="drawer-overlay" [class.open]="swimmingSpot" (click)="closeDrawer.emit()">
+<div class="drawer-overlay" [class.open]="swimmingSpot()" (click)="closeDrawer.emit()">
   <div
     class="drawer-container w-[440px] bg-sidebar-bg dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 overflow-y-auto custom-scrollbar flex flex-col z-10"
-    [class.open]="swimmingSpot" (click)="$event.stopPropagation()">
-    @if (swimmingSpot) {
+    [class.open]="swimmingSpot()" (click)="$event.stopPropagation()">
+    @if (swimmingSpot(); as spot) {
     <div class="absolute z-[1] right-0 flex justify-end p-6">
-      <a class="btn-tonal mr-2" [routerLink]="['/spot', swimmingSpot.code]" aria-label="Ouvrir la page détail">
+      <a class="btn-tonal mr-2" [routerLink]="['/spot', spot.code]" aria-label="Ouvrir la page détail">
         <span class="material-symbols-outlined text-sm">open_in_new</span>
       </a>
       <button class="btn-tonal" (click)="onCloseClick($event)" aria-label="Fermer">
@@ -15,7 +15,7 @@
       </button>
     </div>
 
-    <app-swimming-spot-detail [swimmingSpot]="swimmingSpot"></app-swimming-spot-detail>
+    <app-swimming-spot-detail [swimmingSpot]="spot"></app-swimming-spot-detail>
     }
   </div>
 </div>

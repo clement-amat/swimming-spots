@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { Injectable, inject } from '@angular/core';
+import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { GeocodingResult, GeopfApiResponse } from '@app/shared/models/geocoding.model';
@@ -8,9 +8,8 @@ import { GeocodingResult, GeopfApiResponse } from '@app/shared/models/geocoding.
   providedIn: 'root'
 })
 export class GeocodingService {
+  private http = inject(HttpClient);
   private readonly API_URL = 'https://data.geopf.fr/geocodage/search';
-
-  constructor(private http: HttpClient) {}
 
   searchLocations(query: string): Observable<GeocodingResult[]> {
     if (!query || query.trim().length < 3) {
@@ -24,8 +23,12 @@ export class GeocodingService {
 
     return this.http.get<GeopfApiResponse>(this.API_URL, { params }).pipe(
       map(response => this.transformResponse(response)),
-      catchError(error => {
-        console.error('Error fetching geocoding results:', error);
+      catchError((error: HttpErrorResponse) => {
+        console.error('GeocodingService error:', {
+          status: error.status,
+          message: error.message,
+          url: error.url
+        });
         return of([]);
       })
     );

@@ -4,7 +4,7 @@
     <span class="material-symbols-outlined text-slate-500 text-lg mr-2">
       {{ isLoading ? 'progress_activity' : 'search' }}
     </span>
-    <input [formControl]="searchControl" [placeholder]="placeholder" (keydown)="onKeyDown($event)"
+    <input [formControl]="searchControl" [placeholder]="placeholder()" (keydown)="onKeyDown($event)"
       (blur)="onInputBlur()"
       class="bg-transparent border-none focus:ring-0 text-sm w-48 placeholder-slate-500 text-slate-900 dark:text-slate-100 outline-none"
       type="text" autocomplete="off" role="combobox" [attr.aria-expanded]="showDropdown"

@@ -1,8 +1,7 @@
 import {
   Component,
-  Input,
-  Output,
-  EventEmitter,
+  input,
+  output,
   HostListener,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -18,15 +17,15 @@ import { SwimmingSpotDetailComponent } from '@app/shared/ui/swimming-spot-detail
   styleUrl: './swimming-spot-drawer.component.css',
 })
 export class SwimmingSpotDrawerComponent {
-  @Input() swimmingSpot: SwimmingSpot | null = null;
-  @Output() closeDrawer = new EventEmitter<void>();
+  swimmingSpot = input<SwimmingSpot | null>(null);
+  closeDrawer = output<void>();
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: Event): void {
     const target = event.target as HTMLElement;
     const drawer = document.querySelector('.drawer-container');
 
-    if (this.swimmingSpot && drawer && !drawer.contains(target)) {
+    if (this.swimmingSpot() && drawer && !drawer.contains(target)) {
       this.closeDrawer.emit();
     }
   }

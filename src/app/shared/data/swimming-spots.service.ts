@@ -1,29 +1,29 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, tap, map, of } from 'rxjs';
+import { Injectable, inject } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, map, of, shareReplay, catchError, throwError } from 'rxjs';
 import { SwimmingSpot } from '@models/swimming-spot.model';
 import { SwimmingSpotGeoJSON } from '@models/swimming-spot-geojson.model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class SwimmingSpotsService {
-  private cachedGeoJSON: SwimmingSpotGeoJSON | null = null;
-
-  constructor(private http: HttpClient) {}
+  private http = inject(HttpClient);
+  private geoJSONCache$: Observable<SwimmingSpotGeoJSON> | null = null;
 
   getSwimmingSpots(): Observable<SwimmingSpotGeoJSON> {
-    return this.http
-      .get<SwimmingSpotGeoJSON>('/geojson.json')
-      .pipe(tap((geoJson) => (this.cachedGeoJSON = geoJson)));
+    if (!this.geoJSONCache$) {
+      this.geoJSONCache$ = this.http
+        .get<SwimmingSpotGeoJSON>('/geojson.json')
+        .pipe(
+          catchError(this.handleError),
+          shareReplay(1)
+        );
+    }
+    return this.geoJSONCache$;
   }
 
   getSwimmingSpotByCode(code: string): Observable<SwimmingSpot | null> {
-    if (this.cachedGeoJSON) {
-      const feature = this.cachedGeoJSON.features.find(
-        (f) => f.properties.code === code,
-      );
-      return of(feature ? feature.properties : null);
-    }
-
     return this.getSwimmingSpots().pipe(
       map((geoJSON) => {
         const feature = geoJSON.features.find(
@@ -31,6 +31,20 @@ export class SwimmingSpotsService {
         );
         return feature ? feature.properties : null;
       }),
+      catchError(this.handleError)
     );
+  }
+
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    let errorMessage = 'Une erreur est survenue lors de la récupération des données';
+    
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = `Erreur client: ${error.error.message}`;
+    } else {
+      errorMessage = `Erreur serveur (${error.status}): ${error.message}`;
+    }
+    
+    console.error('SwimmingSpotsService error:', errorMessage, error);
+    return throwError(() => new Error(errorMessage));
   }
 }

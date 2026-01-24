@@ -7,7 +7,6 @@ import {
   provideClientHydration,
   withEventReplay,
 } from '@angular/platform-browser';
-import { SwimmingSpotsService } from './shared/data/swimming-spots.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,6 +14,5 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch()),
-    SwimmingSpotsService,
   ],
 };
