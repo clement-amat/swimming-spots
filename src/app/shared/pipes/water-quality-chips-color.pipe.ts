@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { WaterQuality } from '@app/shared/models/swimming-spot.model';
 
-type ChipColor = 'green' | 'yellow' | 'orange';
+type ChipColor = 'green' | 'yellow' | 'orange' | 'gray';
 
 @Pipe({
   name: 'waterQualityChipsColor',
@@ -16,8 +16,9 @@ export class WaterQualityChipsColorPipe implements PipeTransform {
         return 'orange';
       case WaterQuality.EXCELLENT:
       case WaterQuality.BON:
-      default:
         return 'green';
+      default:
+        return 'gray';
     }
   }
 }

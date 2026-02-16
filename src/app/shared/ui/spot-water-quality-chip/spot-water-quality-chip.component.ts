@@ -15,5 +15,5 @@ import { WaterQualityLabelPipe } from '@app/shared/pipes/water-quality-label.pip
   `,
 })
 export class SpotWaterQualityChipComponent {
-  quality = input.required<WaterQuality>();
+  quality = input<WaterQuality | undefined>();
 }

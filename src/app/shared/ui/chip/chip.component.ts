@@ -1,7 +1,7 @@
 import { Component, input, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-type ChipColor = 'green' | 'yellow' | 'orange';
+type ChipColor = 'green' | 'yellow' | 'orange' | 'gray';
 
 const colorClassMap: Record<ChipColor, string> = {
   green: 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300',
@@ -9,6 +9,7 @@ const colorClassMap: Record<ChipColor, string> = {
     'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-300',
   orange:
     'bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300',
+  gray: 'bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400',
 };
 
 @Component({
