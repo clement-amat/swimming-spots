@@ -34,6 +34,11 @@ export class LayoutComponent {
     );
   };
 
+  goHome(): void {
+    this.mapControlService.clearMapState();
+    this.router.navigate(['/']);
+  }
+
   onLocationSelected(option: AutocompleteOption): void {
     const coordinates = option.value;
 

@@ -8,9 +8,9 @@ import {
   computed,
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { ActivatedRoute, Router } from '@angular/router';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { ActivatedRoute } from '@angular/router';
+import { CommonModule, isPlatformBrowser, Location } from '@angular/common';
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { map } from 'rxjs';
 import { SwimmingSpotsService } from '@app/shared/data/swimming-spots.service';
 import { SwimmingSpot } from '@app/shared/models/swimming-spot.model';
@@ -38,7 +38,7 @@ import { SpotMapCardComponent } from '@app/shared/ui/spot-map-card/spot-map-card
 })
 export class SpotDetailComponent implements OnInit {
   private route = inject(ActivatedRoute);
-  private router = inject(Router);
+  private location = inject(Location);
   private swimmingSpotsService = inject(SwimmingSpotsService);
   private breakpointObserver = inject(BreakpointObserver);
 
@@ -84,6 +84,6 @@ export class SpotDetailComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigate(['/']);
+    this.location.back();
   }
 }

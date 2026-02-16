@@ -116,6 +116,13 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    if (this.map && this.mapInitialized) {
+      const center = this.map.getCenter();
+      this.mapControlService.saveMapState({
+        center: [center.lng, center.lat],
+        zoom: this.map.getZoom(),
+      });
+    }
     this.mapControlService.setMapReady(false);
   }
 
@@ -129,12 +136,14 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       return;
     }
 
+    const savedState = this.mapControlService.getSavedMapState();
+
     const mapOptions: MapboxOptions = {
       accessToken: environment.mapbox.accessToken,
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v12',
-      center: [2.2137, 46.2276],
-      zoom: 6,
+      center: savedState?.center ?? [2.2137, 46.2276],
+      zoom: savedState?.zoom ?? 5,
       attributionControl: false,
     };
 

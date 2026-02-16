@@ -1,18 +1,20 @@
 <div class="autocomplete-container relative">
   <div
     class="flex items-center bg-slate-200/50 dark:bg-slate-800 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700">
-    <span class="material-symbols-outlined text-slate-500 text-lg mr-2">
-      {{ isLoading ? 'progress_activity' : 'search' }}
-    </span>
+    @if (isLoading) {
+      <div class="w-4 h-4 border-2 border-slate-300 dark:border-slate-600 border-t-primary rounded-full animate-spin mr-2"></div>
+    } @else {
+      <span class="material-symbols-outlined text-slate-500 text-lg mr-2">search</span>
+    }
     <input [formControl]="searchControl" [placeholder]="placeholder()" (keydown)="onKeyDown($event)"
       (blur)="onInputBlur()"
-      class="bg-transparent border-none focus:ring-0 text-sm w-48 placeholder-slate-500 text-slate-900 dark:text-slate-100 outline-none"
+      class="bg-transparent border-none focus:ring-0 text-sm w-48 md:w-80 placeholder-slate-500 text-slate-900 dark:text-slate-100 outline-none"
       type="text" autocomplete="off" role="combobox" [attr.aria-expanded]="showDropdown"
       [attr.aria-controls]="showDropdown ? 'autocomplete-dropdown' : null" aria-autocomplete="list" />
   </div>
 
   <div *ngIf="showDropdown" id="autocomplete-dropdown"
-    class="dropdown absolute top-full mt-2 left-0 right-0 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 max-h-80 overflow-y-auto z-50"
+    class="dropdown absolute top-full mt-5 left-0 right-0 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 max-h-80 overflow-y-auto z-50"
     role="listbox">
     <div *ngFor="let option of options; let i = index"
       class="option flex items-center px-4 py-3 cursor-pointer transition-colors hover:bg-slate-100 dark:hover:bg-slate-700"
