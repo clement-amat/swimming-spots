@@ -1,0 +1,14 @@
+<div class="filters-container">
+  <div class="filters-wrapper">
+    @for (filter of filters(); track filter.id) {
+      <button 
+        class="filter-chip"
+        [class.active]="filter.active"
+        (click)="onFilterClick(filter.id)"
+        type="button">
+        <span class="filter-emoji">{{ filter.emoji }}</span>
+        <span class="filter-label">{{ filter.label }}</span>
+      </button>
+    }
+  </div>
+</div>

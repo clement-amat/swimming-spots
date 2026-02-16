@@ -1,0 +1,94 @@
+.filters-container {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 10;
+  max-width: calc(100% - 32px);
+}
+
+.filters-wrapper {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  user-select: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.filter-chip:hover {
+  background: rgba(248, 250, 252, 0.98);
+  backdrop-filter: blur(10px);
+}
+
+.filter-chip.active {
+  background: #359EFF;
+  color: white;
+  border-color: #359EFF;
+  box-shadow: 0 4px 12px rgba(53, 158, 255, 0.3);
+}
+
+.filter-chip.active:hover {
+  background: #2d8de6;
+  border-color: #2d8de6;
+}
+
+.filter-emoji {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.filter-label {
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .filters-container {
+    top: 12px;
+    left: 12px;
+    max-width: calc(100% - 24px);
+  }
+
+  .filters-wrapper {
+    gap: 6px;
+  }
+
+  .filter-chip {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .filter-emoji {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .filters-wrapper {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .filters-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+}

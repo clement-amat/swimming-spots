@@ -5,6 +5,7 @@ import {
   OnDestroy,
   Inject,
   PLATFORM_ID,
+  effect,
 } from '@angular/core';
 import { SwimmingSpotsService } from '@data/swimming-spots.service';
 import { isPlatformBrowser } from '@angular/common';
@@ -22,13 +23,15 @@ import {
 import { SwimmingSpotDrawerComponent } from './swimming-spot-drawer/swimming-spot-drawer.component';
 import { SwimmingSpotGeoJSON } from '@app/shared/models/swimming-spot-geojson.model';
 import { MapControlService } from '@app/shared/maps/map-control.service';
+import { MapFiltersComponent } from '@app/shared/ui/map-filters/map-filters.component';
+import { MapFiltersService } from '@app/shared/services/map-filters.service';
 
 // Déclaration de mapboxgl comme variable globale
 declare const mapboxgl: any;
 
 @Component({
   selector: 'app-map',
-  imports: [SwimmingSpotDrawerComponent],
+  imports: [SwimmingSpotDrawerComponent, MapFiltersComponent],
   templateUrl: './map.component.html',
   styleUrl: './map.component.css',
 })
@@ -45,11 +48,11 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private swimmingSpotsService: SwimmingSpotsService,
     private mapControlService: MapControlService,
+    private mapFiltersService: MapFiltersService,
     private router: Router,
     private breakpointObserver: BreakpointObserver,
     @Inject(PLATFORM_ID) private platformId: Object,
   ) {
-    // Subscribe to map control in constructor to use takeUntilDestroyed
     this.mapControlService
       .onCenterMap()
       .pipe(takeUntilDestroyed())
@@ -57,13 +60,19 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
         this.centerMapOn(coordinates.lon, coordinates.lat);
       });
 
-    // Détecter les changements de breakpoint mobile
     this.breakpointObserver
       .observe(['(max-width: 768px)'])
       .pipe(takeUntilDestroyedRxjs())
       .subscribe((result) => {
         this.isMobile = result.matches;
       });
+
+    effect(() => {
+      const activeFilters = this.mapFiltersService.activeFilters();
+      if (this.mapInitialized && this.swimmingSpotsGeoJSON) {
+        this.applyFilters();
+      }
+    });
   }
 
   ngOnInit(): void {
@@ -228,5 +237,20 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
   closeDrawer(): void {
     this.selectedSpot = null;
+  }
+
+  private applyFilters(): void {
+    if (!this.map || !this.swimmingSpotsGeoJSON) return;
+
+    const activeFilters = this.mapFiltersService.activeFilters();
+    const filteredGeoJSON = this.swimmingSpotsService.filteredGeoJSON(
+      this.swimmingSpotsGeoJSON,
+      activeFilters,
+    );
+
+    const source = this.map.getSource('swimming-spots') as any;
+    if (source) {
+      source.setData(filteredGeoJSON);
+    }
   }
 }
