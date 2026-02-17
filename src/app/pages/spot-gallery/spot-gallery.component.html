@@ -1,0 +1,44 @@
+@if (loading()) {
+<div class="min-h-full bg-slate-100 dark:bg-slate-900 flex flex-col">
+  <div class="flex-1 flex flex-col items-center justify-center p-8 text-center">
+    <p>Chargement...</p>
+  </div>
+</div>
+} @else if (swimmingSpot()) {
+<div class="min-h-full bg-slate-100 dark:bg-slate-900 flex flex-col">
+  <header
+    class="sticky top-0 z-50 flex items-center gap-4 py-4 px-4 md:px-8 bg-nav-bg dark:bg-card-dark border-b border-slate-200 dark:border-slate-800 shadow-sm transition-colors duration-200">
+    <button class="btn-tonal bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-lg" (click)="goBack()"
+      aria-label="Retour">
+      <span class="material-symbols-outlined text-sm">arrow_back</span>
+    </button>
+    <div class="min-w-0 flex-1">
+      <h1 class="text-lg font-bold text-ocean-deep dark:text-primary font-display truncate">
+        {{ spotName() }}
+      </h1>
+      <p class="text-sm text-slate-600 dark:text-slate-400">Galerie Photos</p>
+    </div>
+  </header>
+
+  <main class="max-w-screen-xl w-full mx-auto px-4 md:px-6 py-6 md:py-8">
+    @if (swimmingSpot()!.images?.length) {
+    <div class="gap-2" [ngClass]="columnClass()">
+      @for (image of swimmingSpot()!.images; track trackByUrl($index, image)) {
+      <div class="break-inside-avoid mb-2 rounded-lg overflow-hidden shadow-md">
+        <img [alt]="image.title || spotName()" [src]="image.url" class="w-full h-auto block align-middle" loading="lazy" />
+      </div>
+      }
+    </div>
+    } @else {
+    <p class="text-slate-600 dark:text-slate-400 text-center py-12">Aucune photo disponible.</p>
+    }
+  </main>
+</div>
+} @else {
+<div class="min-h-full bg-slate-100 dark:bg-slate-900 flex flex-col">
+  <div class="flex-1 flex flex-col items-center justify-center p-8 text-center">
+    <p class="text-slate-600 dark:text-slate-400 mb-4">Spot de baignade introuvable</p>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200" (click)="goBack()">Retour</button>
+  </div>
+</div>
+}

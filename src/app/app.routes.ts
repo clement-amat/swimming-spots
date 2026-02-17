@@ -18,6 +18,13 @@ export const routes: Routes = [
             (m) => m.SpotDetailComponent
           ),
       },
+      {
+        path: 'spot/:code/gallery',
+        loadComponent: () =>
+          import('./pages/spot-gallery/spot-gallery.component').then(
+            (m) => m.SpotGalleryComponent
+          ),
+      },
     ],
   },
 ];

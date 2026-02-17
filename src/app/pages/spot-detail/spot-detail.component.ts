@@ -19,7 +19,7 @@ import { SwimmingSpotDetailComponent } from '@app/shared/ui/swimming-spot-detail
 import { SpotHeroGalleryComponent } from '@app/shared/ui/spot-hero-gallery/spot-hero-gallery.component';
 import { SpotFacilitiesComponent } from '@app/shared/ui/spot-facilities/spot-facilities.component';
 import { SpotAboutComponent } from '@app/shared/ui/spot-about/spot-about.component';
-import { SpotGalleryComponent } from '@app/shared/ui/spot-gallery/spot-gallery.component';
+import { SpotGalleryPreviewComponent } from '@app/shared/ui/spot-gallery/spot-gallery-preview.component';
 import { SpotMapCardComponent } from '@app/shared/ui/spot-map-card/spot-map-card.component';
 
 @Component({
@@ -31,7 +31,7 @@ import { SpotMapCardComponent } from '@app/shared/ui/spot-map-card/spot-map-card
     SpotHeroGalleryComponent,
     SpotFacilitiesComponent,
     SpotAboutComponent,
-    SpotGalleryComponent,
+    SpotGalleryPreviewComponent,
     SpotMapCardComponent,
   ],
   providers: [SeoService],

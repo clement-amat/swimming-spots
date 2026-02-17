@@ -7,6 +7,8 @@
 
 .layout-main {
   flex: 1;
-  overflow: hidden;
-  height: calc(100dvh - 64px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
+  -webkit-overflow-scrolling: touch;
 }

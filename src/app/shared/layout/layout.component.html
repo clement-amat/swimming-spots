@@ -1,8 +1,8 @@
 <div class="layout-container">
   <header
-    class="h-16 border-b border-slate-200 dark:border-slate-800 bg-nav-bg dark:bg-card-dark px-6 flex items-center justify-between z-20 relative shadow-sm">
+    class="h-16 border-b border-slate-200 dark:border-slate-800 bg-nav-bg dark:bg-card-dark px-6 md:px-8 flex items-center justify-between z-20 relative shadow-sm">
     <div class="flex items-center gap-2 md:gap-8 flex-1">
-      <a (click)="goHome()" class="flex items-center gap-2 flex-shrink-0 cursor-pointer">
+      <a (click)="goHome()" class="flex items-center gap-4 flex-shrink-0 cursor-pointer">
         <div
           class="w-9 h-9 bg-primary rounded-full flex items-center justify-center text-white shadow-lg shadow-primary/20">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -17,8 +17,9 @@
           Baigne
           !</span>
       </a>
-      <app-autocomplete-input class="flex-1 md:flex-initial" [searchFn]="searchLocations" [placeholder]="'Rechercher une ville, un lieu'"
-        [minChars]="3" (optionSelected)="onLocationSelected($event)"></app-autocomplete-input>
+      <app-autocomplete-input class="flex-1 md:flex-initial" [searchFn]="searchLocations"
+        [placeholder]="'Rechercher une ville, un lieu'" [minChars]="3"
+        (optionSelected)="onLocationSelected($event)"></app-autocomplete-input>
     </div>
     <div class="hidden sm:flex items-center gap-4">
     </div>
