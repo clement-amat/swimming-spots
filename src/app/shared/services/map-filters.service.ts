@@ -3,7 +3,7 @@ import { Injectable, signal, computed } from '@angular/core';
 export interface MapFilter {
   id: string;
   label: string;
-  emoji: string;
+  icon: string;
   active: boolean;
 }
 
@@ -15,25 +15,25 @@ export class MapFiltersService {
     {
       id: 'comfort',
       label: 'Tout Confort',
-      emoji: '✨',
+      icon: 'shower',
       active: false,
     },
     {
       id: 'wheelchair',
       label: 'Accès PMR',
-      emoji: '♿',
+      icon: 'accessible',
       active: false,
     },
     {
       id: 'lifeguard',
       label: 'Baignade Surveillée',
-      emoji: '🛟',
+      icon: 'health_and_safety',
       active: false,
     },
     {
       id: 'dogs',
       label: 'Chiens Admis',
-      emoji: '🐶',
+      icon: 'pets',
       active: false,
     },
   ]);

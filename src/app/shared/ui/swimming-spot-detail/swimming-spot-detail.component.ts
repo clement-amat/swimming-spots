@@ -1,5 +1,6 @@
 import { Component, input, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { SwimmingSpot } from '@app/shared/models/swimming-spot.model';
 import { StatCardComponent } from '@app/shared/ui/card/stat-card/stat-card.component';
 import { SpotFacilitiesComponent } from '@app/shared/ui/spot-facilities/spot-facilities.component';
@@ -28,4 +29,15 @@ export class SwimmingSpotDetailComponent {
   images = computed(() => (this.swimmingSpot()?.images || []).slice(0, 3));
 
   spotLabel = computed(() => getSpotLabel(this.swimmingSpot()?.score));
+
+  constructor(private router: Router) {}
+
+  navigateToGallery(): void {
+    const spot = this.swimmingSpot();
+    if (spot?.code) {
+      this.router.navigate(['/spot', spot.code, 'gallery'], {
+        state: { swimmingSpot: spot }
+      });
+    }
+  }
 }

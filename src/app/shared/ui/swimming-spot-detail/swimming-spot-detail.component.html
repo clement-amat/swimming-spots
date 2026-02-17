@@ -3,10 +3,10 @@
   @if (images().length) {
   <div class="p-4">
     <div class="images-grid" [attr.data-count]="images().length">
-      <div class="image-item" *ngFor="let image of images(); let i = index">
+      <div class="image-item" *ngFor="let image of images(); let i = index" (click)="navigateToGallery()">
         <img [alt]="image.title || spot.name" [src]="image.url" />
         @if (spot.images && spot.images.length > 3 && i === 0) {
-        <div class="image-badge">
+        <div class="image-badge cursor-pointer">
           <span class="material-symbols-outlined">photo_library</span>
           {{ spot.images.length }} Photos
         </div>

@@ -1,16 +1,16 @@
-@import 'tailwindcss';
-@import './styles/_buttons.css';
+@import "tailwindcss";
+@import "./styles/_buttons.css";
 
 @theme {
-  --color-primary: #359EFF;
+  --color-primary: #359eff;
   --color-neutral: black;
   --color-background-light: #f8fafc;
   --color-background-dark: #0f172a;
   --color-card-light: #ffffff;
   --color-card-dark: #1e293b;
   --color-ocean-deep: #075985;
-  --color-nav-bg: #F8FAFC;
-  --color-sidebar-bg: #F0F4F7;
+  --color-nav-bg: #f8fafc;
+  --color-sidebar-bg: #f0f4f7;
   --font-family-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
   --font-family-sans: "Inter", system-ui, sans-serif;
   --radius-default: 1rem;
@@ -85,7 +85,7 @@
 
 @media (max-width: 480px) {
   :root {
-    --header-height: 70px;
+    --header-height: 64px;
     --drawer-padding: 8px;
   }
 }
@@ -98,5 +98,9 @@ body {
 }
 
 .material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
 }
