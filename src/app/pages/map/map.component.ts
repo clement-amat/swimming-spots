@@ -26,6 +26,11 @@ import { MapControlService } from '@app/shared/maps/map-control.service';
 import { MapFiltersComponent } from '@app/shared/ui/map-filters/map-filters.component';
 import { MapFiltersService } from '@app/shared/services/map-filters.service';
 import { SeoService } from '@app/shared/seo/seo.service';
+import {
+  buildCircleRadiusExpression,
+  buildCircleOpacityExpression,
+  buildCircleStrokeWidthExpression,
+} from './map-visibility.config';
 
 // Déclaration de mapboxgl comme variable globale
 declare const mapboxgl: any;
@@ -79,9 +84,12 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.seoService.setTitle('Spots de Baignade en France - Carte Interactive des Lieux de Baignade | Ça Baigne !');
+    this.seoService.setTitle(
+      'Spots de Baignade en France - Carte Interactive des Lieux de Baignade | Ça Baigne !',
+    );
     this.seoService.setMetaData({
-      description: "Découvrez les meilleurs spots de baignade en France avec notre carte interactive. Trouvez des lacs, rivières et plages pour vous baigner en toute sécurité.",
+      description:
+        'Découvrez les meilleurs spots de baignade en France avec notre carte interactive. Trouvez des lacs, rivières et plages pour vous baigner en toute sécurité.',
       canonicalUrl: 'https://ca-baigne.com',
       image: 'https://ca-baigne.com/assets/icons/og-image.png',
     });
@@ -191,15 +199,15 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       id: 'swimming-spots-circles',
       type: 'circle',
       source: 'swimming-spots',
+      layout: {
+        'circle-sort-key': ['coalesce', ['get', 'score'], 0] as any,
+      },
       paint: {
-        'circle-radius': 8,
-        'circle-color': [
-          'match',
-          ['get', 'type'],
-          ...colorArray,
-          '#9B9B9B', // default color
-        ],
-        'circle-stroke-width': 2,
+        'circle-radius': buildCircleRadiusExpression() as any,
+        'circle-opacity': buildCircleOpacityExpression() as any,
+        'circle-color': ['match', ['get', 'type'], ...colorArray, '#9B9B9B'],
+        'circle-stroke-width': buildCircleStrokeWidthExpression() as any,
+        'circle-stroke-opacity': buildCircleOpacityExpression() as any,
         'circle-stroke-color': '#ffffff',
       },
     });
