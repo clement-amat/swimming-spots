@@ -64,4 +64,6 @@ if (isMainModule(import.meta.url)) {
   });
 }
 
+export { app as reqHandler };
+
 export default app;
