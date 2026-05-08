@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { LayoutComponent } from './shared/layout/layout.component';
 import { MapComponent } from './pages/map/map.component';
 import { landingPageResolver } from './pages/landing-page/landing-page.resolver';
+import { spotDetailResolver } from './pages/spot-detail/spot-detail.resolver';
 
 export const routes: Routes = [
   {
@@ -28,6 +29,9 @@ export const routes: Routes = [
           import('./pages/spot-detail/spot-detail.component').then(
             (m) => m.SpotDetailComponent
           ),
+        resolve: {
+          spot: spotDetailResolver,
+        },
       },
       {
         path: 'spot/:code/gallery',

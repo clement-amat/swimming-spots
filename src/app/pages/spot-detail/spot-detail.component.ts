@@ -1,18 +1,14 @@
 import {
   Component,
   OnInit,
-  Inject,
-  PLATFORM_ID,
   signal,
   inject,
-  computed,
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
-import { CommonModule, isPlatformBrowser, Location } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { map } from 'rxjs';
-import { SwimmingSpotsService } from '@app/shared/data/swimming-spots.service';
 import { SwimmingSpot } from '@app/shared/models/swimming-spot.model';
 import { SeoService } from '@app/shared/seo/seo.service';
 import { SwimmingSpotDetailComponent } from '@app/shared/ui/swimming-spot-detail/swimming-spot-detail.component';
@@ -41,7 +37,6 @@ import { SpotMapCardComponent } from '@app/shared/ui/spot-map-card/spot-map-card
 export class SpotDetailComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private location = inject(Location);
-  private swimmingSpotsService = inject(SwimmingSpotsService);
   private seoService = inject(SeoService);
   private breakpointObserver = inject(BreakpointObserver);
 
@@ -55,39 +50,15 @@ export class SpotDetailComponent implements OnInit {
     { initialValue: false },
   );
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
-
   ngOnInit(): void {
-    const code = this.route.snapshot.paramMap.get('code');
+    const spot: SwimmingSpot | null = this.route.snapshot.data['spot'];
 
-    if (!code) {
-      this.loading.set(false);
-      return;
+    if (spot) {
+      this.swimmingSpot.set(spot);
+      this.applySpotSeo(spot);
     }
 
-    if (isPlatformBrowser(this.platformId)) {
-      const navigationState = history.state;
-      if (navigationState?.swimmingSpot) {
-        this.swimmingSpot.set(navigationState.swimmingSpot);
-        this.applySpotSeo(navigationState.swimmingSpot);
-        this.loading.set(false);
-        return;
-      }
-    }
-
-    this.swimmingSpotsService.getSwimmingSpotByCode(code).subscribe({
-      next: (spot) => {
-        this.swimmingSpot.set(spot);
-        if (spot) {
-          this.applySpotSeo(spot);
-        }
-        this.loading.set(false);
-      },
-      error: (error) => {
-        console.error('Erreur lors de la récupération du spot:', error);
-        this.loading.set(false);
-      },
-    });
+    this.loading.set(false);
   }
 
   private applySpotSeo(spot: SwimmingSpot): void {
