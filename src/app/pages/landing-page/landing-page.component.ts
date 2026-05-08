@@ -1,62 +1,44 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit, inject, signal } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { LandingPageData } from '@app/shared/models/landing-page.model';
-import { SeoService } from '@app/shared/seo/seo.service';
+import { BASE_URL, SeoService } from '@app/shared/seo/seo.service';
 import { LandingHeroComponent } from '@app/shared/ui/landing-hero/landing-hero.component';
 import { LandingSpotCardComponent } from '@app/shared/ui/landing-spot-card/landing-spot-card.component';
+import { NotFoundComponent } from '@app/pages/not-found/not-found.component';
 
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [LandingHeroComponent, LandingSpotCardComponent],
+  imports: [LandingHeroComponent, LandingSpotCardComponent, NotFoundComponent],
   providers: [SeoService],
   templateUrl: './landing-page.component.html',
 })
 export class LandingPageComponent implements OnInit {
   private route = inject(ActivatedRoute);
-  private router = inject(Router);
   private seoService = inject(SeoService);
 
-  landingPage: LandingPageData | null = null;
+  readonly landingPage = signal<LandingPageData | null>(null);
 
   ngOnInit(): void {
-    this.landingPage = this.route.snapshot.data['landingPage'];
-    console.log('Landing page data:', this.landingPage);
+    const data: LandingPageData | null = this.route.snapshot.data['landingPage'];
 
-    if (!this.landingPage) {
-      console.error('No landing page data found, redirecting to 404');
-      this.router.navigate(['/404']);
-      return;
+    if (data) {
+      this.landingPage.set(data);
+      this.applySeo(data);
     }
-
-    this.setupSeo();
   }
 
-  private setupSeo(): void {
-    if (!this.landingPage) return;
+  private applySeo(data: LandingPageData): void {
+    const canonicalUrl = data.canonicalUrl || `${BASE_URL}/p/${data.slug}`;
 
-    this.seoService.setTitle(this.landingPage.title);
+    this.seoService.setTitle(data.title);
     this.seoService.setMetaData({
-      description: this.landingPage.description,
-      canonicalUrl:
-        this.landingPage.canonicalUrl ||
-        `https://yoursite.com/p/${this.landingPage.slug}`,
-      image: this.landingPage.ogImage,
-      structuredData: {
-        '@context': 'https://schema.org',
-        '@type': 'ItemList',
-        name: this.landingPage.title,
-        numberOfItems: this.landingPage.spotsCount,
-        itemListElement: this.landingPage.spots.map((spot, i) => ({
-          '@type': 'ListItem',
-          position: i + 1,
-          item: {
-            '@type': 'Place',
-            name: spot.name,
-            url: `https://yoursite.com/spot/${spot.code}`,
-          },
-        })),
-      },
+      description: data.description,
+      canonicalUrl,
+      image: data.ogImage || data.hero.image,
+      imageAlt: data.hero.title,
+      ogType: 'article',
+      structuredData: this.seoService.buildLandingPageStructuredData(data),
     });
   }
 }

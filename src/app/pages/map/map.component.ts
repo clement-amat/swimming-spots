@@ -25,7 +25,13 @@ import { SwimmingSpotGeoJSON } from '@app/shared/models/swimming-spot-geojson.mo
 import { MapControlService } from '@app/shared/maps/map-control.service';
 import { MapFiltersComponent } from '@app/shared/ui/map-filters/map-filters.component';
 import { MapFiltersService } from '@app/shared/services/map-filters.service';
-import { SeoService } from '@app/shared/seo/seo.service';
+import {
+  BASE_URL,
+  DEFAULT_LOGO,
+  HOMEPAGE_DESCRIPTION,
+  HOMEPAGE_TITLE,
+  SeoService,
+} from '@app/shared/seo/seo.service';
 import {
   buildCircleRadiusExpression,
   buildCircleOpacityExpression,
@@ -84,14 +90,13 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.seoService.setTitle(
-      'Spots de Baignade en France - Carte Interactive des Lieux de Baignade | Ça Baigne !',
-    );
+    this.seoService.setTitle(HOMEPAGE_TITLE);
     this.seoService.setMetaData({
-      description:
-        'Découvrez les meilleurs spots de baignade en France avec notre carte interactive. Trouvez des lacs, rivières et plages pour vous baigner en toute sécurité.',
-      canonicalUrl: 'https://ca-baigne.com',
-      image: 'https://ca-baigne.com/assets/icons/og-image.png',
+      description: HOMEPAGE_DESCRIPTION,
+      canonicalUrl: BASE_URL,
+      image: DEFAULT_LOGO,
+      ogType: 'website',
+      structuredData: this.seoService.buildHomepageStructuredData(HOMEPAGE_DESCRIPTION),
     });
     this.generateLegendItems();
     this.loadSwimmingSpotsGeoJSON();

@@ -10,13 +10,14 @@ import { CommonModule, Location } from '@angular/common';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { map } from 'rxjs';
 import { SwimmingSpot } from '@app/shared/models/swimming-spot.model';
-import { SeoService } from '@app/shared/seo/seo.service';
+import { BASE_URL, SeoService, SITE_NAME } from '@app/shared/seo/seo.service';
 import { SwimmingSpotDetailComponent } from '@app/shared/ui/swimming-spot-detail/swimming-spot-detail.component';
 import { SpotHeroGalleryComponent } from '@app/shared/ui/spot-hero-gallery/spot-hero-gallery.component';
 import { SpotFacilitiesComponent } from '@app/shared/ui/spot-facilities/spot-facilities.component';
 import { SpotAboutComponent } from '@app/shared/ui/spot-about/spot-about.component';
 import { SpotGalleryPreviewComponent } from '@app/shared/ui/spot-gallery/spot-gallery-preview.component';
 import { SpotMapCardComponent } from '@app/shared/ui/spot-map-card/spot-map-card.component';
+import { NotFoundComponent } from '@app/pages/not-found/not-found.component';
 
 @Component({
   selector: 'app-spot-detail',
@@ -29,6 +30,7 @@ import { SpotMapCardComponent } from '@app/shared/ui/spot-map-card/spot-map-card
     SpotAboutComponent,
     SpotGalleryPreviewComponent,
     SpotMapCardComponent,
+    NotFoundComponent,
   ],
   providers: [SeoService],
   templateUrl: './spot-detail.component.html',
@@ -63,18 +65,24 @@ export class SpotDetailComponent implements OnInit {
 
   private applySpotSeo(spot: SwimmingSpot): void {
     const description = this.buildSpotDescription(spot);
+    const url = `${BASE_URL}/spot/${spot.code}`;
+    const heroImage = spot.images?.[0];
 
-    this.seoService.setTitle(`${spot.name} - Baignade à ${spot.city} (${spot.department}) | Ça Baigne !`);
+    this.seoService.setTitle(
+      `${spot.name} - Baignade à ${spot.city} (${spot.department}) | ${SITE_NAME}`,
+    );
     this.seoService.setMetaData({
       description,
-      canonicalUrl: `https://ca-baigne.com/spot/${spot.code}`,
-      image: spot.images?.[0]?.url,
+      canonicalUrl: url,
+      image: heroImage?.url,
+      imageAlt: heroImage?.title || spot.name,
+      ogType: 'place',
       structuredData: {
         '@context': 'https://schema.org',
         '@type': 'TouristAttraction',
         name: spot.name,
         description,
-        url: `https://ca-baigne.com/spot/${spot.code}`,
+        url,
         geo: {
           '@type': 'GeoCoordinates',
           latitude: spot.lat,
@@ -86,7 +94,7 @@ export class SpotDetailComponent implements OnInit {
           addressRegion: spot.region,
           addressCountry: 'FR',
         },
-        ...(spot.images?.[0] && { image: spot.images[0].url }),
+        ...(heroImage && { image: heroImage.url }),
       },
     });
   }
