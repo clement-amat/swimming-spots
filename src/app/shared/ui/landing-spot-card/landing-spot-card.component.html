@@ -1,0 +1,66 @@
+<section class="mb-24">
+  <div class="flex flex-col gap-8">
+    <div class="flex items-center gap-4">
+      <span class="text-5xl font-black text-primary/20">{{ spotNumber }}</span>
+      <h2 class="text-4xl font-extrabold text-slate-800">{{ spot().name }}</h2>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div class="lg:col-span-8">
+        @if (spot().image) {
+        <div class="rounded-lg overflow-hidden shadow-xl mb-8 bg-neutral-sand h-[450px]">
+          <img [src]="spot().image" [alt]="spot().name"
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+        </div>
+        }
+        <div class="space-y-6 text-slate-700 leading-relaxed text-lg">
+          <p>{{ spot().description }}</p>
+          <a [routerLink]="['/spot', spot().code]"
+            class="flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all mt-4 group">
+            <span class="material-symbols-outlined">map</span>
+            Voir en détails
+            <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">
+              arrow_forward
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <aside class="lg:col-span-4 lg:sticky lg:top-28">
+        <div class="bg-white p-8 rounded-3xl shadow-sm space-y-6">
+          <h4 class="font-bold text-slate-800 uppercase tracking-wider text-xs flex items-center gap-2">
+            <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+            Infos Essentielles
+          </h4>
+          <div class="space-y-5">
+            @if (spot().distance) {
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-primary/5 flex items-center justify-center text-primary min-w-12">
+                <span class="material-symbols-outlined">directions_car</span>
+              </div>
+              <div>
+                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-tight">Distance</p>
+                <p class="font-bold text-slate-800">{{ spot().distance }}</p>
+              </div>
+            </div>
+            }
+            @if (spot().facilities && spot().facilities!.length > 0) {
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-primary/5 flex items-center justify-center text-primary  min-w-12">
+                <span class="material-symbols-outlined">umbrella</span>
+              </div>
+              <div>
+                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-tight">Équipements</p>
+                <p class="font-bold text-slate-800">{{ spot().facilities!.join(', ') }}</p>
+              </div>
+            </div>
+            }
+          </div>
+          @if (spot().note) {
+          <hr class="border-slate-100" />
+          <p class="text-xs italic text-slate-400">{{ spot().note }}</p>
+          }
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

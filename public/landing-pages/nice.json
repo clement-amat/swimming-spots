@@ -1,0 +1,197 @@
+{
+  "slug": "nice",
+  "hero": {
+    "title": "Les meilleurs spots de baignade près de Nice",
+    "subtitle": "Exit le bitume brûlant ! Nous avons exploré pour vous les pépites rafraîchissantes de la Côte d'Azur à moins d'une heure de Nice. Voici notre sélection exclusive.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/38/View_looking_East_over_the_bay_of_Antibes%2C_Mediterranean_Sea%2C_France_-_panoramio.jpg"
+  },
+  "introText": "Bienvenue sur notre guide ultime des meilleurs spots de baignade autour de Nice ! Que vous soyez en quête de plages animées, de criques secrètes ou de lieux adaptés aux familles, vous trouverez ici votre bonheur. Préparez-vous à découvrir des eaux cristallines et des paysages à couper le souffle pour des moments inoubliables sous le soleil méditerranéen.",
+  "title": "Où se baigner autour de Nice ? Top 10 des meilleurs spots",
+  "description": "Découvrez les meilleurs spots de baignade autour de Nice : plages familiales, criques secrètes, eaux cristallines et équipements. Préparez votre été sur la Côte d'Azur !",
+  "spotsCount": 10,
+  "spots": [
+    {
+      "code": "FRL0306004M006265",
+      "name": "LE PONTEIL",
+      "city": "ANTIBES",
+      "type": "Eau côtière",
+      "score": 115,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/3/38/View_looking_East_over_the_bay_of_Antibes%2C_Mediterranean_Sea%2C_France_-_panoramio.jpg",
+      "description": "Spot de baignade situé à ANTIBES, à proximité de Nice.",
+      "lat": 43.57336123019,
+      "lng": 7.12507796118,
+      "distance": "18.8 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Accès PMR"
+      ]
+    },
+    {
+      "code": "FRL0306029M006155",
+      "name": "ILE STE MARGUERITE OUEST",
+      "city": "CANNES",
+      "type": "Eau côtière",
+      "score": 115,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Arriv%C3%A9e_du_bateau_sur_l%27%C3%AEle_Sainte-Marguerite.jpg",
+      "description": "Spot de baignade situé à CANNES, à proximité de Nice.",
+      "lat": 43.52275399925,
+      "lng": 7.03773462464,
+      "distance": "27.6 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ]
+    },
+    {
+      "code": "FRL0306138M006015",
+      "name": "POINTE DE L'AIGUILLE",
+      "city": "THEOULE-SUR-MER",
+      "type": "Eau côtière",
+      "score": 110,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/b0/%C3%8Eles_de_L%C3%A9rins_depuis_Th%C3%A9oule_%282014%29.JPG",
+      "description": "Spot de baignade situé à THEOULE-SUR-MER, à proximité de Nice.",
+      "lat": 43.50561034326,
+      "lng": 6.95119348097,
+      "distance": "33.8 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes"
+      ]
+    },
+    {
+      "code": "FRL0306027M006360",
+      "name": "MOGADOR",
+      "city": "CAGNES-SUR-MER",
+      "type": "Eau côtière",
+      "score": 105,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/5/54/La_Cagne.jpg",
+      "description": "Spot de baignade situé à CAGNES-SUR-MER, à proximité de Nice.",
+      "lat": 43.65370424017,
+      "lng": 7.15768130385,
+      "distance": "10.5 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Eau potable"
+      ]
+    },
+    {
+      "code": "FRL0306011M006590",
+      "name": "FOURMIS",
+      "city": "BEAULIEU-SUR-MER",
+      "type": "Eau côtière",
+      "score": 100,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/08/Port_de_Pierre_Fourmi%2C_Beaulieu-sur-Mer%2C_Provence-Alpes-C%C3%B4te_d%27Azur%2C_France_-_panoramio.jpg",
+      "description": "Spot de baignade situé à BEAULIEU-SUR-MER, à proximité de Nice.",
+      "lat": 43.70331070779,
+      "lng": 7.33120785259,
+      "distance": "5.6 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ]
+    },
+    {
+      "code": "FRL0306088M006500",
+      "name": "BEAU RIVAGE",
+      "city": "NICE",
+      "type": "Eau côtière",
+      "score": 95,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/61/Rough_on_the_feet_%2830797497076%29.jpg",
+      "description": "Spot de baignade situé à NICE, à proximité de Nice.",
+      "lat": 43.69483103744,
+      "lng": 7.27060299795,
+      "distance": "1.8 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ]
+    },
+    {
+      "code": "FRL0306004M006260",
+      "name": "LA SALIS",
+      "city": "ANTIBES",
+      "type": "Eau côtière",
+      "score": 90,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/3/38/View_looking_East_over_the_bay_of_Antibes%2C_Mediterranean_Sea%2C_France_-_panoramio.jpg",
+      "description": "Spot de baignade situé à ANTIBES, à proximité de Nice.",
+      "lat": 43.57052184814,
+      "lng": 7.12866557507,
+      "distance": "18.9 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ]
+    },
+    {
+      "code": "FRL0306027M006370",
+      "name": "GALION",
+      "city": "CAGNES-SUR-MER",
+      "type": "Eau côtière",
+      "score": 90,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Boulevard_de_la_Plage.jpg",
+      "description": "Spot de baignade situé à CAGNES-SUR-MER, à proximité de Nice.",
+      "lat": 43.6557228055,
+      "lng": 7.16238237867,
+      "distance": "10.0 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ]
+    },
+    {
+      "code": "FRL0306079M006050",
+      "name": "CHATEAU",
+      "city": "MANDELIEU-LA-NAPOULE",
+      "type": "Eau côtière",
+      "score": 90,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/4a/104F_Mandelieu-La_Napoule_%2815756245198%29.jpg",
+      "description": "Spot de baignade situé à MANDELIEU-LA-NAPOULE, à proximité de Nice.",
+      "lat": 43.52378624811,
+      "lng": 6.94335750463,
+      "distance": "33.0 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ]
+    },
+    {
+      "code": "FRL0306083M006700",
+      "name": "CAREI",
+      "city": "MENTON",
+      "type": "Eau côtière",
+      "score": 90,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Casino_and_Carei.jpg",
+      "description": "Spot de baignade situé à MENTON, à proximité de Nice.",
+      "lat": 43.77200613974,
+      "lng": 7.49883640044,
+      "distance": "20.2 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ]
+    }
+  ],
+  "generatedAt": "2026-02-28T08:53:09.476Z"
+}

@@ -1,0 +1,22 @@
+@if (landingPage) {
+<div class="bg-[#f0f4f8]">
+  <app-landing-hero [hero]="landingPage.hero" />
+
+  <div class="max-w-[1000px] mx-auto px-6 pb-20">
+    <article class="prose prose-slate prose-lg max-w-none mb-20">
+      <p
+        class="text-xl leading-relaxed text-slate-600 first-letter:text-5xl first-letter:font-bold first-letter:text-primary first-letter:mr-3 first-letter:float-left">
+        {{ landingPage.introText }}
+      </p>
+    </article>
+
+    @for (spot of landingPage.spots; track spot.code; let i = $index) {
+    <app-landing-spot-card [spot]="spot" [index]="i" />
+    }
+  </div>
+</div>
+} @else {
+<div class="p-8">
+  <p>Loading landing page data...</p>
+</div>
+}

@@ -1,0 +1,12 @@
+<div class="bg-white border-none rounded-3xl p-8 mb-24 flex items-start gap-6 relative overflow-hidden shadow-sm">
+  <div class="absolute -right-10 -top-10 text-primary/10 scale-150 pointer-events-none">
+    <span class="material-symbols-outlined text-[120px]">lightbulb</span>
+  </div>
+  <div class="bg-primary text-white p-3 rounded-2xl shrink-0">
+    <span class="material-symbols-outlined">{{ iconName }}</span>
+  </div>
+  <div class="relative z-10">
+    <h3 class="text-xl font-bold text-primary mb-2">{{ proTip().title }}</h3>
+    <p class="text-slate-700 leading-relaxed">{{ proTip().content }}</p>
+  </div>
+</div>

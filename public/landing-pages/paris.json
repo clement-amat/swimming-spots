@@ -1,0 +1,173 @@
+{
+  "slug": "paris",
+  "hero": {
+    "title": "Les meilleurs spots de baignade près de Paris",
+    "subtitle": "Exit le bitume brûlant ! Nous avons exploré pour vous les pépites d'eau douce à moins d'une heure de la capitale. Voici notre sélection exclusive.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Paris_-_Bassin_de_La_Villette_%2822895632843%29.jpg"
+  },
+  "introText": "Marre de la chaleur parisienne ? Évadez-vous et plongez dans la fraîcheur des meilleurs lieux de baignade aux portes de la capitale ! Nous avons déniché pour vous des havres de paix, parfaits pour une journée rafraîchissante en famille ou entre amis, avec des descriptions détaillées et des notes exclusives.",
+  "title": "Où se baigner autour de Paris ? Top 8 des meilleurs spots",
+  "description": "Découvrez les meilleurs spots de baignade près de Paris. Lacs et rivières aménagés pour une escapade rafraîchissante à moins d'une heure de la capitale.",
+  "spotsCount": 8,
+  "spots": [
+    {
+      "code": "FR10175056D075001",
+      "name": "BASSIN DE LA VILLETTE",
+      "city": "PARIS",
+      "type": "Rivière",
+      "score": 120,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Paris_-_Bassin_de_La_Villette_%2822895632843%29.jpg",
+      "description": "Au cœur de la capitale, le Bassin de la Villette offre une expérience de baignade urbaine unique. Profitez d'un espace surveillé et entièrement aménagé, avec douches, toilettes et accès pour tous. Une véritable oasis de fraîcheur pour se détendre sans quitter Paris.",
+      "lat": 48.88538529503,
+      "lng": 2.37413782053,
+      "distance": "3.6 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ],
+      "note": "Un spot de baignade exceptionnel en plein Paris, idéal pour se rafraîchir en ville."
+    },
+    {
+      "code": "FR10277005D077004",
+      "name": "JABLINES - ILE DE LOISIRS DE JABLINES ANNET",
+      "city": "ANNET-SUR-MARNE",
+      "type": "Lac",
+      "score": 100,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Plage_de_la_base_de_Jablines.jpg",
+      "description": "Échappez à l'agitation parisienne sur l'immense Île de Loisirs de Jablines-Annet. Son lac aux eaux claires est un véritable appel à la détente et aux activités nautiques. Un cadre naturel préservé, idéal pour une journée de farniente ou de jeux en famille.",
+      "lat": 48.91244593489,
+      "lng": 2.72631129964,
+      "distance": "28.1 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ],
+      "note": "Vaste et verdoyant, ce site est parfait pour une journée complète de loisirs au bord de l'eau."
+    },
+    {
+      "code": "FR10277083D077002",
+      "name": "CHAMPS-SUR-MARNE - BASE DE LOISIRS - GB",
+      "city": "CHAMPS-SUR-MARNE",
+      "type": "Lac",
+      "score": 100,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/47/Villa_en_bord_de_Marne_1881.jpg",
+      "description": "La Base de Loisirs de Champs-sur-Marne propose un lac paisible, aux eaux de bonne qualité, invitant à la baignade. C'est un lieu parfait pour les familles, offrant toutes les commodités nécessaires pour une journée sereine. Profitez d'un environnement sécurisé et bien entretenu.",
+      "lat": 48.86362759819,
+      "lng": 2.60014193856,
+      "distance": "18.2 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ],
+      "note": "Une destination familiale privilégiée pour des moments de détente au fil de l'eau."
+    },
+    {
+      "code": "FR10378108D078020",
+      "name": "BASE DE LOISIRS DES ETANGS DE HOLLANDE",
+      "city": "BREVIAIRES (LES)",
+      "type": "Lac",
+      "score": 100,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/40/%C3%89tangs_de_Hollande1.jpg",
+      "description": "Niché au cœur d'une nature luxuriante, la Base de Loisirs des Étangs de Hollande est une invitation à la sérénité. Ses eaux calmes et son environnement forestier en font un lieu ressourçant. Idéal pour une pause baignade loin du tumulte urbain.",
+      "lat": 48.73083102986,
+      "lng": 1.79716641455,
+      "distance": "43.0 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ],
+      "note": "Un écrin de verdure offrant une baignade paisible dans un cadre naturel préservé."
+    },
+    {
+      "code": "FR10277284D077011",
+      "name": "MEAUX - PLAGE DU CHEMIN DES PATIS",
+      "city": "MEAUX",
+      "type": "Rivière",
+      "score": 90,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Plage_de_Meaux.jpg",
+      "description": "Découvrez un havre de paix sur les rives de la Marne, à Meaux. La Plage du Chemin des Patis offre une baignade agréable et surveillée. Profitez de ce site aménagé pour vous rafraîchir et vous détendre sous le soleil, dans une ambiance conviviale.",
+      "lat": 48.94913988888,
+      "lng": 2.88341611002,
+      "distance": "40.2 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ],
+      "note": "Une charmante plage en bord de rivière, parfaite pour une escapade rafraîchissante."
+    },
+    {
+      "code": "FR10277468D077008",
+      "name": "TORCY - ILE DE LOISIRS DE VAIRES TORCY",
+      "city": "TORCY",
+      "type": "Lac",
+      "score": 85,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Plage_de_la_base_de_Torcy_D110709.jpg",
+      "description": "L'Île de Loisirs de Vaires-Torcy est un lieu dynamique où la baignade se combine avec de nombreuses activités. Bien que la qualité de l'eau soit moyenne, le site est entièrement équipé pour une journée pleine de divertissements aquatiques et terrestres. Idéal pour les amateurs de sensations fortes et de détente.",
+      "lat": 48.86699724125,
+      "lng": 2.65720573764,
+      "distance": "22.3 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ],
+      "note": "Une base de loisirs polyvalente, offrant une multitude d'activités au-delà de la baignade."
+    },
+    {
+      "code": "FRE2260584D060610",
+      "name": "BASE NAUTIQUE DE SAINT LEU D'ESSERENT",
+      "city": "SAINT-LEU-D'ESSERENT",
+      "type": "Lac",
+      "score": 80,
+      "image": null,
+      "description": "La Base Nautique de Saint-Leu-d'Esserent vous accueille au bord d'un lac aux eaux limpides. C'est le spot idéal pour les passionnés d'activités aquatiques, mais aussi pour ceux qui cherchent simplement à se rafraîchir. Un cadre agréable, propice à la détente et aux sports nautiques.",
+      "lat": 49.20999114627,
+      "lng": 2.41325834266,
+      "distance": "39.5 km",
+      "facilities": [
+        "Surveillé",
+        "Toilettes",
+        "Eau potable"
+      ],
+      "note": "Un excellent point de rendez-vous pour les adeptes de sports nautiques et de baignade en eau vive."
+    },
+    {
+      "code": "FR10378642D078080",
+      "name": "BASE DE LOISIRS DE VERNEUIL",
+      "city": "VERNEUIL-SUR-SEINE",
+      "type": "Lac",
+      "score": 75,
+      "image": null,
+      "description": "La Base de Loisirs de Verneuil offre un grand espace dédié à la détente et aux activités aquatiques. Malgré une qualité d'eau parfois variable, vous y trouverez tous les équipements nécessaires pour une agréable journée. Un lieu familial par excellence pour profiter du grand air et des plaisirs de l'eau.",
+      "lat": 49.00101513458,
+      "lng": 1.95453252974,
+      "distance": "33.2 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ],
+      "note": "Un vaste domaine proposant diverses activités et une baignade surveillée pour toute la famille."
+    }
+  ],
+  "generatedAt": "2026-02-28T08:52:21.533Z"
+}

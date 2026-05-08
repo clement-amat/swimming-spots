@@ -1,0 +1,207 @@
+{
+  "slug": "marseille",
+  "hero": {
+    "title": "Les meilleurs spots de baignade près de Marseille",
+    "subtitle": "Exit le bitume brûlant ! Nous avons exploré pour vous les pépites d'eau douce et salée à moins d'une heure de la cité phocéenne. Voici notre sélection exclusive pour se rafraîchir et profiter du soleil.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/47/Evasion_%28130959371%29.jpeg"
+  },
+  "introText": "Marseille et ses environs regorgent de lieux enchanteurs où se rafraîchir lorsque le soleil de Provence bat son plein. Que vous soyez adepte des plages animées ou des criques plus discrètes, notre guide vous dévoile les adresses incontournables pour une parenthèse aquatique réussie. Préparez votre maillot et laissez-vous tenter par une baignade mémorable.",
+  "title": "Où se baigner autour de Marseille ? Top 10 des meilleurs spots",
+  "description": "Découvrez les meilleurs spots de baignade autour de Marseille ! Plages familiales, criques secrètes, eaux turquoise... Trouvez l'endroit idéal pour vous rafraîchir cet été.",
+  "spotsCount": 10,
+  "spots": [
+    {
+      "code": "FRL0413055M013440",
+      "name": "GRAND ROUCAS (PRADO NORD)",
+      "city": "MARSEILLE",
+      "type": "Eau côtière",
+      "score": 120,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/47/Evasion_%28130959371%29.jpeg",
+      "description": "Une vaste étendue de sable fin où l'on aime poser sa serviette pour la journée. Facilement accessible, cet espace est idéal pour les familles, offrant une baignade surveillée et des infrastructures pratiques pour un confort optimal. L'ambiance y est conviviale et toujours animée, parfaite pour sentir le pouls estival de Marseille.",
+      "lat": 43.2634054218,
+      "lng": 5.37024801582,
+      "distance": "3.7 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ],
+      "note": "Dotée de nombreux équipements, elle assure une journée sereine les pieds dans l'eau."
+    },
+    {
+      "code": "FRL0413055M013390",
+      "name": "SAINT ESTEVE (FRIOUL)",
+      "city": "MARSEILLE",
+      "type": "Eau côtière",
+      "score": 115,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/3/34/Beach_Island_Frioul_Marseille_%28204787617%29.jpeg",
+      "description": "Échappez à l'agitation urbaine en prenant le large vers l'archipel du Frioul. Sur cette île préservée, la crique de Saint Esteve dévoile des eaux cristallines invitant à la plongée. C'est une invitation à la déconnexion, où seul le clapotis des vagues rythme la journée.",
+      "lat": 43.28402380881,
+      "lng": 5.31585890443,
+      "distance": "4.6 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ],
+      "note": "Un véritable havre de paix accessible après une courte traversée en bateau."
+    },
+    {
+      "code": "FRL0413055M013444",
+      "name": "DAVID (PRADO SUD)",
+      "city": "MARSEILLE",
+      "type": "Eau côtière",
+      "score": 115,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/47/Evasion_%28130959371%29.jpeg",
+      "description": "Au sud du Prado, la plage du David est un classique marseillais, reconnaissable à sa statue imposante. Très appréciée pour ses vastes espaces, elle permet de profiter des joies de la mer en toute liberté. C'est l'endroit parfait pour une sortie entre amis ou une session de farniente sous le soleil méditerranéen.",
+      "lat": 43.26159353974,
+      "lng": 5.37161430372,
+      "distance": "3.9 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ]
+    },
+    {
+      "code": "FRL0413056M013240",
+      "name": "PLAGES DE LA SAULCE ET DE SAINTE CROIX",
+      "city": "MARTIGUES",
+      "type": "Eau côtière",
+      "score": 100,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Hotland_%28141157483%29.jpeg",
+      "description": "Non loin de Martigues, ces deux plages jumelles offrent un cadre enchanteur entre sable doré et mer azur. Elles sont idéales pour une escapade familiale, avec une eau peu profonde propice aux jeux des enfants. Le panorama sur la Côte Bleue est une pure merveille.",
+      "lat": 43.33135656548,
+      "lng": 5.07026350601,
+      "distance": "24.5 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ],
+      "note": "Un spot familial doté d'un charme authentique et d'une tranquillité appréciable."
+    },
+    {
+      "code": "FRL0413055M013420",
+      "name": "PROPHETE",
+      "city": "MARSEILLE",
+      "type": "Eau côtière",
+      "score": 95,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Les_Proph%C3%A8tes_%2853591798%29.jpeg",
+      "description": "La plage du Prophète est une institution à Marseille, appréciée par toutes les générations. Avec son sable fin et ses eaux calmes, elle est parfaite pour une baignade rafraîchissante à deux pas du centre-ville. C'est un lieu vibrant d'énergie locale, où l'on croise habitués et visiteurs.",
+      "lat": 43.2736654151,
+      "lng": 5.36159238881,
+      "distance": "2.6 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ],
+      "note": "L'une des plus anciennes et des plus populaires plages de la ville, idéale pour les premières brasses des enfants."
+    },
+    {
+      "code": "FRL0413056M013230",
+      "name": "VERDON",
+      "city": "MARTIGUES",
+      "type": "Eau côtière",
+      "score": 90,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Cakile_maritima_128417236.jpg",
+      "description": "Sur la Côte Bleue, la plage du Verdon à Martigues est un joyau naturel où la pinède rencontre la mer. Ses eaux claires et son environnement préservé en font un lieu privilégié pour se ressourcer. Profitez d'une atmosphère calme pour une immersion totale dans la nature provençale.",
+      "lat": 43.33168303863,
+      "lng": 5.04934307785,
+      "distance": "26.2 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ],
+      "note": "Un cadre idyllique avec une eau d'une clarté remarquable, parfaite pour la plongée libre."
+    },
+    {
+      "code": "FRL0413104M013270",
+      "name": "CORNICHE",
+      "city": "SAUSSET-LES-PINS",
+      "type": "Eau côtière",
+      "score": 90,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/11/Sausset-les-Pins_20170610.jpg",
+      "description": "La Corniche de Sausset-les-Pins déroule de charmantes petites criques et plages nichées le long de la côte. Ici, l'eau est souvent translucide, invitant à la découverte des fonds marins avec masque et tuba. C'est un écrin de tranquillité pour ceux qui recherchent l'authenticité de la Côte Bleue.",
+      "lat": 43.32881204485,
+      "lng": 5.11479604549,
+      "distance": "20.9 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ],
+      "note": "Ses eaux limpides et son cadre pittoresque sont parfaits pour une baignade relaxante."
+    },
+    {
+      "code": "FRL0413039M013070",
+      "name": "GRANDE PLAGE",
+      "city": "FOS-SUR-MER",
+      "type": "Eau côtière",
+      "score": 85,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/90/Fos-sur-Mer%2C_Bouches-du-_Rhone%2C_France._Le_Phare_01.jpg",
+      "description": "À Fos-sur-Mer, la Grande Plage surprend par son étendue et sa sensation d'espace. C'est un lieu idéal pour ceux qui aiment les vastes plages où chacun trouve son coin de tranquillité. Le large horizon invite à la contemplation et aux jeux de plage.",
+      "lat": 43.42848486879,
+      "lng": 4.94505457817,
+      "distance": "37.3 km",
+      "facilities": [
+        "Surveillé",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ]
+    },
+    {
+      "code": "FRL0413055M013380",
+      "name": "LE FORTIN (SITE DE CORBIERES)",
+      "city": "MARSEILLE",
+      "type": "Eau côtière",
+      "score": 85,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/99/L%27Estaque_-_Plages_de_Corbi%C3%A8res_03.jpg",
+      "description": "Situé dans le parc de Corbières, le Fortin offre un cadre atypique pour une baignade urbaine. Face à l'Estaque, les criques ici révèlent une eau d'une belle pureté, avec une vue imprenable sur la rade de Marseille. C'est un secret bien gardé pour une parenthèse fraîcheur.",
+      "lat": 43.357778943,
+      "lng": 5.28993773373,
+      "distance": "9.4 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ],
+      "note": "Un spot avec une vue imprenable sur le port et l'Estaque, parfait pour une baignade pittoresque."
+    },
+    {
+      "code": "FRL0413055M013400",
+      "name": "CATALANS",
+      "city": "MARSEILLE",
+      "type": "Eau côtière",
+      "score": 85,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Voile_dans_la_brume%2C_Marseille_%2824784264681%29.jpg",
+      "description": "La plage des Catalans est la plus proche du centre-ville de Marseille, un véritable refuge urbain. Très populaire, elle offre un cadre animé et une eau toujours accueillante pour une pause rafraîchissante. Idéale pour un bain de soleil rapide ou un plongeon après le travail.",
+      "lat": 43.29073199454,
+      "lng": 5.35483769593,
+      "distance": "1.4 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ],
+      "note": "Sa proximité avec le centre-ville en fait un lieu prisé des locaux et des touristes."
+    }
+  ],
+  "generatedAt": "2026-02-28T08:52:38.590Z"
+}

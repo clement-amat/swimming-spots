@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './shared/layout/layout.component';
 import { MapComponent } from './pages/map/map.component';
+import { landingPageResolver } from './pages/landing-page/landing-page.resolver';
 
 export const routes: Routes = [
   {
@@ -10,6 +11,16 @@ export const routes: Routes = [
       {
         path: '',
         component: MapComponent
+      },
+      {
+        path: 'p/:slug',
+        loadComponent: () =>
+          import('./pages/landing-page/landing-page.component').then(
+            (m) => m.LandingPageComponent
+          ),
+        resolve: {
+          landingPage: landingPageResolver,
+        },
       },
       {
         path: 'spot/:code',

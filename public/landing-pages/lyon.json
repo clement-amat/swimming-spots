@@ -1,0 +1,203 @@
+{
+  "slug": "lyon",
+  "hero": {
+    "title": "Les meilleurs spots de baignade près de Lyon",
+    "subtitle": "Exit le bitume brûlant ! Nous avons exploré pour vous les pépites d'eau douce à moins d'une heure de la capitale des Gaules. Voici notre sélection exclusive.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Vue_du_Lac_des_Eaux_Bleues.JPG"
+  },
+  "introText": "L'été lyonnais est synonyme de soleil, mais aussi de chaleur intense. Pour échapper à l'asphalte brûlant et vous rafraîchir, découvrez notre sélection minutieuse des plus beaux lieux de baignade aux alentours de Lyon. Que vous soyez adepte des lacs paisibles ou des rivières vivifiantes, préparez votre serviette et votre maillot pour une évasion aquatique inoubliable.",
+  "title": "Où se baigner autour de Lyon ? Top 10 des meilleurs spots",
+  "description": "Découvrez les meilleurs spots de baignade autour de Lyon ! Lacs et rivières pour se rafraîchir en famille ou entre amis. Évadez-vous de la chaleur lyonnaise.",
+  "spotsCount": 10,
+  "spots": [
+    {
+      "code": "FRK2669256D069023",
+      "name": "MIRIBEL-PLAGE DE L'ATOL",
+      "city": "VAULX-EN-VELIN",
+      "type": "Lac",
+      "score": 125,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Vue_du_Lac_des_Eaux_Bleues.JPG",
+      "description": "Au cœur du Grand Parc Miribel Jonage, cette plage offre un cadre idéal pour toute la famille. Ses vastes étendues de sable fin et ses eaux calmes invitent à la détente et aux jeux aquatiques. Entièrement équipée et surveillée, l'Atol garantit une journée de pur plaisir les pieds dans l'eau.",
+      "lat": 45.80164835224,
+      "lng": 4.94063960351,
+      "distance": "9.2 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ],
+      "note": "Une véritable oasis de loisirs avec de nombreuses activités complémentaires sur place."
+    },
+    {
+      "code": "FRK2669256D069020",
+      "name": "MIRIBEL-PLAGE DU MORLET",
+      "city": "VAULX-EN-VELIN",
+      "type": "Lac",
+      "score": 120,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Vue_du_Lac_des_Eaux_Bleues.JPG",
+      "description": "Nichée également dans l'écrin de verdure du Grand Parc, la Plage du Morlet séduit par son ambiance conviviale. Ses rives aménagées et ses zones de baignade surveillées en font un lieu privilégié pour piquer une tête en toute sérénité. Profitez de l'ombre des arbres pour un pique-nique rafraîchissant.",
+      "lat": 45.80242391098,
+      "lng": 4.9363911226,
+      "distance": "8.9 km",
+      "facilities": [
+        "Surveillé",
+        "Toilettes",
+        "Eau potable"
+      ],
+      "note": "Un cadre spacieux parfait pour les groupes et les familles en quête d'espace."
+    },
+    {
+      "code": "FRK2669264D069010",
+      "name": "PLAN D'EAU DU BORDELAN",
+      "city": "VILLEFRANCHE-SUR-SAONE",
+      "type": "Lac",
+      "score": 95,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Villefranche-sur-Sa%C3%B4ne_-_Plan_d%27eau_de_Bordelan_%28sept_2018%29.jpg",
+      "description": "À quelques encablures de Villefranche-sur-Saône, le Plan d'Eau du Bordelan est une invitation à la fraîcheur. Son lac, aux eaux agréables et surveillées, est bordé d'espaces verts propices à la relaxation et aux jeux. Venez profiter d'un moment de détente aquatique loin de l'agitation urbaine.",
+      "lat": 45.97052761071,
+      "lng": 4.75029576454,
+      "distance": "23.9 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ],
+      "note": "Facilement accessible, ce lieu combine la quiétude de la nature avec des aménagements pratiques."
+    },
+    {
+      "code": "FRK2669070D069006",
+      "name": "LAC DES SAPINS-BAIGNADE POINT SUD",
+      "city": "CUBLIZE",
+      "type": "Lac",
+      "score": 90,
+      "image": null,
+      "description": "Évadez-vous vers les Monts du Lyonnais et découvrez ce lac charmant au milieu des conifères. La baignade, encadrée et sécurisée, se fait dans une eau limpide qui reflète les paysages verdoyants. C'est l'endroit idéal pour conjuguer plaisir de l'eau et immersion en pleine nature.",
+      "lat": 46.00922192305,
+      "lng": 4.3747790492,
+      "distance": "44.9 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ],
+      "note": "Bénéficiez d'un environnement montagnard et d'une eau d'une grande pureté pour une expérience unique. Accès PMR disponible."
+    },
+    {
+      "code": "FRK2669256D069026",
+      "name": "MIRIBEL-PLAGE DU FONTANIL",
+      "city": "VAULX-EN-VELIN",
+      "type": "Lac",
+      "score": 90,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Miribel_-_Grand_parc_de_Miribel-Jonage_-_Plage_du_Fontanil.jpg",
+      "description": "Troisième perle du Grand Parc Miribel Jonage, la Plage du Fontanil offre une atmosphère plus tranquille. Ses plages herbeuses et son accès doux à l'eau en font un lieu apprécié pour une baignade paisible. Idéale pour ceux qui recherchent un coin de nature préservé à proximité de la ville.",
+      "lat": 45.79842190749,
+      "lng": 4.95014594983,
+      "distance": "9.7 km",
+      "facilities": [
+        "Surveillé",
+        "Toilettes",
+        "Eau potable"
+      ],
+      "note": "Un lieu calme et verdoyant, parfait pour un après-midi de farniente au bord de l'eau."
+    },
+    {
+      "code": "FRK2669009D069070",
+      "name": "PLAN D'EAU DU COLOMBIER",
+      "city": "ANSE",
+      "type": "Lac",
+      "score": 85,
+      "image": null,
+      "description": "Situé à Anse, ce plan d'eau est une véritable bouffée d'oxygène dans le Beaujolais. Avec sa plage surveillée et ses vastes espaces, il est conçu pour accueillir petits et grands. Profitez d'une baignade rafraîchissante et de moments ludiques dans un cadre agréable et bien entretenu.",
+      "lat": 45.9531505953,
+      "lng": 4.72639636495,
+      "distance": "22.7 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ],
+      "note": "Un spot familial par excellence, offrant de multiples activités nautiques et terrestres."
+    },
+    {
+      "code": "FRK2669064D069044",
+      "name": "PLAN D'EAU DE CONDRIEU-LES ROCHES",
+      "city": "CONDRIEU",
+      "type": "Lac",
+      "score": 85,
+      "image": null,
+      "description": "Nichée dans la vallée du Rhône, le plan d'eau de Condrieu-Les Roches invite à la découverte. Ses eaux calmes, surveillées durant la saison, sont parfaites pour la nage et la détente. Le site propose un environnement propice à l'évasion, entre vignobles réputés et paysages fluviaux.",
+      "lat": 45.45877582436,
+      "lng": 4.78110647432,
+      "distance": "34.2 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ],
+      "note": "Profitez de la proximité avec les célèbres vignobles de Condrieu pour prolonger votre journée."
+    },
+    {
+      "code": "FRK2669256D069022",
+      "name": "MIRIBEL-PLAGE DE LA BARAKA",
+      "city": "VAULX-EN-VELIN",
+      "type": "Lac",
+      "score": 85,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Vaulx-en-Velin_-_Grand_Parc_de_Miribel-Jonage_-_Lac_des_Eaux_Bleues_-_Vue_sur_la_Vierge_et_le_carillon_du_Mas_Rillier.jpg",
+      "description": "Dernière des plages de Miribel Jonage, La Baraka est réputée pour son ambiance décontractée. Ses rives accueillantes et sa zone de baignade surveillée en font un excellent choix pour échapper à la canicule. Venez vous prélasser au soleil ou vous rafraîchir dans une eau de bonne qualité.",
+      "lat": 45.80773620286,
+      "lng": 4.93756919466,
+      "distance": "9.3 km",
+      "facilities": [
+        "Surveillé",
+        "Toilettes"
+      ],
+      "note": "Souvent choisie pour son atmosphère détendue et ses couchers de soleil sur le lac."
+    },
+    {
+      "code": "FRK2438231D038400",
+      "name": "MEYRIEU LES ETANGS - BASE DE LOISIRS DU MOULIN",
+      "city": "MEYRIEU-LES-ETANGS",
+      "type": "Lac",
+      "score": 70,
+      "image": null,
+      "description": "Cette base de loisirs est une destination complète pour une journée active. Au-delà de la baignade surveillée, de nombreuses activités attendent les visiteurs de tous âges. Un lieu dynamique où le plaisir de l'eau se mêle aux joies des loisirs de plein air.",
+      "lat": 45.50886814391,
+      "lng": 5.20414021403,
+      "distance": "40.3 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ],
+      "note": "Idéal pour ceux qui recherchent plus qu'une simple baignade, avec une offre d'activités variée et un accès facilité pour tous."
+    },
+    {
+      "code": "FRK2101403D001328",
+      "name": "SERRIERES DE BRIORD - PLAGE DU POINT VERT RIVE DROITE DU RHONE",
+      "city": "SERRIERES-DE-BRIORD",
+      "type": "Rivière",
+      "score": 60,
+      "image": null,
+      "description": "Offrant une expérience différente, cette plage sur la rive droite du Rhône est une occasion de se baigner en rivière. Le cadre verdoyant et les aménagements permettent de profiter d'une eau courante rafraîchissante. Une alternative charmante pour les amateurs d'eaux vives.",
+      "lat": 45.81734646216,
+      "lng": 5.42654313315,
+      "distance": "46.2 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ],
+      "note": "Une immersion au cœur de la nature rhodanienne, avec le charme unique de la baignade en rivière."
+    }
+  ],
+  "generatedAt": "2026-02-28T08:44:31.888Z"
+}

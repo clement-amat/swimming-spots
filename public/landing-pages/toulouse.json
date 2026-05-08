@@ -1,0 +1,152 @@
+{
+  "slug": "toulouse",
+  "hero": {
+    "title": "Les meilleurs spots de baignade près de Toulouse",
+    "subtitle": "Exit le bitume brûlant ! Nous avons exploré pour vous les pépites d'eau douce à moins d'une heure de la capitale des Gaules. Voici notre sélection exclusive.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Colvert_sur_glace_%286865246247%29.jpg"
+  },
+  "introText": "Bienvenue sur notre guide des havres de fraîcheur ! Si le soleil toulousain vous donne des envies d'évasion aquatique, vous êtes au bon endroit. Nous avons déniché pour vous les plus beaux spots où piquer une tête, pour des moments de détente inoubliables.",
+  "title": "Où se baigner autour de Toulouse ? Top 8 des meilleurs spots",
+  "description": "Découvrez les meilleurs spots de baignade autour de Toulouse ! Lacs aménagés ou rivières sauvages, trouvez le lieu idéal pour vous rafraîchir cet été.",
+  "spotsCount": 8,
+  "spots": [
+    {
+      "code": "FRJ2781064D081074",
+      "name": "RETENUE DE VERE-GRESIGNE",
+      "city": "CASTELNAU-DE-MONTMIRAL",
+      "type": "Lac",
+      "score": 85,
+      "image": null,
+      "description": "Niché au cœur du Tarn, la retenue de Vère-Grésigne offre un cadre idyllique pour se rafraîchir. Ses eaux calmes invitent à la baignade et aux activités nautiques dans une ambiance sereine. Profitez des aménagements pour une journée des plus agréables, entre nature préservée et confort.",
+      "lat": 43.97087308434,
+      "lng": 1.78894422674,
+      "distance": "49.2 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ],
+      "note": "Un lieu familial avec des équipements complets pour un confort optimal."
+    },
+    {
+      "code": "FRJ2781078D081003",
+      "name": "CAMPING SAINT-CHARLES",
+      "city": "DAMIATTE",
+      "type": "Lac",
+      "score": 85,
+      "image": null,
+      "description": "Autour de Damiatte, ce lac propose un espace de baignade des plus accueillants. Idéal pour les familles, il combine la joie de l'eau avec des services pratiques. Venez profiter d'une journée de détente au bord de l'eau, sous le soleil occitan.",
+      "lat": 43.66292545763,
+      "lng": 1.97113564793,
+      "distance": "42.9 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ],
+      "note": "Un site parfait pour allier baignade et commodités, grâce à son intégration à un camping."
+    },
+    {
+      "code": "FRJ2331557D03101",
+      "name": "BAIGNADE LAC DE LA RAMEE",
+      "city": "TOURNEFEUILLE",
+      "type": "Lac",
+      "score": 75,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Colvert_sur_glace_%286865246247%29.jpg",
+      "description": "À deux pas de Tournefeuille, le lac de la Ramée est une véritable oasis urbaine. Ses rives aménagées et sa baignade surveillée en font un lieu prisé des Toulousains. Un cadre agréable pour échapper à la chaleur sans s'éloigner de la ville.",
+      "lat": 43.56789240742,
+      "lng": 1.34376107772,
+      "distance": "9.1 km",
+      "facilities": [
+        "Surveillé"
+      ],
+      "note": "La proximité avec Toulouse en fait un atout majeur pour une escapade rafraîchissante."
+    },
+    {
+      "code": "FRJ2882115D082061",
+      "name": "LAC PLAGE COTE TOBOGGAN",
+      "city": "MONCLAR-DE-QUERCY",
+      "type": "Lac",
+      "score": 70,
+      "image": null,
+      "description": "À Monclar-de-Quercy, ce lac promet des moments ludiques et rafraîchissants. Sa plage est un appel à la détente, avec des options pour s'amuser dans l'eau. Idéal pour ceux qui cherchent une ambiance animée et des activités aquatiques variées.",
+      "lat": 43.9702602,
+      "lng": 1.594097026,
+      "distance": "42.4 km",
+      "facilities": [
+        "Surveillé",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ],
+      "note": "Un espace de divertissement aquatique garanti avec toboggans et aménagements."
+    },
+    {
+      "code": "FRJ2109282D009092",
+      "name": "SAS Petit baigneur AQUAPLAYPARK",
+      "city": "SAVERDUN",
+      "type": "Lac",
+      "score": 65,
+      "image": null,
+      "description": "Près de Saverdun, découvrez un espace entièrement dédié aux plaisirs aquatiques. Ce lac est conçu pour offrir une expérience ludique et sécurisée. Une destination privilégiée pour les familles avec des enfants, à la recherche de jeux d'eau et de fraîcheur.",
+      "lat": 43.22899063265,
+      "lng": 1.61398872279,
+      "distance": "44.0 km",
+      "facilities": [
+        "Surveillé"
+      ],
+      "note": "Un véritable parc aquatique flottant pour des heures de rires et de glissades."
+    },
+    {
+      "code": "FRJ2331395D031001",
+      "name": "BAIGNADE LAC DES BONNETS MURET",
+      "city": "MURET",
+      "type": "Lac",
+      "score": 65,
+      "image": null,
+      "description": "Aux abords de Muret, ce lac offre un refuge paisible pour les amateurs de baignade. Les berges sont propices au farniente et les eaux invitent à la détente. Venez profiter d'un moment de quiétude, loin de l'agitation urbaine.",
+      "lat": 43.45648850829,
+      "lng": 1.27482809612,
+      "distance": "21.4 km",
+      "facilities": [
+        "Surveillé"
+      ]
+    },
+    {
+      "code": "FRJ2432444D032040",
+      "name": "LAC DE ST CRICQ",
+      "city": "THOUX",
+      "type": "Lac",
+      "score": 65,
+      "image": null,
+      "description": "Au cœur de la nature gersoise, le lac de St Cricq est une invitation à la sérénité. Ses eaux limpides et son environnement verdoyant en font un spot exceptionnel. Profitez d'une baignade revigorante dans un cadre authentique et préservé.",
+      "lat": 43.6884982908,
+      "lng": 1.0013382073,
+      "distance": "36.8 km",
+      "facilities": [
+        "Surveillé"
+      ],
+      "note": "Un écrin de verdure offrant une eau de baignade d'une grande pureté."
+    },
+    {
+      "code": "FRJ2781220D081022",
+      "name": "RIVIERE TARN RABASTENS",
+      "city": "RABASTENS",
+      "type": "Rivière",
+      "score": 60,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/c/c5/81_-_Rabastens_-_Le_centre_historique_au_bord_du_tarn.jpg",
+      "description": "La rivière Tarn, à Rabastens, propose une baignade plus naturelle, au fil de l'eau. C'est l'occasion de découvrir un autre aspect des plaisirs aquatiques, dans un décor pittoresque. Un lieu charmant pour une immersion rafraîchissante.",
+      "lat": 43.82148340519,
+      "lng": 1.72492212975,
+      "distance": "33.0 km",
+      "facilities": [
+        "Surveillé",
+        "Toilettes"
+      ],
+      "note": "L'opportunité unique de se baigner en rivière, une expérience différente et pittoresque."
+    }
+  ],
+  "generatedAt": "2026-02-28T08:52:52.895Z"
+}

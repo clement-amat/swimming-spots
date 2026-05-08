@@ -1,0 +1,36 @@
+<section class="relative pt-10 pb-20 px-6">
+  <div class="max-w-[1100px] mx-auto">
+    <div class="relative h-[600px] w-full overflow-hidden rounded-lg shadow-2xl group">
+      <div
+        class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+        [style.background-image]="'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7)), url(' + hero().image + ')'"
+      ></div>
+      <div class="absolute inset-0 flex flex-col items-center justify-end p-12 text-center">
+        @if (hero().badge) {
+          <span class="bg-primary text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+            {{ hero().badge }}
+          </span>
+        }
+        <h1 class="text-white text-4xl md:text-6xl font-extrabold leading-tight mb-6 max-w-4xl text-balance">
+          {{ hero().title }}
+        </h1>
+        <p class="text-white/90 text-lg md:text-xl max-w-2xl leading-relaxed font-medium mb-8">
+          {{ hero().subtitle }}
+        </p>
+        @if (hero().author) {
+          <div class="flex items-center gap-4 text-white/80">
+            <img
+              [src]="hero().author!.avatar"
+              alt="Author"
+              class="w-10 h-10 rounded-full border-2 border-white/20"
+            />
+            <div class="text-left text-sm">
+              <p class="font-bold text-white">Par {{ hero().author!.name }}</p>
+              <p>{{ hero().author!.title }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
