@@ -1,0 +1,184 @@
+{
+  "slug": "lot",
+  "hero": {
+    "title": "Les 10 meilleurs spots de baignade dans le Lot",
+    "subtitle": "Dans le Lot, les rivières sinueuses et les plans d'eau aménagés offrent une diversité de lieux pour se rafraîchir.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/41/Lac_de_Montcuq_%2846%29_-_panoramio.jpg"
+  },
+  "introText": "Le Lot est traversé par des cours d'eau majeurs et compte de nombreux plans d'eau, majoritairement surveillés en été. Cette sélection met en avant des lieux où l'on peut poser sa serviette sans surprise, que ce soit au bord d'un lac ou d'une rivière.",
+  "title": "Où se baigner dans le Lot ? Top 10 des meilleurs spots",
+  "description": "Découvrez les 10 meilleurs spots de baignade dans le Lot : lacs surveillés et plages en rivière pour se rafraîchir. Infos concrètes pour un week-end réussi.",
+  "spotsCount": 10,
+  "spots": [
+    {
+      "code": "FRJ2546201D046047",
+      "name": "PLAN D'EAU SAINT SERNIN",
+      "city": "MONTCUQ-EN-QUERCY-BLANC",
+      "type": "Lac",
+      "score": 95,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/41/Lac_de_Montcuq_%2846%29_-_panoramio.jpg",
+      "description": "En arrivant, tu découvres une étendue d'eau avec de l'herbe pour s'installer. Contrairement à d'autres lacs plus profonds, le fond descend doucement ici, parfait pour les plus jeunes. C'est l'endroit idéal pour ceux qui veulent une journée facile avec des enfants en bas âge.",
+      "lat": 44.33931102453,
+      "lng": 1.18626692144,
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ]
+    },
+    {
+      "code": "FRJ2546064D046010",
+      "name": "LAC VERT",
+      "city": "CATUS",
+      "type": "Lac",
+      "score": 85,
+      "image": null,
+      "description": "Devant toi, une grande plage de sable clair s'ouvre sur le lac. Son sable fin le distingue des autres plans d'eau du coin, où les berges sont souvent herbues. Ce spot est parfait pour ceux qui cherchent l'ambiance 'plage' au bord de l'eau, loin des rivières.",
+      "lat": 44.55078661834,
+      "lng": 1.32655374049,
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ]
+    },
+    {
+      "code": "FRJ2546114D046013",
+      "name": "PLAN D'EAU DU MOULIN BAS",
+      "city": "FRAYSSINET-LE-GELAT",
+      "type": "Lac",
+      "score": 85,
+      "image": null,
+      "description": "Tu trouveras un lac entouré d'arbres, avec des zones ombragées bienvenues. La particularité ici, c'est l'équilibre entre les aménagements et la sensation d'être un peu en retrait. Idéal pour ceux qui veulent se baigner tranquillement sans être coupés du monde.",
+      "lat": 44.58579100609,
+      "lng": 1.16627136736,
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ]
+    },
+    {
+      "code": "FRJ2546302D046043",
+      "name": "LE TOLERME",
+      "city": "SENAILLAC-LATRONQUIERE",
+      "type": "Lac",
+      "score": 85,
+      "image": null,
+      "description": "Le site offre une grande pelouse pour s'étendre avant de piquer une tête dans le Tolerme. C'est le plus grand lac de cette liste, offrant plus d'espace pour nager et pratiquer des activités nautiques. Ce plan d'eau est tout indiqué pour les groupes et ceux qui aiment avoir de la place autour d'eux.",
+      "lat": 44.82572989358,
+      "lng": 2.04780442674,
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ]
+    },
+    {
+      "code": "FRJ2546313D046038",
+      "name": "PLAN D'EAU MAS DE LA CROUX",
+      "city": "TAURIAC",
+      "type": "Lac",
+      "score": 85,
+      "image": null,
+      "description": "Tu arrives sur une rive bien entretenue, avec des tables de pique-nique à disposition. Moins fréquenté que les grands lacs, il offre une atmosphère plus posée pour se baigner. C'est un bon choix pour ceux qui cherchent la simplicité et la discrétion pour une après-midi au bord de l'eau.",
+      "lat": 44.90480761762,
+      "lng": 1.77363636589,
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ]
+    },
+    {
+      "code": "FRJ2546066D046011",
+      "name": "PLAN D'EAU DE LA CAYRE",
+      "city": "CAZALS",
+      "type": "Lac",
+      "score": 80,
+      "image": null,
+      "description": "L'eau scintille sous le soleil, avec une partie peu profonde délimitée. Sa petite taille le rend très facile à surveiller si tu as des jeunes enfants, ce qui n'est pas le cas de tous les plans d'eau du Lot. Il convient parfaitement aux familles qui privilégient la sécurité et la facilité d'accès à l'eau.",
+      "lat": 44.642388287,
+      "lng": 1.21977702708,
+      "facilities": [
+        "Surveillé",
+        "Toilettes",
+        "Eau potable"
+      ]
+    },
+    {
+      "code": "FRJ2546182D046020",
+      "name": "BASE DE CAIX",
+      "city": "LUZECH",
+      "type": "Rivière",
+      "score": 75,
+      "image": null,
+      "description": "Ici, c'est la rivière Lot qui t'attend, avec une plage aménagée au bord. C'est l'un des rares spots de rivière surveillés, offrant un courant doux et un cadre différent des lacs. C'est le lieu idéal pour ceux qui veulent l'expérience de la baignade en rivière avec un encadrement.",
+      "lat": 44.48971647857,
+      "lng": 1.29517924712,
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ],
+      "note": "C'est le seul spot de rivière surveillé de cette sélection, une véritable opportunité pour les amateurs de baignade fluviale."
+    },
+    {
+      "code": "FRJ2546256D046017",
+      "name": "PLAGE ST CIRQ",
+      "city": "SAINT-CIRQ-LAPOPIE",
+      "type": "Rivière",
+      "score": 75,
+      "image": null,
+      "description": "Sous le village perché, tu découvres une petite plage au bord du Lot, avec une vue incroyable sur les falaises. Ce qui rend cet endroit unique, c'est la perspective sur le village de Saint-Cirq-Lapopie depuis l'eau, que l'on ne retrouve nulle part ailleurs. Parfait pour les baigneurs qui aiment joindre la beauté du paysage à la fraîcheur de la rivière.",
+      "lat": 44.47026729239,
+      "lng": 1.68204818127,
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ],
+      "note": "Ce spot offre une vue exceptionnelle sur le village de Saint-Cirq-Lapopie, inscrit au patrimoine mondial de l'UNESCO."
+    },
+    {
+      "code": "FRJ2546127D046014",
+      "name": "ECOUTE S'IL PLEUT",
+      "city": "GOURDON",
+      "type": "Lac",
+      "score": 70,
+      "image": null,
+      "description": "Tu trouveras un lac paisible, entouré de verdure, avec une zone de baignade clairement délimitée. Il se distingue par son environnement très naturel et sa tranquillité, loin de l'agitation des plus grands plans d'eau. Ce spot est fait pour ceux qui cherchent la discrétion et un contact direct avec la nature.",
+      "lat": 44.75085219457,
+      "lng": 1.37669829726,
+      "facilities": [
+        "Surveillé",
+        "Eau potable"
+      ]
+    },
+    {
+      "code": "FRJ2546208D046001",
+      "name": "GLUGES",
+      "city": "MONTVALENT",
+      "type": "Rivière",
+      "score": 70,
+      "image": null,
+      "description": "Au cœur de la Dordogne lotoise, une petite plage te mène directement dans la rivière. Contrairement aux autres spots de la liste, on est ici dans un méandre de la Dordogne, offrant une baignade en rivière plus large et des paysages différents. Idéal pour ceux qui veulent explorer les berges de la Dordogne et profiter d'une baignade en pleine nature.",
+      "lat": 44.90810719559,
+      "lng": 1.62112730159,
+      "facilities": [
+        "Surveillé",
+        "Toilettes",
+        "Eau potable"
+      ],
+      "note": "Ce spot se situe directement sur la rivière Dordogne, une alternative aux lacs du Lot."
+    }
+  ],
+  "generatedAt": "2026-05-08T13:15:28.389Z"
+}

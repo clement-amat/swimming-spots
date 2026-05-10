@@ -1,0 +1,198 @@
+{
+  "slug": "montpellier",
+  "hero": {
+    "title": "Les 10 meilleurs spots de baignade autour de Montpellier",
+    "subtitle": "Autour de Montpellier, on a la chance de varier les plaisirs entre les étangs salés, la Méditerranée et les eaux douces de l'arrière-pays.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Crique_de_l%27Anau%2C_S%C3%A8te%2C_H%C3%A9rault_03.jpg"
+  },
+  "introText": "Autour de Montpellier, la baignade prend plusieurs visages, entre les étangs côtiers, la Méditerranée et les lacs intérieurs. On a regroupé ici les endroits où l'eau est belle et l'accès pratique, pour éviter les mauvaises surprises.",
+  "title": "Où se baigner autour de Montpellier ? Top 10 des meilleurs spots",
+  "description": "Découvre les meilleurs spots de baignade autour de Montpellier : plages de mer, étangs et lacs pour se rafraîchir. Infos concrètes pour ton week-end.",
+  "spotsCount": 10,
+  "spots": [
+    {
+      "code": "FRJ1334301M034120",
+      "name": "PLAGE DU LAZARET",
+      "city": "SETE",
+      "type": "Eau côtière",
+      "score": 120,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Crique_de_l%27Anau%2C_S%C3%A8te%2C_H%C3%A9rault_03.jpg",
+      "description": "En arrivant au Lazaret, on découvre une longue étendue de sable fin avec vue sur Sète. Ce qui la rend unique, c'est son accessibilité pour tous et la douceur de son déclivité dans l'eau. C'est le lieu parfait pour ceux qui cherchent une plage aménagée avec toutes les commodités.",
+      "lat": 43.39232085191,
+      "lng": 3.67289268994,
+      "distance": "29.3 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ]
+    },
+    {
+      "code": "FRJ1334157M034140",
+      "name": "ETANG DE THAU - LA PLAGETTE",
+      "city": "MEZE",
+      "type": "Eau côtière",
+      "score": 115,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/63/Meze_plage.JPG",
+      "description": "Quand tu poses ta serviette à La Plagette, tu te trouves directement face à l'étendue de l'étang de Thau, avec les parcs à huîtres au loin. Contrairement aux plages de mer, l'eau y est moins salée et plus tempérée, idéale pour les premières baignades de saison. Elle convient bien aux baigneurs qui préfèrent avoir pied longtemps et aux repas sur le pouce au bord de l'eau.",
+      "lat": 43.42226123722,
+      "lng": 3.60755253629,
+      "distance": "30.2 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ],
+      "note": "L'étang de Thau offre une expérience de baignade en eau salée mais sans les vagues de la mer, très appréciable."
+    },
+    {
+      "code": "FRJ1334157M034145",
+      "name": "ETANG DE THAU - VILLAGE VACANCES",
+      "city": "MEZE",
+      "type": "Eau côtière",
+      "score": 115,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/f6/M%C3%A8ze_etang.JPG",
+      "description": "La plage du Village Vacances à Mèze, c'est l'assurance d'un coin tranquille sur l'étang, souvent moins fréquenté que La Plagette. Sa particularité, c'est son cadre plus en retrait, avec moins de passage et plus de verdure aux abords immédiats. C'est l'endroit idéal pour ceux qui veulent un après-midi calme au bord de l'eau avec les commodités à portée de main.",
+      "lat": 43.42055961337,
+      "lng": 3.6029430772,
+      "distance": "30.6 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ]
+    },
+    {
+      "code": "FRL0413096M013010",
+      "name": "LES ARENES",
+      "city": "SAINTES-MARIES-DE-LA-MER",
+      "type": "Eau côtière",
+      "score": 110,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/5/58/Stes_Maries_de_la_Mer_plage_mole_9908.jpg",
+      "description": "Aux Saintes-Maries-de-la-Mer, on débarque sur une plage de sable qui s'étire à perte, avec un horizon dégagé sur la Méditerranée. Ce qui distingue ce spot, c'est l'immensité de l'espace et l'ambiance camarguaise, loin de l'agitation des stations balnéaires. C'est un excellent choix pour les grandes tablées d'amis ou les familles qui veulent de la place pour s'étendre.",
+      "lat": 43.44909666935,
+      "lng": 4.42792189388,
+      "distance": "47.9 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes"
+      ]
+    },
+    {
+      "code": "FRJ1334079D034690",
+      "name": "LAC DU SALAGOU-PLAGE DU CAMPING",
+      "city": "CLERMONT-L'HERAULT",
+      "type": "Lac",
+      "score": 105,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Liausson_and_Salagou_Lake_01.jpg",
+      "description": "En arrivant à la plage du camping du Salagou, tu es face à l'eau rougeoyante du lac, entouré par les collines arides. Ce spot offre une baignade en eau douce avec la particularité d'un fond de lac souvent sableux, qui contraste avec les rives argileuses. Il convient parfaitement aux familles cherchant une baignade surveillée et une base de départ pour les activités nautiques.",
+      "lat": 43.64662588792,
+      "lng": 3.38630449996,
+      "distance": "39.7 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ],
+      "note": "C'est l'un des rares spots de baignade en eau douce de la région avec une eau de cette couleur si caractéristique."
+    },
+    {
+      "code": "FRJ1334301M034112",
+      "name": "PLAGE DES TROIS DIGUES",
+      "city": "SETE",
+      "type": "Eau côtière",
+      "score": 105,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Plage_des_3_digues.jpg",
+      "description": "Aux Trois Digues, on se retrouve sur un long cordon littoral, entre les dunes et la mer ouverte, avec le vent qui fait chanter les herbes. Sa spécificité est d'être plus sauvage que les plages urbaines de Sète, avec moins de constructions en arrière-plan. Elle est parfaite pour ceux qui aiment les grandes étendues pour marcher et sentir la force de la Méditerranée.",
+      "lat": 43.36808434646,
+      "lng": 3.62015120178,
+      "distance": "34.0 km",
+      "facilities": [
+        "Surveillé",
+        "Toilettes"
+      ]
+    },
+    {
+      "code": "FRJ1334192M034185",
+      "name": "RIVE GAUCHE - HOTEL DE VILLE",
+      "city": "PALAVAS-LES-FLOTS",
+      "type": "Eau côtière",
+      "score": 100,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Home_%28190055265%29.jpeg",
+      "description": "À Palavas Rive Gauche, tu es au cœur de l'animation, avec le front de mer et ses restaurants juste derrière le sable. L'avantage ici, c'est la facilité d'accès et la proximité de toutes les commodités d'une ville balnéaire animée. C'est un bon spot pour ceux qui veulent combiner baignade et vie de station, avec un accès facile pour les personnes à mobilité réduite.",
+      "lat": 43.5286325249,
+      "lng": 3.93659173223,
+      "distance": "10.3 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ]
+    },
+    {
+      "code": "FRJ1334072D034730",
+      "name": "LAC DU SALAGOU-LES VAILHES",
+      "city": "CELLES",
+      "type": "Lac",
+      "score": 95,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Landscape_near_Lac_du_Salagou_%281%29.jpg",
+      "description": "Le site des Vailhes au lac du Salagou t'accueille avec ses rives rouges et un point de vue imprenable sur le lac. Contrairement à la plage du camping, Les Vailhes offre des criques plus intimes et des zones rocheuses pour l'exploration sous-marine. C'est idéal pour ceux qui aiment les baignades un peu plus sportives ou pour les amateurs de paddle et de kayak.",
+      "lat": 43.66815077341,
+      "lng": 3.35691031448,
+      "distance": "42.3 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ]
+    },
+    {
+      "code": "FRJ1334003M034080",
+      "name": "RICHELIEU",
+      "city": "AGDE",
+      "type": "Eau côtière",
+      "score": 90,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/14/Coche_d%27eau_-_Cap_d%27Agde%2C_2016.jpg",
+      "description": "À Richelieu, on arrive sur une plage large et accueillante, typique des grandes plages du Cap d'Agde, avec une mer qui invite au grand bain. Ce qui la distingue, c'est sa taille impressionnante qui permet de toujours trouver de la place, même en pleine saison. Elle est parfaite pour les familles qui cherchent une plage avec toutes les infrastructures et une eau peu profonde sur les premiers mètres.",
+      "lat": 43.27508138237,
+      "lng": 3.49683619672,
+      "distance": "48.3 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ]
+    },
+    {
+      "code": "FRJ1334003M034087",
+      "name": "LA ROQUILLE",
+      "city": "AGDE",
+      "type": "Eau côtière",
+      "score": 90,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/65/Plage.jpeg",
+      "description": "La Roquille, c'est une autre belle étendue de sable d'Agde, souvent un peu moins dense que Richelieu, avec des aménagements bien intégrés. Son atout, c'est d'offrir une ambiance plus locale, avec des habitués et un accès aisé aux services sans l'affluence du centre. C'est un bon choix pour ceux qui veulent la commodité d'une plage surveillée sans l'agitation la plus forte.",
+      "lat": 43.28830442917,
+      "lng": 3.52550703003,
+      "distance": "45.7 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ]
+    }
+  ],
+  "generatedAt": "2026-05-08T12:58:40.107Z"
+}

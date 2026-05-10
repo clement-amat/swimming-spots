@@ -1,0 +1,196 @@
+{
+  "slug": "saint-etienne",
+  "hero": {
+    "title": "Les 10 meilleurs spots de baignade autour de Saint-Étienne",
+    "subtitle": "Entre les Monts du Forez et les Gorges de la Loire, la région stéphanoise offre une variété de plans d'eau naturels et de rivières pour se rafraîchir.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Saint_Victor_sur_Loire-Plage-20151102.jpg"
+  },
+  "introText": "Autour de Saint-Étienne, tu trouves surtout des lacs de barrage et quelques rivières pour te baigner. Cette sélection met en avant des lieux où l'eau est régulièrement contrôlée, avec des aménagements pour une baignade facile.",
+  "title": "Où se baigner autour de Saint-Étienne ? Top 10 des meilleurs spots",
+  "description": "Découvre les 10 meilleurs spots de baignade autour de Saint-Étienne. Lacs et rivières contrôlés, avec infos pratiques pour se rafraîchir et profiter des environs.",
+  "spotsCount": 10,
+  "spots": [
+    {
+      "code": "FRK2542218D042061",
+      "name": "RET.GRANGENT - BASE NAUTIQUE  ",
+      "city": "SAINT-ETIENNE",
+      "type": "Lac",
+      "score": 100,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Saint_Victor_sur_Loire-Plage-20151102.jpg",
+      "description": "On arrive sur une grande plage de sable fin aménagée au bord du lac. C'est le spot le plus proche de Saint-Étienne, avec toutes les infrastructures pour une journée complète. Parfait pour ceux qui cherchent une baignade surveillée avec des activités nautiques à portée de main.",
+      "lat": 45.44792284773,
+      "lng": 4.25463609389,
+      "distance": "10.4 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ]
+    },
+    {
+      "code": "FRK1343114D043600",
+      "name": "BARRAGE LAVALETTE",
+      "city": "LAPTE",
+      "type": "Lac",
+      "score": 90,
+      "image": null,
+      "description": "La vue sur le barrage et le lac, bordé de forêts, est dégagée et agréable. Contrairement à d'autres lacs, ici les berges sont plus sauvages, avec des zones ombragées naturelles. Idéal pour ceux qui aiment nager dans un environnement plus discret.",
+      "lat": 45.15092528835,
+      "lng": 4.21851814293,
+      "distance": "34.7 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ]
+    },
+    {
+      "code": "FRK2326295D026990",
+      "name": "LAC LES VERNETS DE GALAURE",
+      "city": "SAINT-BARTHELEMY-DE-VALS",
+      "type": "Lac",
+      "score": 85,
+      "image": null,
+      "description": "Tu découvres un lac bordé de prairies, avec un accès facile à l'eau depuis la plage en herbe. L'eau y est peu profonde sur une bonne distance, ce qui est pratique pour les jeunes enfants. Ce lac est vraiment adapté pour les familles qui veulent patauger en toute tranquillité.",
+      "lat": 45.17656154133,
+      "lng": 4.88415136313,
+      "distance": "48.6 km",
+      "facilities": [
+        "Surveillé",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ]
+    },
+    {
+      "code": "FRK2669064D069044",
+      "name": "PLAN D'EAU DE CONDRIEU-LES ROCHES",
+      "city": "CONDRIEU",
+      "type": "Lac",
+      "score": 85,
+      "image": null,
+      "description": "On accède à une grande étendue d'eau, avec une zone de baignade bien délimitée près de la base nautique. C'est un des rares plans d'eau où tu peux observer des péniches passer sur le Rhône tout proche. C'est un bon choix pour combiner baignade et observation du paysage fluvial.",
+      "lat": 45.45877582436,
+      "lng": 4.78110647432,
+      "distance": "30.8 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ]
+    },
+    {
+      "code": "FRK1343012D043133",
+      "name": "BASE MULTISPORTS",
+      "city": "AUREC-SUR-LOIRE",
+      "type": "Rivière",
+      "score": 85,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/3/31/Aurec_sur_Loire-La_Loire-20160326.jpg",
+      "description": "Tu plonges directement dans la Loire, l'eau est claire et le courant léger à cet endroit. C'est le seul spot de rivière de cette liste où l'on peut se baigner avec surveillance. Recommandé pour ceux qui préfèrent l'eau vive et le décor naturel d'une rivière.",
+      "lat": 45.36828895149,
+      "lng": 4.19671607846,
+      "distance": "16.9 km",
+      "facilities": [
+        "Surveillé",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ],
+      "note": "C'est le seul spot de rivière surveillé de la sélection."
+    },
+    {
+      "code": "FRK1463319D063160",
+      "name": "PLAN D'EAU DE ST ANTHEME",
+      "city": "SAINT-ANTHEME",
+      "type": "Lac",
+      "score": 85,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/87/Vue_Village_-_Saint-Anth%C3%A8me_%28FR63%29_-_2025-06-29_-_1.jpg",
+      "description": "Le lac apparaît au milieu des paysages vallonnés des Monts du Forez. L'eau ici est généralement plus fraîche qu'ailleurs, grâce à l'altitude. Si tu aimes les baignades revigorantes et l'air pur de la montagne, c'est l'endroit qu'il te faut.",
+      "lat": 45.52385294998,
+      "lng": 3.91608032017,
+      "distance": "37.9 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ]
+    },
+    {
+      "code": "FRK1343051D043140",
+      "name": "PLAN D'EAU",
+      "city": "CHAMBON-SUR-LIGNON (LE)",
+      "type": "Lac",
+      "score": 80,
+      "image": null,
+      "description": "On découvre un plan d'eau entouré de verdure, avec des arbres qui bordent les rives. Ce spot propose une ambiance plus calme et moins fréquentée que les grands lacs. Ceux qui cherchent à nager et se poser dans un cadre simple apprécieront ce lieu.",
+      "lat": 45.05299640039,
+      "lng": 4.31730746581,
+      "distance": "43.3 km",
+      "facilities": [
+        "Surveillé",
+        "Toilettes",
+        "Eau potable"
+      ]
+    },
+    {
+      "code": "FRK2207114D007602",
+      "name": "LE DOUX A LA PLAGE DE LABATIE",
+      "city": "LABATIE-D'ANDAURE",
+      "type": "Rivière",
+      "score": 80,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Labatie_d%27Andaure.JPG",
+      "description": "La rivière Le Doux serpente ici entre les rochers et la végétation. C'est le spot idéal pour découvrir la baignade en rivière avec un vrai cachet sauvage. Si tu as envie de nager dans une eau de rivière sans l'affluence des plages, c'est l'endroit.",
+      "lat": 45.02701985549,
+      "lng": 4.49596239972,
+      "distance": "46.7 km",
+      "facilities": [
+        "Surveillé",
+        "Toilettes",
+        "Eau potable"
+      ]
+    },
+    {
+      "code": "FRK2207080D007405",
+      "name": "LE LAC DE DEVESSET",
+      "city": "DEVESSET",
+      "type": "Lac",
+      "score": 65,
+      "image": null,
+      "description": "Le lac s'étend, on voit les arbres se refléter à la surface. Ici, l'environnement est plus rustique, avec des activités nautiques légères. Bien pour ceux qui veulent une baignade simple et un pique-nique au bord de l'eau.",
+      "lat": 45.05158627235,
+      "lng": 4.39395576807,
+      "distance": "43.2 km",
+      "facilities": [
+        "Surveillé",
+        "Toilettes",
+        "Eau potable"
+      ]
+    },
+    {
+      "code": "FRK2542204D042030",
+      "name": "PLAN D'EAU VILLENEUVE",
+      "city": "SAINT-BONNET-LE-CHATEAU",
+      "type": "Lac",
+      "score": 65,
+      "image": null,
+      "description": "Tu arrives sur une berge herbeuse qui descend doucement vers le plan d'eau. C'est un lieu qui propose une ambiance très locale, loin des foules. Parfait pour ceux qui cherchent à nager et profiter d'un moment paisible.",
+      "lat": 45.4189082695,
+      "lng": 4.07503382938,
+      "distance": "24.5 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ]
+    }
+  ],
+  "generatedAt": "2026-05-08T12:59:30.275Z"
+}

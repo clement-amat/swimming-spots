@@ -1,0 +1,170 @@
+{
+  "slug": "bordeaux",
+  "hero": {
+    "title": "Les 10 meilleurs spots de baignade autour de Bordeaux",
+    "subtitle": "Autour de Bordeaux, entre l'océan Atlantique et l'arrière-pays girondin, les lacs offrent une alternative rafraîchissante pour se baigner.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/75/Etang_de_Carcans_de_nuit_01.jpg"
+  },
+  "introText": "La Gironde compte une multitude de lacs propices à la baignade, souvent aménagés et surveillés. Cette sélection met en avant des lieux où l'on trouve de quoi poser sa serviette sans se marcher dessus, avec une qualité d'eau contrôlée.",
+  "title": "Où se baigner autour de Bordeaux ? Top 10 des meilleurs spots",
+  "description": "Découvrez les meilleurs spots de baignade autour de Bordeaux. Lacs aménagés et surveillés, infos concrètes pour se rafraîchir en Gironde ce week-end.",
+  "spotsCount": 10,
+  "spots": [
+    {
+      "code": "FRI1233097D033300",
+      "name": "PLAGE DU MONTAUT",
+      "city": "CARCANS",
+      "type": "Lac",
+      "score": 85,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/7/75/Etang_de_Carcans_de_nuit_01.jpg",
+      "description": "En arrivant, la grande étendue de sable fin invite à s'installer immédiatement. Ce spot se distingue par son accessibilité pour les personnes à mobilité réduite et ses aménagements complets. C'est parfait pour ceux qui cherchent une journée complète au bord de l'eau avec toutes les commodités.",
+      "lat": 45.06219923933,
+      "lng": -1.12792753101,
+      "distance": "49.9 km",
+      "facilities": [
+        "Surveillé",
+        "Eau potable",
+        "Accès PMR"
+      ]
+    },
+    {
+      "code": "FRI1233039D033060",
+      "name": "PLAINE DES SPORTS",
+      "city": "BEGLES",
+      "type": "Lac",
+      "score": 75,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/d2/B%C3%A8gles_Plage.jpg",
+      "description": "On arrive sur une plage urbaine bien entretenue, avec des pelouses pour se poser. Ici, on est en ville mais l'ambiance est décontractée, avec un accès facile depuis l'agglomération bordelaise. Idéal pour une pause baignade rapide après le travail ou un week-end sans trop s'éloigner.",
+      "lat": 44.80270310437,
+      "lng": -0.53593108046,
+      "distance": "5.2 km",
+      "facilities": [
+        "Surveillé"
+      ]
+    },
+    {
+      "code": "FRI1233063D033070",
+      "name": "LAC DE BORDEAUX",
+      "city": "BORDEAUX",
+      "type": "Lac",
+      "score": 75,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Lac_de_Bordeaux_-_panoramio.jpg",
+      "description": "On découvre une grande plage surveillée, populaire et facile d'accès depuis le centre-ville. Sa particularité est d'être le spot le plus proche de Bordeaux même, permettant un bain rapide sans long trajet. Ce lieu est fait pour les citadins qui veulent piquer une tête sans quitter l'agglomération.",
+      "lat": 44.8791027635,
+      "lng": -0.57441360273,
+      "distance": "4.6 km",
+      "facilities": [
+        "Surveillé"
+      ]
+    },
+    {
+      "code": "FRI1233138D033138",
+      "name": "LAC DES NAUVES",
+      "city": "COUTRAS",
+      "type": "Lac",
+      "score": 75,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Dogue_allemand.jpg",
+      "description": "En bordure de forêt, on découvre un lac plus intime, avec des zones ombragées bienvenues. Contrairement aux grands lacs touristiques, celui-ci offre une atmosphère plus locale et moins fréquentée. Il convient aux familles ou aux groupes qui préfèrent la tranquillité et la verdure.",
+      "lat": 45.05452895041,
+      "lng": -0.10000488235,
+      "distance": "44.8 km",
+      "facilities": [
+        "Surveillé"
+      ]
+    },
+    {
+      "code": "FRI1233214D033032",
+      "name": "LA GRANDE ESCOURE",
+      "city": "LACANAU",
+      "type": "Lac",
+      "score": 75,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/86/33680_Lacanau%2C_France_-_panoramio.jpg",
+      "description": "On arrive sur une zone aménagée du Lac de Lacanau, avec une grande plage ouverte. Ce spot est l'un des plus étendus et offre beaucoup d'espace pour étaler sa serviette même en pleine saison. C'est le lieu parfait pour ceux qui aiment les grandes étendues d'eau et les activités nautiques.",
+      "lat": 44.96743447357,
+      "lng": -1.14067925909,
+      "distance": "46.5 km",
+      "facilities": [
+        "Surveillé"
+      ]
+    },
+    {
+      "code": "FRI1233202D033041",
+      "name": "LAC DEPARTEMENTAL PLAGE 2",
+      "city": "HOSTENS",
+      "type": "Lac",
+      "score": 70,
+      "image": null,
+      "description": "On se retrouve au cœur d'une forêt de pins, le sol est sablonneux avant l'eau. Ce lac offre plusieurs plages et la Plage 2 est souvent la moins bondée, permettant plus d'intimité. Il est idéal pour ceux qui cherchent à combiner baignade et balade en pleine nature.",
+      "lat": 44.50062627046,
+      "lng": -0.64779210531,
+      "distance": "37.9 km",
+      "facilities": [
+        "Surveillé",
+        "Eau potable"
+      ]
+    },
+    {
+      "code": "FRI1233057D033045",
+      "name": "LAC DEPARTEMENTAL DE BLASIMON",
+      "city": "BLASIMON",
+      "type": "Lac",
+      "score": 65,
+      "image": null,
+      "description": "La route serpente à travers la campagne avant d'arriver à ce lac familial bien équipé. Ce qui le rend unique, c'est son ambiance rurale et sa position un peu plus à l'est de l'agglomération, loin de l'effervescence du littoral. Parfait pour les jeunes enfants et ceux qui veulent un après-midi baignade sans chichi.",
+      "lat": 44.75393165714,
+      "lng": -0.08582513607,
+      "distance": "40.0 km",
+      "facilities": [
+        "Surveillé"
+      ]
+    },
+    {
+      "code": "FRI1233157D033024",
+      "name": "TERRES BLANCHES",
+      "city": "ESPIET",
+      "type": "Lac",
+      "score": 65,
+      "image": null,
+      "description": "On découvre un petit lac au milieu des vignobles, une surprise pour le coin. Sa singularité est son environnement viticole, une ambiance différente des lacs forestiers ou urbains. Il s'adresse à ceux qui apprécient un cadre calme et bucolique pour se rafraîchir.",
+      "lat": 44.79781255788,
+      "lng": -0.26930367749,
+      "distance": "24.8 km",
+      "facilities": [
+        "Surveillé"
+      ]
+    },
+    {
+      "code": "FRI1233243D033112",
+      "name": "LES DAGUEYS",
+      "city": "LIBOURNE",
+      "type": "Lac",
+      "score": 65,
+      "image": null,
+      "description": "En arrivant, on voit une grande base de loisirs avec de multiples activités au-delà de la baignade. Ce lac se distingue par son complexe sportif adjacent, ce n'est pas qu'un simple lieu de baignade. Le lieu est adapté aux groupes et aux sportifs qui veulent combiner natation et autres loisirs.",
+      "lat": 44.94848384879,
+      "lng": -0.24483411894,
+      "distance": "29.1 km",
+      "facilities": [
+        "Surveillé",
+        "Toilettes",
+        "Accès PMR"
+      ]
+    },
+    {
+      "code": "FRI1233382D033095",
+      "name": "LAC DU MOULIN BLANC",
+      "city": "SAINT-CHRISTOLY-DE-BLAYE",
+      "type": "Lac",
+      "score": 65,
+      "image": null,
+      "description": "On arrive sur une plage simple mais bien tenue, entourée de verdure. Ce spot, plus au nord, offre une alternative intéressante aux lacs plus fréquentés de la région. C'est un bon choix pour ceux qui recherchent un endroit tranquille et moins connu pour se baigner.",
+      "lat": 45.15298256802,
+      "lng": -0.47426172787,
+      "distance": "36.0 km",
+      "facilities": [
+        "Surveillé"
+      ]
+    }
+  ],
+  "generatedAt": "2026-05-08T12:59:13.050Z"
+}

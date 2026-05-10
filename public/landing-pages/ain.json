@@ -1,0 +1,185 @@
+{
+  "slug": "ain",
+  "hero": {
+    "title": "Les 10 meilleurs spots de baignade dans l'Ain",
+    "subtitle": "Dans l'Ain, entre lacs de montagne et rivières sinueuses, l'eau claire est souvent au rendez-vous.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/90/%C3%89tang_de_Lalleyriat%2C_Le_Poizat-Lalleyriat%2C_hiver%2C_2024_%28hockey-sur-glace%29.jpg"
+  },
+  "introText": "Le département de l'Ain offre une belle diversité de plans d'eau, des lacs naturels aux rivières. Notre sélection met en avant des lieux où l'eau est de bonne qualité et souvent surveillée.",
+  "title": "Où se baigner dans l'Ain ? Top 10 des meilleurs spots",
+  "description": "Découvrez les meilleurs spots de baignade dans l'Ain. Lacs et rivières surveillés pour se rafraîchir ce week-end. Infos pratiques et concrètes.",
+  "spotsCount": 10,
+  "spots": [
+    {
+      "code": "FRK2101204D001631",
+      "name": "PLAN D'EAU DE LE POIZAT - LALLEYRIAT",
+      "city": "POIZAT-LALLEYRIAT (LE)",
+      "type": "Lac",
+      "score": 100,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/90/%C3%89tang_de_Lalleyriat%2C_Le_Poizat-Lalleyriat%2C_hiver%2C_2024_%28hockey-sur-glace%29.jpg",
+      "description": "En arrivant, on découvre un grand espace vert avec ce plan d'eau entouré de verdure. C'est l'un des rares plans d'eau d'altitude du département, ce qui lui donne une sensation particulière de fraîcheur et un environnement montagnard. Parfait pour ceux qui cherchent une baignade en pleine nature avec toutes les commodités à portée de main.",
+      "lat": 46.15129372272,
+      "lng": 5.71341983596,
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ]
+    },
+    {
+      "code": "FRK2101143D001620",
+      "name": "DIVONNE-LES-BAINS - LAC DE DIVONNE",
+      "city": "DIVONNE-LES-BAINS",
+      "type": "Lac",
+      "score": 95,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/06/Wonderful_Jcobsladders_above_the_lake_at_Divonne_les_Bains_France_at_13_May_2015_-_panoramio.jpg",
+      "description": "La plage de Divonne s'ouvre sur un lac aux reflets changeants, avec les montagnes du Jura en toile de fond. Son cadre est plus urbanisé et aménagé que d'autres, avec une ambiance un peu plus chic grâce à la proximité de la ville thermale. Idéal pour ceux qui aiment combiner baignade et activités annexes, avec une qualité de services élevée.",
+      "lat": 46.35401680196,
+      "lng": 6.14946355436,
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ]
+    },
+    {
+      "code": "FRK2101087D001600",
+      "name": "CHARIX - LAC GENIN",
+      "city": "CHARIX",
+      "type": "Lac",
+      "score": 90,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Lac_Genin_2015.jpg",
+      "description": "Quand on arrive au Lac Genin, on est frappé par l'aspect très forestier des lieux, un vrai petit lac de montagne. C'est le seul \"lac écossais\" de l'Ain, avec ses sapins qui plongent presque dans l'eau et son ambiance plus sauvage que les autres lacs. Un spot pour les amateurs de calme et de baignade en pleine forêt, loin de l'agitation.",
+      "lat": 46.22020927235,
+      "lng": 5.69612885908,
+      "facilities": [
+        "Surveillé",
+        "Toilettes",
+        "Eau potable"
+      ]
+    },
+    {
+      "code": "FRK2101269D001661",
+      "name": "LAC DE NANTUA -  PLAGE DE LA COLONNE",
+      "city": "NANTUA",
+      "type": "Lac",
+      "score": 90,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/3/31/P%C3%A9dalos_Lac_partie_est_Nantua_1.jpg",
+      "description": "La plage de la Colonne offre une vue dégagée sur les falaises qui bordent le lac de Nantua. Ce lac est connu pour ses eaux profondes et son environnement escarpé, ce qui le différencie des plans d'eau plus plats et il est souvent plus frais. Un bon choix pour ceux qui aiment les grands lacs et nager sur de bonnes distances, avec un décor impressionnant.",
+      "lat": 46.15504753438,
+      "lng": 5.59756954257,
+      "facilities": [
+        "Surveillé",
+        "Toilettes",
+        "Accès PMR"
+      ]
+    },
+    {
+      "code": "FRK2101010D001530",
+      "name": "PLAN D'EAU D'ANGLEFORT",
+      "city": "ANGLEFORT",
+      "type": "Lac",
+      "score": 85,
+      "image": null,
+      "description": "Le plan d'eau d'Anglefort est un lac artificiel simple et efficace, bien intégré dans le paysage local. Il est moins fréquenté que les grands lacs et offre une ambiance plus locale, sans fioritures mais très fonctionnel pour une baignade rapide. C'est le spot parfait pour une baignade improvisée après une randonnée ou pour ceux qui cherchent la simplicité.",
+      "lat": 45.90461858521,
+      "lng": 5.81195997437,
+      "facilities": [
+        "Surveillé",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ]
+    },
+    {
+      "code": "FRK2101053D001570",
+      "name": "BOURG EN BRESSE - PLAN D'EAU DU PARC DE LOISIRS DE BOUVENT",
+      "city": "BOURG-EN-BRESSE",
+      "type": "Lac",
+      "score": 85,
+      "image": null,
+      "description": "À Bouvent, le plan d'eau est une attraction principale du grand parc de loisirs, facile d'accès depuis la ville. Son côté \"urbain\" le rend unique dans cette liste, c'est un coin de nature en pleine agglomération, avec toutes les installations d'un parc de loisirs. Idéal pour les habitants de Bourg-en-Bresse et ceux qui veulent profiter d'une baignade avec des activités complémentaires.",
+      "lat": 46.18920188922,
+      "lng": 5.2612983041,
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ]
+    },
+    {
+      "code": "FRK2101058D001580",
+      "name": "BREGNIER-CORDON - PLAN D'EAU COMMUNAL DE GLANDIEU",
+      "city": "BREGNIER-CORDON",
+      "type": "Lac",
+      "score": 85,
+      "image": null,
+      "description": "En arrivant à Glandieu, le plan d'eau se dévoile au pied d'une cascade, un élément rare dans le département. La présence immédiate de la cascade de Glandieu donne à ce spot un attrait visuel unique, un vrai plus par rapport aux autres lacs de la liste. Un lieu qui plaira à ceux qui aiment les particularités naturelles et les baignades avec un petit plus.",
+      "lat": 45.65660355498,
+      "lng": 5.60948518839,
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ],
+      "note": "La cascade de Glandieu juste à côté ajoute un attrait unique à ce plan d'eau."
+    },
+    {
+      "code": "FRK2101229D001650",
+      "name": "MALAFRETAZ - PLAN D'EAU DE LA BASE DE PLEIN AIR LA PLAINE TONIQUE",
+      "city": "MALAFRETAZ",
+      "type": "Lac",
+      "score": 85,
+      "image": null,
+      "description": "La Plaine Tonique est un immense complexe, et le plan d'eau en est le cœur, très animé et bien équipé. C'est de loin le spot le plus orienté \"activités\" de la liste, avec une offre sportive et de loisirs autour de l'eau très complète et un lac vaste. Parfait pour ceux qui cherchent une journée complète d'activités nautiques et de baignade, avec une ambiance vivante.",
+      "lat": 46.34088707455,
+      "lng": 5.13900099347,
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ]
+    },
+    {
+      "code": "FRK2101184D001110",
+      "name": "HAUTECOURT-ROMANECHE - PLAGE DE L'ILE CHAMBOD RIVIERE D'AIN",
+      "city": "HAUTECOURT-ROMANECHE",
+      "type": "Rivière",
+      "score": 85,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/2/28/Ile_Chambod_2.jpg",
+      "description": "À Hauteville-Romaneche, on arrive sur une vraie plage de galets au bord de la rivière d'Ain, avec son courant caractéristique. C'est le seul spot de rivière surveillé de cette sélection, offrant une expérience différente des lacs avec le plaisir de l'eau vive. Idéal pour ceux qui préfèrent le dynamisme d'une rivière et la sensation du courant, avec la sécurité d'une zone surveillée.",
+      "lat": 46.12942546162,
+      "lng": 5.43237199412,
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ],
+      "note": "C'est l'unique spot de baignade en rivière surveillée de toute notre sélection, ce qui est une rareté."
+    },
+    {
+      "code": "FRK2101302D001670",
+      "name": "POLLIEU - PLAGE DU LAC DE BARTERAND",
+      "city": "POLLIEU",
+      "type": "Lac",
+      "score": 80,
+      "image": null,
+      "description": "Le Lac de Barterand à Pollieu est un endroit tranquille, entouré de verdure, qui invite à la pause. Ce lac est moins profond que certains de ses homologues, et ses abords sont plus doucement inclinés, ce qui le rend accessible facilement. Un très bon choix pour ceux qui recherchent une baignade paisible et un peu plus de chaleur dans l'eau.",
+      "lat": 45.78677151773,
+      "lng": 5.74636701492,
+      "facilities": [
+        "Surveillé",
+        "Toilettes",
+        "Eau potable"
+      ]
+    }
+  ],
+  "generatedAt": "2026-05-08T13:13:29.783Z"
+}

@@ -1,0 +1,205 @@
+{
+  "slug": "strasbourg",
+  "hero": {
+    "title": "Les 10 meilleurs spots de baignade autour de Strasbourg",
+    "subtitle": "Autour de Strasbourg, les lacs de gravière offrent des étendues d'eau douce idéales pour se rafraîchir.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Etang_Schmalenthalerweiher.jpg"
+  },
+  "introText": "Le Bas-Rhin regorge de plans d'eau souvent issus d'anciennes gravières, faciles d'accès depuis Strasbourg. Cette sélection met en avant des lieux où l'on peut vraiment se poser et profiter, loin des foules habituelles.",
+  "title": "Où se baigner autour de Strasbourg ? Top 10 des meilleurs spots",
+  "description": "Découvrez les meilleurs spots de baignade autour de Strasbourg pour ce week-end. Infos pratiques et descriptions concrètes pour profiter des lacs du Bas-Rhin.",
+  "spotsCount": 10,
+  "spots": [
+    {
+      "code": "FRF3357046D057030",
+      "name": "ETANG DE LA BASE DE PLEIN AIR DU RAMSTEIN",
+      "city": "BAERENTHAL",
+      "type": "Lac",
+      "score": 100,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Etang_Schmalenthalerweiher.jpg",
+      "description": "En arrivant, on voit d'abord la forêt dense qui borde l'étang, avec des jeux pour enfants près de la plage. Ce qui le distingue, c'est son environnement boisé très présent, donnant une sensation de vraie nature. Il est parfait pour ceux qui cherchent une journée complète en famille avec des activités variées.",
+      "lat": 48.98123767597,
+      "lng": 7.51376987211,
+      "distance": "48.6 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ],
+      "note": "C'est l'un des rares spots au cœur du Parc Naturel Régional des Vosges du Nord."
+    },
+    {
+      "code": "FRF1167151D067080",
+      "name": "ZONE DE LOISIRS GAMBSHEIM",
+      "city": "GAMBSHEIM",
+      "type": "Lac",
+      "score": 100,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Gambsheim_pierre_tombale_cimeti%C3%A8re1.jpg",
+      "description": "Quand on arrive, le grand espace vert autour de l'eau invite à étaler sa serviette sans être collé aux voisins. Sa particularité est d'offrir une grande étendue d'herbe avant l'eau, idéale pour les jeux de plein air. C'est l'endroit idéal pour ceux qui veulent de la place pour s'étirer et profiter du soleil.",
+      "lat": 48.68468630078,
+      "lng": 7.87577372397,
+      "distance": "15.4 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ]
+    },
+    {
+      "code": "FRF1167218D067150",
+      "name": "LE BAGGERSEE ILLKIRCH",
+      "city": "ILLKIRCH-GRAFFENSTADEN",
+      "type": "Lac",
+      "score": 100,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Baggersee%2C_view_to_the_northern_part_-_panoramio.jpg",
+      "description": "On arrive directement sur une grande plage de sable et de petits galets, très ouverte. Ce spot se démarque par sa taille impressionnante et ses différentes zones de baignade, dont une pour les tout-petits. Il convient parfaitement aux Strasbourgeois qui veulent se baigner sans trop s'éloigner de la ville.",
+      "lat": 48.54303791915,
+      "lng": 7.74702816963,
+      "distance": "3.4 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ]
+    },
+    {
+      "code": "FRF1167218D067160",
+      "name": "LAC ACHARD ILLKIRCH",
+      "city": "ILLKIRCH-GRAFFENSTADEN",
+      "type": "Lac",
+      "score": 100,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/2/26/The_lake%27s_existential_crisis-_Am_I_a_puddle%2C_or_a_sea%3F.jpg",
+      "description": "En arrivant, on voit des arbres qui bordent une partie du lac, offrant de l'ombre naturelle. Sa différence est l'ambiance plus calme et moins aménagée que son voisin le Baggersee. C'est le bon choix pour ceux qui préfèrent une baignade tranquille, avec juste l'essentiel.",
+      "lat": 48.53035665497,
+      "lng": 7.7003979146,
+      "distance": "6.1 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ]
+    },
+    {
+      "code": "FRF1167025D067010",
+      "name": "ETANG DE LA CHAPELLE BEINHEIM",
+      "city": "BEINHEIM",
+      "type": "Lac",
+      "score": 90,
+      "image": null,
+      "description": "Le chemin d'accès débouche sur un plan d'eau entouré de verdure, avec une petite plage. Ce qui rend ce spot unique, c'est son aspect discret, moins connu et fréquenté que d'autres grands lacs. Il est fait pour les baigneurs qui apprécient la simplicité et une atmosphère plus intime.",
+      "lat": 48.85399128594,
+      "lng": 8.07371543038,
+      "distance": "39.1 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ]
+    },
+    {
+      "code": "FRF1167389D067290",
+      "name": "BAIGNADE MUNICIPALE NEUBILTZ REICHSTETT",
+      "city": "REICHSTETT",
+      "type": "Lac",
+      "score": 90,
+      "image": null,
+      "description": "On découvre une zone bien entretenue, avec des pelouses bien tondues et une entrée dans l'eau facile. Ce spot se distingue par ses aménagements neufs et sa propreté, offrant un confort appréciable. C'est parfait pour les nageurs qui cherchent un endroit propre et bien organisé près de la ville.",
+      "lat": 48.6406805177,
+      "lng": 7.76477501235,
+      "distance": "7.5 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ]
+    },
+    {
+      "code": "FRF1167405D067310",
+      "name": "CAMPING-PLAGE STAEDLY ROESCHWOOG",
+      "city": "ROESCHWOOG",
+      "type": "Lac",
+      "score": 90,
+      "image": null,
+      "description": "L'entrée donne sur un espace qui combine plage et ambiance de camping, avec des mobil-homes en arrière-plan. Ce spot est spécial car il intègre les commodités d'un camping directement au bord de l'eau, ce qui est pratique. Il est idéal pour ceux qui veulent une journée à la plage avec toutes les infrastructures à portée de main.",
+      "lat": 48.83073001298,
+      "lng": 8.01571573848,
+      "distance": "34.5 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable",
+        "Accès PMR"
+      ]
+    },
+    {
+      "code": "FRF3357003D057005",
+      "name": "ETANG DE LA FORGE",
+      "city": "ABRESCHVILLER",
+      "type": "Lac",
+      "score": 85,
+      "image": null,
+      "description": "En arrivant, on est frappé par le décor forestier du Pays de Sarrebourg qui encadre l'étang. Ce qui fait sa singularité, c'est son eau transparente et son fond sableux, offrant une clarté remarquable. Il est parfait pour ceux qui veulent nager dans une eau de très bonne qualité au cœur de la nature.",
+      "lat": 48.63554572142,
+      "lng": 7.09266470618,
+      "distance": "49.0 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ],
+      "note": "C'est un des rares spots où on peut vraiment se sentir loin de tout, au cœur des Vosges mosellanes."
+    },
+    {
+      "code": "FRF3357742D057255",
+      "name": "ETANG DE WALSCHEID",
+      "city": "WALSCHEID",
+      "type": "Lac",
+      "score": 85,
+      "image": null,
+      "description": "Le paysage est ici dominé par les arbres et un grand espace autour de l'eau, avec quelques tables de pique-nique. Il se distingue par son ambiance familiale et ses équipements simples mais fonctionnels. C'est le spot des sorties tranquilles, où l'on vient pour le calme et l'air pur.",
+      "lat": 48.64620842603,
+      "lng": 7.15718076097,
+      "distance": "44.5 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ],
+      "note": "Le plan d'eau est alimenté par les ruisseaux du massif, garantissant une eau fraîche."
+    },
+    {
+      "code": "FRF1167028D067020",
+      "name": "BAIGNADE MUNICIPALE BENFELD",
+      "city": "BENFELD",
+      "type": "Lac",
+      "score": 85,
+      "image": null,
+      "description": "On accède à une zone de baignade bien délimitée, avec une surveillance visible. Ce spot se caractérise par son approche très sécurisée et son côté municipal qui assure un entretien régulier. Il convient aux familles avec jeunes enfants qui privilégient la sécurité et la clarté de l'eau.",
+      "lat": 48.36509403484,
+      "lng": 7.6095521265,
+      "distance": "25.4 km",
+      "facilities": [
+        "Surveillé",
+        "Douches",
+        "Toilettes",
+        "Eau potable"
+      ]
+    }
+  ],
+  "generatedAt": "2026-05-08T12:58:57.189Z"
+}
