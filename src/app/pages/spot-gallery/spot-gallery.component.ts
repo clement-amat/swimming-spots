@@ -41,9 +41,9 @@ export class SpotGalleryComponent implements OnInit {
   spotName = computed(() => this.swimmingSpot()?.name || '');
 
   ngOnInit(): void {
-    const code = this.route.snapshot.paramMap.get('code');
+    const slug = this.route.snapshot.paramMap.get('slug');
 
-    if (!code) {
+    if (!slug) {
       this.loading.set(false);
       return;
     }
@@ -57,7 +57,7 @@ export class SpotGalleryComponent implements OnInit {
       }
     }
 
-    this.swimmingSpotsService.getSwimmingSpotByCode(code).subscribe({
+    this.swimmingSpotsService.getSwimmingSpotBySlug(slug).subscribe({
       next: (spot) => {
         this.swimmingSpot.set(spot);
         this.loading.set(false);

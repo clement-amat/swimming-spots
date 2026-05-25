@@ -21,18 +21,6 @@ export class SwimmingSpotsService {
     return this.geoJSONCache$;
   }
 
-  getSwimmingSpotByCode(code: string): Observable<SwimmingSpot | null> {
-    return this.getSwimmingSpots().pipe(
-      map((geoJSON) => {
-        const feature = geoJSON.features.find(
-          (f) => f.properties.code === code,
-        );
-        return feature ? feature.properties : null;
-      }),
-      catchError(this.handleError),
-    );
-  }
-
   getSwimmingSpotBySlug(slug: string): Observable<SwimmingSpot | null> {
     return this.getSwimmingSpots().pipe(
       map((geoJSON) => {
@@ -63,7 +51,10 @@ export class SwimmingSpotsService {
         }
 
         return matches
-          .sort((a, b) => b.rank - a.rank || a.spot.name.localeCompare(b.spot.name, 'fr'))
+          .sort(
+            (a, b) =>
+              b.rank - a.rank || a.spot.name.localeCompare(b.spot.name, 'fr'),
+          )
           .slice(0, limit)
           .map((m) => m.spot);
       }),
