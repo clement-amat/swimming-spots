@@ -34,8 +34,8 @@ export class SwimmingSpotDetailComponent {
 
   navigateToGallery(): void {
     const spot = this.swimmingSpot();
-    if (spot?.code) {
-      this.router.navigate(['/spot', spot.code, 'gallery'], {
+    if (spot?.slug) {
+      this.router.navigate(['/spot', spot.slug, 'gallery'], {
         state: { swimmingSpot: spot }
       });
     }

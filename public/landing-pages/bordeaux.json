@@ -25,7 +25,8 @@
         "Surveillé",
         "Eau potable",
         "Accès PMR"
-      ]
+      ],
+      "slug": "plage-du-montaut-carcans"
     },
     {
       "code": "FRI1233039D033060",
@@ -40,7 +41,8 @@
       "distance": "5.2 km",
       "facilities": [
         "Surveillé"
-      ]
+      ],
+      "slug": "plaine-des-sports-begles"
     },
     {
       "code": "FRI1233063D033070",
@@ -55,7 +57,8 @@
       "distance": "4.6 km",
       "facilities": [
         "Surveillé"
-      ]
+      ],
+      "slug": "lac-de-bordeaux-bordeaux"
     },
     {
       "code": "FRI1233138D033138",
@@ -70,7 +73,8 @@
       "distance": "44.8 km",
       "facilities": [
         "Surveillé"
-      ]
+      ],
+      "slug": "lac-des-nauves-coutras"
     },
     {
       "code": "FRI1233214D033032",
@@ -85,7 +89,8 @@
       "distance": "46.5 km",
       "facilities": [
         "Surveillé"
-      ]
+      ],
+      "slug": "la-grande-escoure-lacanau"
     },
     {
       "code": "FRI1233202D033041",
@@ -101,7 +106,8 @@
       "facilities": [
         "Surveillé",
         "Eau potable"
-      ]
+      ],
+      "slug": "lac-departemental-plage-2-hostens"
     },
     {
       "code": "FRI1233057D033045",
@@ -116,7 +122,8 @@
       "distance": "40.0 km",
       "facilities": [
         "Surveillé"
-      ]
+      ],
+      "slug": "lac-departemental-de-blasimon-blasimon"
     },
     {
       "code": "FRI1233157D033024",
@@ -131,7 +138,8 @@
       "distance": "24.8 km",
       "facilities": [
         "Surveillé"
-      ]
+      ],
+      "slug": "terres-blanches-espiet"
     },
     {
       "code": "FRI1233243D033112",
@@ -148,7 +156,8 @@
         "Surveillé",
         "Toilettes",
         "Accès PMR"
-      ]
+      ],
+      "slug": "les-dagueys-libourne"
     },
     {
       "code": "FRI1233382D033095",
@@ -163,7 +172,8 @@
       "distance": "36.0 km",
       "facilities": [
         "Surveillé"
-      ]
+      ],
+      "slug": "lac-du-moulin-blanc-saint-christoly-de-blaye"
     }
   ],
   "generatedAt": "2026-05-08T12:59:13.050Z"

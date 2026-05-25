@@ -1,6 +1,7 @@
 import { APP_BASE_HREF } from '@angular/common';
 import { CommonEngine, isMainModule } from '@angular/ssr/node';
 import express from 'express';
+import { readFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import bootstrap from './main.server';
@@ -12,6 +13,36 @@ const indexHtml = join(serverDistFolder, 'index.server.html');
 
 const app = express();
 const commonEngine = new CommonEngine();
+
+const codeToSlug = loadCodeToSlugMap();
+
+function loadCodeToSlugMap(): Map<string, string> {
+  try {
+    const raw = readFileSync(join(browserDistFolder, 'geojson.json'), 'utf-8');
+    const geo = JSON.parse(raw) as {
+      features: Array<{ properties: { code: string; slug: string } }>;
+    };
+    const map = new Map<string, string>();
+    for (const f of geo.features) {
+      if (f.properties.code && f.properties.slug) {
+        map.set(f.properties.code, f.properties.slug);
+      }
+    }
+    return map;
+  } catch {
+    return new Map();
+  }
+}
+
+app.get(/^\/spot\/([^/]+)(\/gallery)?\/?$/, (req, res, next) => {
+  const param = req.params[0];
+  const tail = req.params[1] || '';
+  const slug = codeToSlug.get(param);
+  if (slug && slug !== param) {
+    return res.redirect(301, `/spot/${slug}${tail}`);
+  }
+  next();
+});
 
 /**
  * Example Express Rest API endpoints can be defined here.

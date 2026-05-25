@@ -2,17 +2,17 @@
 <section class="bg-white dark:bg-card-dark p-8 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
   <div class="flex justify-between items-end mb-6">
     <h2 class="text-xl font-extrabold text-slate-800 dark:text-white font-display">Galerie Photos</h2>
-    @if (hasMoreImages() && spotCode()) {
-    <a [routerLink]="['/spot', spotCode(), 'gallery']" class="text-primary font-bold text-sm hover:underline cursor-pointer">
+    @if (hasMoreImages() && spotSlug()) {
+    <a [routerLink]="['/spot', spotSlug(), 'gallery']" class="text-primary font-bold text-sm hover:underline cursor-pointer">
       Voir les {{ totalImages() }} photos
     </a>
     }
   </div>
   <div class="grid grid-cols-3 gap-3">
-    @for (image of displayedImages(); track image.url; let i = $index; let last = $last) {
-    @if (last && hasMoreImages() && spotCode()) {
-    <a [routerLink]="['/spot', spotCode(), 'gallery']" class="relative group cursor-pointer h-48 block">
-      <img [alt]="image.title || spotName()" [src]="image.url"
+    @for (entry of displayedImages(); track entry.image.url; let last = $last) {
+    @if (last && hasMoreImages() && spotSlug()) {
+    <a [routerLink]="['/spot', spotSlug(), 'gallery']" class="relative group cursor-pointer h-48 block">
+      <img [alt]="entry.image.title || spotName()" [src]="entry.src"
         class="w-full h-full object-cover rounded-xl shadow-sm hover:opacity-90 transition-opacity" />
       <div
         class="absolute inset-0 bg-black/40 rounded-xl flex items-center justify-center text-white font-bold group-hover:bg-black/50 transition-all">
@@ -21,7 +21,7 @@
     </a>
     } @else {
     <div class="relative group h-48">
-      <img [alt]="image.title || spotName()" [src]="image.url"
+      <img [alt]="entry.image.title || spotName()" [src]="entry.src"
         class="w-full h-full object-cover rounded-xl shadow-sm" />
     </div>
     }

@@ -28,7 +28,8 @@
         "Eau potable",
         "Accès PMR"
       ],
-      "note": "Dotée de nombreux équipements, elle assure une journée sereine les pieds dans l'eau."
+      "note": "Dotée de nombreux équipements, elle assure une journée sereine les pieds dans l'eau.",
+      "slug": "grand-roucas-prado-nord-marseille"
     },
     {
       "code": "FRL0413055M013390",
@@ -47,7 +48,8 @@
         "Toilettes",
         "Eau potable"
       ],
-      "note": "Un véritable havre de paix accessible après une courte traversée en bateau."
+      "note": "Un véritable havre de paix accessible après une courte traversée en bateau.",
+      "slug": "saint-esteve-frioul-marseille"
     },
     {
       "code": "FRL0413055M013444",
@@ -65,7 +67,8 @@
         "Douches",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "david-prado-sud-marseille"
     },
     {
       "code": "FRL0413056M013240",
@@ -85,7 +88,8 @@
         "Eau potable",
         "Accès PMR"
       ],
-      "note": "Un spot familial doté d'un charme authentique et d'une tranquillité appréciable."
+      "note": "Un spot familial doté d'un charme authentique et d'une tranquillité appréciable.",
+      "slug": "plages-de-la-saulce-et-de-sainte-croix-martigues"
     },
     {
       "code": "FRL0413055M013420",
@@ -104,7 +108,8 @@
         "Toilettes",
         "Eau potable"
       ],
-      "note": "L'une des plus anciennes et des plus populaires plages de la ville, idéale pour les premières brasses des enfants."
+      "note": "L'une des plus anciennes et des plus populaires plages de la ville, idéale pour les premières brasses des enfants.",
+      "slug": "prophete-marseille"
     },
     {
       "code": "FRL0413056M013230",
@@ -124,7 +129,8 @@
         "Eau potable",
         "Accès PMR"
       ],
-      "note": "Un cadre idyllique avec une eau d'une clarté remarquable, parfaite pour la plongée libre."
+      "note": "Un cadre idyllique avec une eau d'une clarté remarquable, parfaite pour la plongée libre.",
+      "slug": "verdon-martigues"
     },
     {
       "code": "FRL0413104M013270",
@@ -144,7 +150,8 @@
         "Eau potable",
         "Accès PMR"
       ],
-      "note": "Ses eaux limpides et son cadre pittoresque sont parfaits pour une baignade relaxante."
+      "note": "Ses eaux limpides et son cadre pittoresque sont parfaits pour une baignade relaxante.",
+      "slug": "corniche-sausset-les-pins"
     },
     {
       "code": "FRL0413039M013070",
@@ -162,7 +169,8 @@
         "Toilettes",
         "Eau potable",
         "Accès PMR"
-      ]
+      ],
+      "slug": "grande-plage-fos-sur-mer"
     },
     {
       "code": "FRL0413055M013380",
@@ -181,7 +189,8 @@
         "Toilettes",
         "Eau potable"
       ],
-      "note": "Un spot avec une vue imprenable sur le port et l'Estaque, parfait pour une baignade pittoresque."
+      "note": "Un spot avec une vue imprenable sur le port et l'Estaque, parfait pour une baignade pittoresque.",
+      "slug": "le-fortin-site-de-corbieres-marseille"
     },
     {
       "code": "FRL0413055M013400",
@@ -200,7 +209,8 @@
         "Toilettes",
         "Eau potable"
       ],
-      "note": "Sa proximité avec le centre-ville en fait un lieu prisé des locaux et des touristes."
+      "note": "Sa proximité avec le centre-ville en fait un lieu prisé des locaux et des touristes.",
+      "slug": "catalans-marseille"
     }
   ],
   "generatedAt": "2026-02-28T08:52:38.590Z"

@@ -14,7 +14,7 @@
         }
         <div class="space-y-6 text-slate-700 leading-relaxed text-lg">
           <p>{{ spot().description }}</p>
-          <a [routerLink]="['/spot', spot().code]"
+          <a [routerLink]="['/spot', spot().slug]"
             class="flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all mt-4 group">
             <span class="material-symbols-outlined">map</span>
             Voir en détails

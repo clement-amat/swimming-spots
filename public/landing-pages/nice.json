@@ -26,7 +26,8 @@
         "Douches",
         "Toilettes",
         "Accès PMR"
-      ]
+      ],
+      "slug": "le-ponteil-antibes"
     },
     {
       "code": "FRL0306029M006155",
@@ -44,7 +45,8 @@
         "Douches",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "ile-ste-marguerite-ouest-cannes"
     },
     {
       "code": "FRL0306138M006015",
@@ -61,7 +63,8 @@
         "Surveillé",
         "Douches",
         "Toilettes"
-      ]
+      ],
+      "slug": "pointe-de-l-aiguille-theoule-sur-mer"
     },
     {
       "code": "FRL0306027M006360",
@@ -78,7 +81,8 @@
         "Surveillé",
         "Douches",
         "Eau potable"
-      ]
+      ],
+      "slug": "mogador-cagnes-sur-mer"
     },
     {
       "code": "FRL0306011M006590",
@@ -96,7 +100,8 @@
         "Douches",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "fourmis-beaulieu-sur-mer"
     },
     {
       "code": "FRL0306088M006500",
@@ -114,7 +119,8 @@
         "Douches",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "beau-rivage-nice"
     },
     {
       "code": "FRL0306004M006260",
@@ -133,7 +139,8 @@
         "Toilettes",
         "Eau potable",
         "Accès PMR"
-      ]
+      ],
+      "slug": "la-salis-antibes"
     },
     {
       "code": "FRL0306027M006370",
@@ -152,7 +159,8 @@
         "Toilettes",
         "Eau potable",
         "Accès PMR"
-      ]
+      ],
+      "slug": "galion-cagnes-sur-mer"
     },
     {
       "code": "FRL0306079M006050",
@@ -171,7 +179,8 @@
         "Toilettes",
         "Eau potable",
         "Accès PMR"
-      ]
+      ],
+      "slug": "chateau-mandelieu-la-napoule"
     },
     {
       "code": "FRL0306083M006700",
@@ -190,7 +199,8 @@
         "Toilettes",
         "Eau potable",
         "Accès PMR"
-      ]
+      ],
+      "slug": "carei-menton"
     }
   ],
   "generatedAt": "2026-02-28T08:53:09.476Z"

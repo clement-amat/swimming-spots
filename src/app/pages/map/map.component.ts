@@ -249,7 +249,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
   openDrawer(spot: SwimmingSpot): void {
     if (this.isMobile) {
-      this.router.navigate(['/spot', spot.code], {
+      this.router.navigate(['/spot', spot.slug], {
         state: { swimmingSpot: spot },
       });
     } else {

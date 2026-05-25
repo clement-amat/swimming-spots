@@ -13,10 +13,17 @@ import { SwimmingSpotImage } from '@app/shared/models/swimming-spot.model';
 export class SpotGalleryPreviewComponent {
   images = input<SwimmingSpotImage[]>([]);
   spotName = input<string>('');
-  spotCode = input<string>('');
+  spotSlug = input<string>('');
 
-  displayedImages = computed(() => (this.images() || []).slice(0, 3));
   totalImages = computed(() => (this.images() || []).length);
+  displayedImages = computed(() => {
+    const all = this.images() || [];
+    const useThumb = all.length > 1;
+    return all.slice(0, 3).map((image) => ({
+      image,
+      src: useThumb ? image.thumbUrl || image.url : image.url,
+    }));
+  });
   hasMoreImages = computed(() => this.totalImages() > 3);
   remainingCount = computed(() => this.totalImages() - 3);
   hasImages = computed(() => this.displayedImages().length > 0);

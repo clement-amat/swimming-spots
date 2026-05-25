@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import { Observable } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {
   AutocompleteInputComponent,
   AutocompleteOption,
 } from '@app/shared/ui/forms/autocomplete-input/autocomplete-input.component';
 import { GeocodingService } from '@app/shared/data/geocoding.service';
+import { SwimmingSpotsService } from '@app/shared/data/swimming-spots.service';
+import { SwimmingSpot } from '@app/shared/models/swimming-spot.model';
 import { MapControlService } from '@app/shared/maps/map-control.service';
 
 @Component({
@@ -18,21 +20,46 @@ import { MapControlService } from '@app/shared/maps/map-control.service';
 export class LayoutComponent {
   constructor(
     private geocodingService: GeocodingService,
+    private swimmingSpotsService: SwimmingSpotsService,
     private mapControlService: MapControlService,
     private router: Router,
   ) {}
 
   searchLocations = (query: string): Observable<AutocompleteOption[]> => {
-    return this.geocodingService.searchLocations(query).pipe(
-      map((results) =>
-        results.map((result) => ({
-          label: result.label,
+    return forkJoin({
+      spots: this.swimmingSpotsService.searchSpotsByName(query, 5),
+      cities: this.geocodingService.searchLocations(query),
+    }).pipe(
+      map(({ spots, cities }) => [
+        ...spots.map((spot) => this.spotToOption(spot)),
+        ...cities.map((city) => ({
+          label: city.label,
+          sublabel: this.buildCitySublabel(city.department, city.region),
           icon: 'location_on',
-          value: result.coordinates,
+          value: city.coordinates,
+          kind: 'city' as const,
         })),
-      ),
+      ]),
     );
   };
+
+  private spotToOption(spot: SwimmingSpot): AutocompleteOption {
+    return {
+      label: spot.name,
+      sublabel: [spot.city, spot.region].filter(Boolean).join(' · '),
+      icon: 'pool',
+      kind: 'spot',
+      value: spot,
+    };
+  }
+
+  private buildCitySublabel(
+    department: string | undefined,
+    region: string | undefined,
+  ): string | undefined {
+    const parts = [department, region].filter(Boolean) as string[];
+    return parts.length > 0 ? parts.join(' · ') : undefined;
+  }
 
   goHome(): void {
     this.mapControlService.clearMapState();
@@ -40,8 +67,13 @@ export class LayoutComponent {
   }
 
   onLocationSelected(option: AutocompleteOption): void {
-    const coordinates = option.value;
+    if (option.kind === 'spot') {
+      const spot = option.value as SwimmingSpot;
+      this.router.navigate(['/spot', spot.slug]);
+      return;
+    }
 
+    const coordinates = option.value;
     if (this.router.url !== '/') {
       this.router.navigate(['/']).then(() => {
         this.mapControlService.whenMapReady().subscribe(() => {

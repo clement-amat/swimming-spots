@@ -25,7 +25,8 @@
         "Douches",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "plan-d-eau-saint-sernin-montcuq-en-quercy-blanc"
     },
     {
       "code": "FRJ2546064D046010",
@@ -42,7 +43,8 @@
         "Douches",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "lac-vert-catus"
     },
     {
       "code": "FRJ2546114D046013",
@@ -59,7 +61,8 @@
         "Douches",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "plan-d-eau-du-moulin-bas-frayssinet-le-gelat"
     },
     {
       "code": "FRJ2546302D046043",
@@ -76,7 +79,8 @@
         "Douches",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "le-tolerme-senaillac-latronquiere"
     },
     {
       "code": "FRJ2546313D046038",
@@ -93,7 +97,8 @@
         "Douches",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "plan-d-eau-mas-de-la-croux-tauriac"
     },
     {
       "code": "FRJ2546066D046011",
@@ -109,7 +114,8 @@
         "Surveillé",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "plan-d-eau-de-la-cayre-cazals"
     },
     {
       "code": "FRJ2546182D046020",
@@ -127,7 +133,8 @@
         "Toilettes",
         "Eau potable"
       ],
-      "note": "C'est le seul spot de rivière surveillé de cette sélection, une véritable opportunité pour les amateurs de baignade fluviale."
+      "note": "C'est le seul spot de rivière surveillé de cette sélection, une véritable opportunité pour les amateurs de baignade fluviale.",
+      "slug": "base-de-caix-luzech"
     },
     {
       "code": "FRJ2546256D046017",
@@ -145,7 +152,8 @@
         "Toilettes",
         "Eau potable"
       ],
-      "note": "Ce spot offre une vue exceptionnelle sur le village de Saint-Cirq-Lapopie, inscrit au patrimoine mondial de l'UNESCO."
+      "note": "Ce spot offre une vue exceptionnelle sur le village de Saint-Cirq-Lapopie, inscrit au patrimoine mondial de l'UNESCO.",
+      "slug": "plage-st-cirq-saint-cirq-lapopie"
     },
     {
       "code": "FRJ2546127D046014",
@@ -160,7 +168,8 @@
       "facilities": [
         "Surveillé",
         "Eau potable"
-      ]
+      ],
+      "slug": "ecoute-s-il-pleut-gourdon"
     },
     {
       "code": "FRJ2546208D046001",
@@ -177,7 +186,8 @@
         "Toilettes",
         "Eau potable"
       ],
-      "note": "Ce spot se situe directement sur la rivière Dordogne, une alternative aux lacs du Lot."
+      "note": "Ce spot se situe directement sur la rivière Dordogne, une alternative aux lacs du Lot.",
+      "slug": "gluges-montvalent"
     }
   ],
   "generatedAt": "2026-05-08T13:15:28.389Z"

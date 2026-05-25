@@ -5,6 +5,8 @@ export interface GeocodingResult {
     lat: number;
   };
   type: string;
+  department?: string;
+  region?: string;
 }
 
 export interface GeopfApiResponse {

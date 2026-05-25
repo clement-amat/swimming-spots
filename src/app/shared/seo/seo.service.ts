@@ -143,7 +143,7 @@ export class SeoService {
             item: {
               '@type': 'TouristAttraction',
               name: spot.name,
-              url: `${BASE_URL}/spot/${spot.code}`,
+              url: `${BASE_URL}/spot/${spot.slug}`,
               ...(spot.image && {
                 image: { '@type': 'ImageObject', url: spot.image },
               }),

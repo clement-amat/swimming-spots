@@ -9,6 +9,7 @@ const today = new Date().toISOString().split('T')[0];
 
 interface SpotProperties {
   code: string;
+  slug: string;
   siteDetails?: { lastTestDate?: string };
 }
 
@@ -37,7 +38,7 @@ const entries: string[] = [
     const lastmod = f.properties.siteDetails?.lastTestDate
       ? f.properties.siteDetails.lastTestDate.split('T')[0]
       : today;
-    return urlEntry(`${BASE_URL}/spot/${f.properties.code}`, '0.6', 'weekly', lastmod);
+    return urlEntry(`${BASE_URL}/spot/${f.properties.slug}`, '0.6', 'weekly', lastmod);
   }),
 ];
 

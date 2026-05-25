@@ -27,7 +27,8 @@
         "Toilettes",
         "Eau potable"
       ],
-      "note": "Un lieu familial avec des équipements complets pour un confort optimal."
+      "note": "Un lieu familial avec des équipements complets pour un confort optimal.",
+      "slug": "retenue-de-vere-gresigne-castelnau-de-montmiral"
     },
     {
       "code": "FRJ2781078D081003",
@@ -46,7 +47,8 @@
         "Toilettes",
         "Eau potable"
       ],
-      "note": "Un site parfait pour allier baignade et commodités, grâce à son intégration à un camping."
+      "note": "Un site parfait pour allier baignade et commodités, grâce à son intégration à un camping.",
+      "slug": "camping-saint-charles-damiatte"
     },
     {
       "code": "FRJ2331557D03101",
@@ -62,7 +64,8 @@
       "facilities": [
         "Surveillé"
       ],
-      "note": "La proximité avec Toulouse en fait un atout majeur pour une escapade rafraîchissante."
+      "note": "La proximité avec Toulouse en fait un atout majeur pour une escapade rafraîchissante.",
+      "slug": "baignade-lac-de-la-ramee-tournefeuille"
     },
     {
       "code": "FRJ2882115D082061",
@@ -81,7 +84,8 @@
         "Eau potable",
         "Accès PMR"
       ],
-      "note": "Un espace de divertissement aquatique garanti avec toboggans et aménagements."
+      "note": "Un espace de divertissement aquatique garanti avec toboggans et aménagements.",
+      "slug": "lac-plage-cote-toboggan-monclar-de-quercy"
     },
     {
       "code": "FRJ2109282D009092",
@@ -97,7 +101,8 @@
       "facilities": [
         "Surveillé"
       ],
-      "note": "Un véritable parc aquatique flottant pour des heures de rires et de glissades."
+      "note": "Un véritable parc aquatique flottant pour des heures de rires et de glissades.",
+      "slug": "sas-petit-baigneur-aquaplaypark-saverdun"
     },
     {
       "code": "FRJ2331395D031001",
@@ -112,7 +117,8 @@
       "distance": "21.4 km",
       "facilities": [
         "Surveillé"
-      ]
+      ],
+      "slug": "baignade-lac-des-bonnets-muret-muret"
     },
     {
       "code": "FRJ2432444D032040",
@@ -128,7 +134,8 @@
       "facilities": [
         "Surveillé"
       ],
-      "note": "Un écrin de verdure offrant une eau de baignade d'une grande pureté."
+      "note": "Un écrin de verdure offrant une eau de baignade d'une grande pureté.",
+      "slug": "lac-de-st-cricq-thoux"
     },
     {
       "code": "FRJ2781220D081022",
@@ -145,7 +152,8 @@
         "Surveillé",
         "Toilettes"
       ],
-      "note": "L'opportunité unique de se baigner en rivière, une expérience différente et pittoresque."
+      "note": "L'opportunité unique de se baigner en rivière, une expérience différente et pittoresque.",
+      "slug": "riviere-tarn-rabastens-rabastens"
     }
   ],
   "generatedAt": "2026-02-28T08:52:52.895Z"

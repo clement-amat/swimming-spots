@@ -26,7 +26,8 @@
         "Toilettes",
         "Eau potable",
         "Accès PMR"
-      ]
+      ],
+      "slug": "plan-d-eau-de-le-poizat-lalleyriat-poizat-lalleyriat-le"
     },
     {
       "code": "FRK2101143D001620",
@@ -43,7 +44,8 @@
         "Douches",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "divonne-les-bains-lac-de-divonne-divonne-les-bains"
     },
     {
       "code": "FRK2101087D001600",
@@ -59,7 +61,8 @@
         "Surveillé",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "charix-lac-genin-charix"
     },
     {
       "code": "FRK2101269D001661",
@@ -75,7 +78,8 @@
         "Surveillé",
         "Toilettes",
         "Accès PMR"
-      ]
+      ],
+      "slug": "lac-de-nantua-plage-de-la-colonne-nantua"
     },
     {
       "code": "FRK2101010D001530",
@@ -92,7 +96,8 @@
         "Toilettes",
         "Eau potable",
         "Accès PMR"
-      ]
+      ],
+      "slug": "plan-d-eau-d-anglefort-anglefort"
     },
     {
       "code": "FRK2101053D001570",
@@ -109,7 +114,8 @@
         "Douches",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "bourg-en-bresse-plan-d-eau-du-parc-de-loisirs-de-bouvent-bourg-en-bresse"
     },
     {
       "code": "FRK2101058D001580",
@@ -127,7 +133,8 @@
         "Toilettes",
         "Eau potable"
       ],
-      "note": "La cascade de Glandieu juste à côté ajoute un attrait unique à ce plan d'eau."
+      "note": "La cascade de Glandieu juste à côté ajoute un attrait unique à ce plan d'eau.",
+      "slug": "bregnier-cordon-plan-d-eau-communal-de-glandieu-bregnier-cordon"
     },
     {
       "code": "FRK2101229D001650",
@@ -144,7 +151,8 @@
         "Douches",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "malafretaz-plan-d-eau-de-la-base-de-plein-air-la-plaine-tonique-malafretaz"
     },
     {
       "code": "FRK2101184D001110",
@@ -162,7 +170,8 @@
         "Toilettes",
         "Eau potable"
       ],
-      "note": "C'est l'unique spot de baignade en rivière surveillée de toute notre sélection, ce qui est une rareté."
+      "note": "C'est l'unique spot de baignade en rivière surveillée de toute notre sélection, ce qui est une rareté.",
+      "slug": "hautecourt-romaneche-plage-de-l-ile-chambod-riviere-d-ain-hautecourt-romaneche"
     },
     {
       "code": "FRK2101302D001670",
@@ -178,7 +187,8 @@
         "Surveillé",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "pollieu-plage-du-lac-de-barterand-pollieu"
     }
   ],
   "generatedAt": "2026-05-08T13:13:29.783Z"

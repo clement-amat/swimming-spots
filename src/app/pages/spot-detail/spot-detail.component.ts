@@ -65,8 +65,9 @@ export class SpotDetailComponent implements OnInit {
 
   private applySpotSeo(spot: SwimmingSpot): void {
     const description = this.buildSpotDescription(spot);
-    const url = `${BASE_URL}/spot/${spot.code}`;
+    const url = `${BASE_URL}/spot/${spot.slug}`;
     const heroImage = spot.images?.[0];
+    const amenityFeature = this.buildAmenityFeatures(spot);
 
     this.seoService.setTitle(
       `${spot.name} - Baignade à ${spot.city} (${spot.department}) | ${SITE_NAME}`,
@@ -95,8 +96,33 @@ export class SpotDetailComponent implements OnInit {
           addressCountry: 'FR',
         },
         ...(heroImage && { image: heroImage.url }),
+        ...(amenityFeature.length > 0 && { amenityFeature }),
       },
     });
+  }
+
+  private buildAmenityFeatures(spot: SwimmingSpot): Record<string, unknown>[] {
+    const details = spot.siteDetails;
+    if (!details) return [];
+
+    const features: Array<{ key: keyof typeof details; name: string }> = [
+      { key: 'showers', name: 'Douches' },
+      { key: 'toilets', name: 'Toilettes' },
+      { key: 'drinkingWater', name: "Point d'eau potable" },
+      { key: 'lifeguard', name: 'Poste de secours' },
+      { key: 'surveillance', name: 'Baignade surveillée' },
+      { key: 'animalsAllowed', name: 'Chiens autorisés' },
+      { key: 'wheelchairAccess', name: 'Accessible PMR' },
+      { key: 'amenities', name: 'Aménagements' },
+    ];
+
+    return features
+      .filter(({ key }) => typeof details[key] === 'boolean')
+      .map(({ key, name }) => ({
+        '@type': 'LocationFeatureSpecification',
+        name,
+        value: details[key] as boolean,
+      }));
   }
 
   private buildSpotDescription(spot: SwimmingSpot): string {

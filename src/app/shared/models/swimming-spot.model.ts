@@ -14,6 +14,7 @@ export enum WaterQuality {
 
 export interface SwimmingSpotImage {
   url: string;
+  thumbUrl?: string;
   title: string;
   description: string;
   license: string;
@@ -39,6 +40,7 @@ export interface SwimmingSpot {
   region: string;
   department: string;
   code: string;
+  slug: string;
   situationUpdate: string;
   name: string;
   insee: string;

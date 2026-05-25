@@ -27,7 +27,8 @@
         "Toilettes",
         "Eau potable",
         "Accès PMR"
-      ]
+      ],
+      "slug": "ret-grangent-base-nautique-saint-etienne"
     },
     {
       "code": "FRK1343114D043600",
@@ -46,7 +47,8 @@
         "Toilettes",
         "Eau potable",
         "Accès PMR"
-      ]
+      ],
+      "slug": "barrage-lavalette-lapte"
     },
     {
       "code": "FRK2326295D026990",
@@ -64,7 +66,8 @@
         "Toilettes",
         "Eau potable",
         "Accès PMR"
-      ]
+      ],
+      "slug": "lac-les-vernets-de-galaure-saint-barthelemy-de-vals"
     },
     {
       "code": "FRK2669064D069044",
@@ -82,7 +85,8 @@
         "Douches",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "plan-d-eau-de-condrieu-les-roches-condrieu"
     },
     {
       "code": "FRK1343012D043133",
@@ -101,7 +105,8 @@
         "Eau potable",
         "Accès PMR"
       ],
-      "note": "C'est le seul spot de rivière surveillé de la sélection."
+      "note": "C'est le seul spot de rivière surveillé de la sélection.",
+      "slug": "base-multisports-aurec-sur-loire"
     },
     {
       "code": "FRK1463319D063160",
@@ -120,7 +125,8 @@
         "Toilettes",
         "Eau potable",
         "Accès PMR"
-      ]
+      ],
+      "slug": "plan-d-eau-de-st-antheme-saint-antheme"
     },
     {
       "code": "FRK1343051D043140",
@@ -137,7 +143,8 @@
         "Surveillé",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "plan-d-eau-chambon-sur-lignon-le"
     },
     {
       "code": "FRK2207114D007602",
@@ -154,7 +161,8 @@
         "Surveillé",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "le-doux-a-la-plage-de-labatie-labatie-d-andaure"
     },
     {
       "code": "FRK2207080D007405",
@@ -171,7 +179,8 @@
         "Surveillé",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "le-lac-de-devesset-devesset"
     },
     {
       "code": "FRK2542204D042030",
@@ -189,7 +198,8 @@
         "Douches",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "plan-d-eau-villeneuve-saint-bonnet-le-chateau"
     }
   ],
   "generatedAt": "2026-05-08T12:59:30.275Z"

@@ -5,9 +5,9 @@ import { SwimmingSpotsService } from '@app/shared/data/swimming-spots.service';
 import { of } from 'rxjs';
 
 export const spotDetailResolver: ResolveFn<SwimmingSpot | null> = (route) => {
-  const code = route.paramMap.get('code');
+  const slug = route.paramMap.get('slug');
 
-  if (!code) {
+  if (!slug) {
     return null;
   }
 
@@ -16,5 +16,5 @@ export const spotDetailResolver: ResolveFn<SwimmingSpot | null> = (route) => {
     return of(navState as SwimmingSpot);
   }
 
-  return inject(SwimmingSpotsService).getSwimmingSpotByCode(code);
+  return inject(SwimmingSpotsService).getSwimmingSpotBySlug(slug);
 };

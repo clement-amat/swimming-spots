@@ -24,7 +24,7 @@ export const routes: Routes = [
         },
       },
       {
-        path: 'spot/:code',
+        path: 'spot/:slug',
         loadComponent: () =>
           import('./pages/spot-detail/spot-detail.component').then(
             (m) => m.SpotDetailComponent
@@ -34,7 +34,7 @@ export const routes: Routes = [
         },
       },
       {
-        path: 'spot/:code/gallery',
+        path: 'spot/:slug/gallery',
         loadComponent: () =>
           import('./pages/spot-gallery/spot-gallery.component').then(
             (m) => m.SpotGalleryComponent

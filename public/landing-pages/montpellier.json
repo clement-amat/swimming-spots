@@ -27,7 +27,8 @@
         "Toilettes",
         "Eau potable",
         "Accès PMR"
-      ]
+      ],
+      "slug": "plage-du-lazaret-sete"
     },
     {
       "code": "FRJ1334157M034140",
@@ -46,7 +47,8 @@
         "Toilettes",
         "Eau potable"
       ],
-      "note": "L'étang de Thau offre une expérience de baignade en eau salée mais sans les vagues de la mer, très appréciable."
+      "note": "L'étang de Thau offre une expérience de baignade en eau salée mais sans les vagues de la mer, très appréciable.",
+      "slug": "etang-de-thau-la-plagette-meze"
     },
     {
       "code": "FRJ1334157M034145",
@@ -64,7 +66,8 @@
         "Douches",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "etang-de-thau-village-vacances-meze"
     },
     {
       "code": "FRL0413096M013010",
@@ -81,7 +84,8 @@
         "Surveillé",
         "Douches",
         "Toilettes"
-      ]
+      ],
+      "slug": "les-arenes-saintes-maries-de-la-mer"
     },
     {
       "code": "FRJ1334079D034690",
@@ -100,7 +104,8 @@
         "Toilettes",
         "Eau potable"
       ],
-      "note": "C'est l'un des rares spots de baignade en eau douce de la région avec une eau de cette couleur si caractéristique."
+      "note": "C'est l'un des rares spots de baignade en eau douce de la région avec une eau de cette couleur si caractéristique.",
+      "slug": "lac-du-salagou-plage-du-camping-clermont-l-herault"
     },
     {
       "code": "FRJ1334301M034112",
@@ -116,7 +121,8 @@
       "facilities": [
         "Surveillé",
         "Toilettes"
-      ]
+      ],
+      "slug": "plage-des-trois-digues-sete"
     },
     {
       "code": "FRJ1334192M034185",
@@ -135,7 +141,8 @@
         "Toilettes",
         "Eau potable",
         "Accès PMR"
-      ]
+      ],
+      "slug": "rive-gauche-hotel-de-ville-palavas-les-flots"
     },
     {
       "code": "FRJ1334072D034730",
@@ -153,7 +160,8 @@
         "Douches",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "lac-du-salagou-les-vailhes-celles"
     },
     {
       "code": "FRJ1334003M034080",
@@ -172,7 +180,8 @@
         "Toilettes",
         "Eau potable",
         "Accès PMR"
-      ]
+      ],
+      "slug": "richelieu-agde"
     },
     {
       "code": "FRJ1334003M034087",
@@ -191,7 +200,8 @@
         "Toilettes",
         "Eau potable",
         "Accès PMR"
-      ]
+      ],
+      "slug": "la-roquille-agde"
     }
   ],
   "generatedAt": "2026-05-08T12:58:40.107Z"

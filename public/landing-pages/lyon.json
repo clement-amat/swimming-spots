@@ -26,7 +26,8 @@
         "Douches",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "miribel-plage-de-l-atol-vaulx-en-velin"
     },
     {
       "code": "FRK2669256D069020",
@@ -43,7 +44,8 @@
         "Surveillé",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "miribel-plage-du-morlet-vaulx-en-velin"
     },
     {
       "code": "FRK2669264D069010",
@@ -61,7 +63,8 @@
         "Douches",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "plan-d-eau-du-bordelan-villefranche-sur-saone"
     },
     {
       "code": "FRK2669070D069006",
@@ -81,7 +84,8 @@
         "Eau potable",
         "Accès PMR"
       ],
-      "note": "C'est le seul spot de la liste où la baignade est entièrement biologique, filtrée par les plantes aquatiques."
+      "note": "C'est le seul spot de la liste où la baignade est entièrement biologique, filtrée par les plantes aquatiques.",
+      "slug": "lac-des-sapins-baignade-point-sud-cublize"
     },
     {
       "code": "FRK2669256D069026",
@@ -98,7 +102,8 @@
         "Surveillé",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "miribel-plage-du-fontanil-vaulx-en-velin"
     },
     {
       "code": "FRK2669009D069070",
@@ -116,7 +121,8 @@
         "Douches",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "plan-d-eau-du-colombier-anse"
     },
     {
       "code": "FRK2669064D069044",
@@ -134,7 +140,8 @@
         "Douches",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "plan-d-eau-de-condrieu-les-roches-condrieu"
     },
     {
       "code": "FRK2669256D069022",
@@ -150,7 +157,8 @@
       "facilities": [
         "Surveillé",
         "Toilettes"
-      ]
+      ],
+      "slug": "miribel-plage-de-la-baraka-vaulx-en-velin"
     },
     {
       "code": "FRK2438231D038400",
@@ -170,7 +178,8 @@
         "Eau potable",
         "Accès PMR"
       ],
-      "note": "Ce spot est une base de loisirs avec des activités variées en plus de la baignade, comme des structures gonflables et des pédalos."
+      "note": "Ce spot est une base de loisirs avec des activités variées en plus de la baignade, comme des structures gonflables et des pédalos.",
+      "slug": "meyrieu-les-etangs-base-de-loisirs-du-moulin-meyrieu-les-etangs"
     },
     {
       "code": "FRK2101403D001328",
@@ -189,7 +198,8 @@
         "Toilettes",
         "Eau potable"
       ],
-      "note": "C'est le seul spot de baignade en rivière surveillée de la sélection."
+      "note": "C'est le seul spot de baignade en rivière surveillée de la sélection.",
+      "slug": "serrieres-de-briord-plage-du-point-vert-rive-droite-du-rhone-serrieres-de-briord"
     }
   ],
   "generatedAt": "2026-05-08T12:58:13.080Z"

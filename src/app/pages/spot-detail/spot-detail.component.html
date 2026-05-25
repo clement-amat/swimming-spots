@@ -23,7 +23,7 @@
         <app-spot-facilities [siteDetails]="swimmingSpot()!.siteDetails" [columns]="3"></app-spot-facilities>
         <app-spot-about [swimmingSpot]="swimmingSpot()!"></app-spot-about>
         <app-spot-gallery-preview [images]="swimmingSpot()!.images || []" [spotName]="swimmingSpot()!.name"
-          [spotCode]="swimmingSpot()!.code"></app-spot-gallery-preview>
+          [spotSlug]="swimmingSpot()!.slug"></app-spot-gallery-preview>
       </div>
 
       <div class="col-span-12 lg:col-span-4">

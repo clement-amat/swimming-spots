@@ -28,7 +28,8 @@
         "Eau potable",
         "Accès PMR"
       ],
-      "note": "C'est l'un des rares spots au cœur du Parc Naturel Régional des Vosges du Nord."
+      "note": "C'est l'un des rares spots au cœur du Parc Naturel Régional des Vosges du Nord.",
+      "slug": "etang-de-la-base-de-plein-air-du-ramstein-baerenthal"
     },
     {
       "code": "FRF1167151D067080",
@@ -47,7 +48,8 @@
         "Toilettes",
         "Eau potable",
         "Accès PMR"
-      ]
+      ],
+      "slug": "zone-de-loisirs-gambsheim-gambsheim"
     },
     {
       "code": "FRF1167218D067150",
@@ -66,7 +68,8 @@
         "Toilettes",
         "Eau potable",
         "Accès PMR"
-      ]
+      ],
+      "slug": "le-baggersee-illkirch-illkirch-graffenstaden"
     },
     {
       "code": "FRF1167218D067160",
@@ -85,7 +88,8 @@
         "Toilettes",
         "Eau potable",
         "Accès PMR"
-      ]
+      ],
+      "slug": "lac-achard-illkirch-illkirch-graffenstaden"
     },
     {
       "code": "FRF1167025D067010",
@@ -104,7 +108,8 @@
         "Toilettes",
         "Eau potable",
         "Accès PMR"
-      ]
+      ],
+      "slug": "etang-de-la-chapelle-beinheim-beinheim"
     },
     {
       "code": "FRF1167389D067290",
@@ -123,7 +128,8 @@
         "Toilettes",
         "Eau potable",
         "Accès PMR"
-      ]
+      ],
+      "slug": "baignade-municipale-neubiltz-reichstett-reichstett"
     },
     {
       "code": "FRF1167405D067310",
@@ -142,7 +148,8 @@
         "Toilettes",
         "Eau potable",
         "Accès PMR"
-      ]
+      ],
+      "slug": "camping-plage-staedly-roeschwoog-roeschwoog"
     },
     {
       "code": "FRF3357003D057005",
@@ -161,7 +168,8 @@
         "Toilettes",
         "Eau potable"
       ],
-      "note": "C'est un des rares spots où on peut vraiment se sentir loin de tout, au cœur des Vosges mosellanes."
+      "note": "C'est un des rares spots où on peut vraiment se sentir loin de tout, au cœur des Vosges mosellanes.",
+      "slug": "etang-de-la-forge-abreschviller"
     },
     {
       "code": "FRF3357742D057255",
@@ -180,7 +188,8 @@
         "Toilettes",
         "Eau potable"
       ],
-      "note": "Le plan d'eau est alimenté par les ruisseaux du massif, garantissant une eau fraîche."
+      "note": "Le plan d'eau est alimenté par les ruisseaux du massif, garantissant une eau fraîche.",
+      "slug": "etang-de-walscheid-walscheid"
     },
     {
       "code": "FRF1167028D067020",
@@ -198,7 +207,8 @@
         "Douches",
         "Toilettes",
         "Eau potable"
-      ]
+      ],
+      "slug": "baignade-municipale-benfeld-benfeld"
     }
   ],
   "generatedAt": "2026-05-08T12:58:57.189Z"

@@ -12,6 +12,7 @@ export interface LandingPageHero {
 
 export interface LandingPageSpot {
   code: string;
+  slug: string;
   name: string;
   city: string;
   type: string;

@@ -39,13 +39,27 @@ export class GeocodingService {
       return [];
     }
 
-    return response.features.map(feature => ({
-      label: feature.properties.label,
-      coordinates: {
-        lon: feature.geometry.coordinates[0],
-        lat: feature.geometry.coordinates[1]
-      },
-      type: feature.properties.type
-    }));
+    return response.features.map(feature => {
+      const { department, region } = this.parseContext(feature.properties.context);
+      return {
+        label: feature.properties.label,
+        coordinates: {
+          lon: feature.geometry.coordinates[0],
+          lat: feature.geometry.coordinates[1]
+        },
+        type: feature.properties.type,
+        department,
+        region
+      };
+    });
+  }
+
+  private parseContext(context: string | undefined): { department?: string; region?: string } {
+    if (!context) return {};
+    const parts = context.split(',').map((p) => p.trim()).filter(Boolean);
+    // Geopf format: "<deptCode>, <departmentName>, <regionName>"
+    if (parts.length >= 3) return { department: parts[1], region: parts[2] };
+    if (parts.length === 2) return { department: parts[1] };
+    return {};
   }
 }

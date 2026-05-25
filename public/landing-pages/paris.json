@@ -28,7 +28,8 @@
         "Eau potable",
         "Accès PMR"
       ],
-      "note": "Un spot de baignade exceptionnel en plein Paris, idéal pour se rafraîchir en ville."
+      "note": "Un spot de baignade exceptionnel en plein Paris, idéal pour se rafraîchir en ville.",
+      "slug": "bassin-de-la-villette-paris"
     },
     {
       "code": "FR10277005D077004",
@@ -48,7 +49,8 @@
         "Eau potable",
         "Accès PMR"
       ],
-      "note": "Vaste et verdoyant, ce site est parfait pour une journée complète de loisirs au bord de l'eau."
+      "note": "Vaste et verdoyant, ce site est parfait pour une journée complète de loisirs au bord de l'eau.",
+      "slug": "jablines-ile-de-loisirs-de-jablines-annet-annet-sur-marne"
     },
     {
       "code": "FR10277083D077002",
@@ -68,7 +70,8 @@
         "Eau potable",
         "Accès PMR"
       ],
-      "note": "Une destination familiale privilégiée pour des moments de détente au fil de l'eau."
+      "note": "Une destination familiale privilégiée pour des moments de détente au fil de l'eau.",
+      "slug": "champs-sur-marne-base-de-loisirs-gb-champs-sur-marne"
     },
     {
       "code": "FR10378108D078020",
@@ -88,7 +91,8 @@
         "Eau potable",
         "Accès PMR"
       ],
-      "note": "Un écrin de verdure offrant une baignade paisible dans un cadre naturel préservé."
+      "note": "Un écrin de verdure offrant une baignade paisible dans un cadre naturel préservé.",
+      "slug": "base-de-loisirs-des-etangs-de-hollande-breviaires-les"
     },
     {
       "code": "FR10277284D077011",
@@ -108,7 +112,8 @@
         "Eau potable",
         "Accès PMR"
       ],
-      "note": "Une charmante plage en bord de rivière, parfaite pour une escapade rafraîchissante."
+      "note": "Une charmante plage en bord de rivière, parfaite pour une escapade rafraîchissante.",
+      "slug": "meaux-plage-du-chemin-des-patis-meaux"
     },
     {
       "code": "FR10277468D077008",
@@ -128,7 +133,8 @@
         "Eau potable",
         "Accès PMR"
       ],
-      "note": "Une base de loisirs polyvalente, offrant une multitude d'activités au-delà de la baignade."
+      "note": "Une base de loisirs polyvalente, offrant une multitude d'activités au-delà de la baignade.",
+      "slug": "torcy-ile-de-loisirs-de-vaires-torcy-torcy"
     },
     {
       "code": "FRE2260584D060610",
@@ -146,7 +152,8 @@
         "Toilettes",
         "Eau potable"
       ],
-      "note": "Un excellent point de rendez-vous pour les adeptes de sports nautiques et de baignade en eau vive."
+      "note": "Un excellent point de rendez-vous pour les adeptes de sports nautiques et de baignade en eau vive.",
+      "slug": "base-nautique-de-saint-leu-d-esserent-saint-leu-d-esserent"
     },
     {
       "code": "FR10378642D078080",
@@ -166,7 +173,8 @@
         "Eau potable",
         "Accès PMR"
       ],
-      "note": "Un vaste domaine proposant diverses activités et une baignade surveillée pour toute la famille."
+      "note": "Un vaste domaine proposant diverses activités et une baignade surveillée pour toute la famille.",
+      "slug": "base-de-loisirs-de-verneuil-verneuil-sur-seine"
     }
   ],
   "generatedAt": "2026-02-28T08:52:21.533Z"

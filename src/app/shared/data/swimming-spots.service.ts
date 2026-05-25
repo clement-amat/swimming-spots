@@ -33,6 +33,59 @@ export class SwimmingSpotsService {
     );
   }
 
+  getSwimmingSpotBySlug(slug: string): Observable<SwimmingSpot | null> {
+    return this.getSwimmingSpots().pipe(
+      map((geoJSON) => {
+        const feature = geoJSON.features.find(
+          (f) => f.properties.slug === slug,
+        );
+        return feature ? feature.properties : null;
+      }),
+      catchError(this.handleError),
+    );
+  }
+
+  searchSpotsByName(query: string, limit = 5): Observable<SwimmingSpot[]> {
+    const normalized = this.normalize(query);
+    if (normalized.length < 2) {
+      return of([]);
+    }
+
+    return this.getSwimmingSpots().pipe(
+      map((geoJSON) => {
+        const matches: Array<{ spot: SwimmingSpot; rank: number }> = [];
+        for (const feature of geoJSON.features) {
+          const spot = feature.properties;
+          const rank = this.matchRank(normalized, spot);
+          if (rank > 0) {
+            matches.push({ spot, rank });
+          }
+        }
+
+        return matches
+          .sort((a, b) => b.rank - a.rank || a.spot.name.localeCompare(b.spot.name, 'fr'))
+          .slice(0, limit)
+          .map((m) => m.spot);
+      }),
+      catchError(() => of([] as SwimmingSpot[])),
+    );
+  }
+
+  private matchRank(normalizedQuery: string, spot: SwimmingSpot): number {
+    const name = this.normalize(spot.name);
+    if (name.startsWith(normalizedQuery)) return 2;
+    if (name.includes(normalizedQuery)) return 1;
+    return 0;
+  }
+
+  private normalize(value: string): string {
+    return value
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .trim();
+  }
+
   filteredGeoJSON(
     geoJSON: SwimmingSpotGeoJSON,
     activeFilters: MapFilter[],

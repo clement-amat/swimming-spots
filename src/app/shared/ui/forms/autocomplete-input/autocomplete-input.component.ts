@@ -9,6 +9,8 @@ export interface AutocompleteOption {
   label: string;
   icon: string;
   value: any;
+  kind?: 'city' | 'spot';
+  sublabel?: string;
 }
 
 @Component({
