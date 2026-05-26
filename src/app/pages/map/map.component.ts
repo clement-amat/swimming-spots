@@ -32,6 +32,7 @@ import {
   HOMEPAGE_TITLE,
   SeoService,
 } from '@app/shared/seo/seo.service';
+import { AnalyticsService } from '@app/shared/analytics/analytics.service';
 import {
   buildCircleRadiusExpression,
   buildCircleOpacityExpression,
@@ -65,6 +66,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     private seoService: SeoService,
     private router: Router,
     private breakpointObserver: BreakpointObserver,
+    private analytics: AnalyticsService,
     @Inject(PLATFORM_ID) private platformId: Object,
   ) {
     this.mapControlService
@@ -254,6 +256,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       });
     } else {
       this.selectedSpot = spot;
+      this.analytics.trackSpotView(spot, 'overlay');
     }
   }
 

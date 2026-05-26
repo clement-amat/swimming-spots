@@ -18,6 +18,7 @@ import { SpotAboutComponent } from '@app/shared/ui/spot-about/spot-about.compone
 import { SpotGalleryPreviewComponent } from '@app/shared/ui/spot-gallery/spot-gallery-preview.component';
 import { SpotMapCardComponent } from '@app/shared/ui/spot-map-card/spot-map-card.component';
 import { NotFoundComponent } from '@app/pages/not-found/not-found.component';
+import { AnalyticsService } from '@app/shared/analytics/analytics.service';
 
 @Component({
   selector: 'app-spot-detail',
@@ -41,6 +42,7 @@ export class SpotDetailComponent implements OnInit {
   private location = inject(Location);
   private seoService = inject(SeoService);
   private breakpointObserver = inject(BreakpointObserver);
+  private analytics = inject(AnalyticsService);
 
   swimmingSpot = signal<SwimmingSpot | null>(null);
   loading = signal(true);
@@ -58,6 +60,7 @@ export class SpotDetailComponent implements OnInit {
     if (spot) {
       this.swimmingSpot.set(spot);
       this.applySpotSeo(spot);
+      this.analytics.trackSpotView(spot, 'detail_page');
     }
 
     this.loading.set(false);
