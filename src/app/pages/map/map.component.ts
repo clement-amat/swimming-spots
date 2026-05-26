@@ -13,7 +13,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { takeUntilDestroyed as takeUntilDestroyedRxjs } from '@angular/core/rxjs-interop';
-import type { Map, MapboxOptions } from 'mapbox-gl';
+import type { Map, MapboxOptions, default as MapboxGl } from 'mapbox-gl';
 import { environment } from '../../../environments/environment';
 import { spotTypeMapping } from './spot-type-mapping';
 import {
@@ -39,8 +39,19 @@ import {
   buildCircleStrokeWidthExpression,
 } from './map-visibility.config';
 
-// Déclaration de mapboxgl comme variable globale
-declare const mapboxgl: any;
+let mapboxgl: typeof MapboxGl | undefined;
+let mapboxglPromise: Promise<typeof MapboxGl> | undefined;
+
+function loadMapboxGl(): Promise<typeof MapboxGl> {
+  if (mapboxgl) return Promise.resolve(mapboxgl);
+  if (!mapboxglPromise) {
+    mapboxglPromise = import('mapbox-gl').then((m) => {
+      mapboxgl = m.default;
+      return mapboxgl;
+    });
+  }
+  return mapboxglPromise;
+}
 
 @Component({
   selector: 'app-map',
@@ -69,6 +80,10 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     private analytics: AnalyticsService,
     @Inject(PLATFORM_ID) private platformId: Object,
   ) {
+    if (isPlatformBrowser(this.platformId)) {
+      loadMapboxGl();
+    }
+
     this.mapControlService
       .onCenterMap()
       .pipe(takeUntilDestroyed())
@@ -164,10 +179,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.mapControlService.setMapReady(false);
 
-    if (typeof mapboxgl === 'undefined') {
-      console.error("mapboxgl n'est pas disponible");
-      return;
-    }
+    const mapbox = await loadMapboxGl();
 
     const savedState = this.mapControlService.getSavedMapState();
 
@@ -180,7 +192,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       attributionControl: false,
     };
 
-    this.map = new mapboxgl.Map(mapOptions);
+    this.map = new mapbox.Map(mapOptions);
     this.mapInitialized = true;
 
     this.map.on('load', () => {
