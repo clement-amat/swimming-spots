@@ -10,10 +10,11 @@ import { GeocodingService } from '@app/shared/data/geocoding.service';
 import { SwimmingSpotsService } from '@app/shared/data/swimming-spots.service';
 import { SwimmingSpot } from '@app/shared/models/swimming-spot.model';
 import { MapControlService } from '@app/shared/maps/map-control.service';
+import { ToastComponent } from '@app/shared/ui/toast/toast.component';
 
 @Component({
   selector: 'app-layout',
-  imports: [RouterOutlet, AutocompleteInputComponent],
+  imports: [RouterOutlet, AutocompleteInputComponent, ToastComponent],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css',
 })

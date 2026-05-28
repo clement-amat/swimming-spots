@@ -78,14 +78,12 @@
 
 @media (max-width: 768px) {
   :root {
-    --header-height: 80px;
     --drawer-padding: 10px;
   }
 }
 
 @media (max-width: 480px) {
   :root {
-    --header-height: 64px;
     --drawer-padding: 8px;
   }
 }

@@ -47,10 +47,15 @@
       </div>
 
       <div class="flex gap-3">
-        <button class="btn-tonal !w-auto !h-auto !rounded-2xl py-3.5 px-4">
+        <button
+          type="button"
+          (click)="shareSpot()"
+          aria-label="Partager ce spot"
+          class="btn-tonal !w-auto !h-auto !rounded-2xl py-3.5 px-4">
           <span class="material-symbols-outlined text-xl">share</span>
         </button>
         <a [href]="spot | googleMapsUrl" target="_blank" rel="noopener noreferrer"
+          (click)="trackDirections()"
           class="group cursor-pointer bg-primary hover:bg-opacity-90 active:scale-95 text-white font-bold text-sm py-3.5 px-6 rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-200">
           <span
             class="material-symbols-outlined text-xl transition-transform duration-200 group-hover:translate-x-0.5">directions</span>

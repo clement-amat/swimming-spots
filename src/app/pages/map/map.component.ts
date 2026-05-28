@@ -70,6 +70,16 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
   legendItems: Array<{ color: string; label: string }> = [];
 
+  isLegendOpen = false;
+
+  toggleLegend(): void {
+    this.isLegendOpen = !this.isLegendOpen;
+  }
+
+  closeLegend(): void {
+    this.isLegendOpen = false;
+  }
+
   constructor(
     private swimmingSpotsService: SwimmingSpotsService,
     private mapControlService: MapControlService,

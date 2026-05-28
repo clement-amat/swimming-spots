@@ -1,4 +1,4 @@
-import { Component, input, computed } from '@angular/core';
+import { Component, input, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { SwimmingSpot } from '@app/shared/models/swimming-spot.model';
@@ -8,6 +8,8 @@ import { GoogleMapsUrlPipe } from '@app/shared/pipes/google-maps-url.pipe';
 import { SpotLocationPipe } from '@app/shared/pipes/spot-location.pipe';
 import { SpotWaterQualityChipComponent } from '@app/shared/ui/spot-water-quality-chip/spot-water-quality-chip.component';
 import { getSpotLabel } from '@app/shared/tools/spot-label.tool';
+import { ShareService } from '@app/shared/services/share.service';
+import { AnalyticsService } from '@app/shared/analytics/analytics.service';
 
 @Component({
   selector: 'app-swimming-spot-detail',
@@ -30,6 +32,9 @@ export class SwimmingSpotDetailComponent {
 
   spotLabel = computed(() => getSpotLabel(this.swimmingSpot()?.score));
 
+  private shareService = inject(ShareService);
+  private analytics = inject(AnalyticsService);
+
   constructor(private router: Router) {}
 
   navigateToGallery(): void {
@@ -38,6 +43,20 @@ export class SwimmingSpotDetailComponent {
       this.router.navigate(['/spot', spot.slug, 'gallery'], {
         state: { swimmingSpot: spot }
       });
+    }
+  }
+
+  shareSpot(): void {
+    const spot = this.swimmingSpot();
+    if (spot) {
+      this.shareService.shareSpot(spot);
+    }
+  }
+
+  trackDirections(): void {
+    const spot = this.swimmingSpot();
+    if (spot) {
+      this.analytics.trackSpotDirections(spot, 'detail_card');
     }
   }
 }

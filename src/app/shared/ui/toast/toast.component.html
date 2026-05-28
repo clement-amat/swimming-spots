@@ -1,0 +1,13 @@
+@if (toast.current(); as t) {
+  <div
+    class="toast"
+    [class.toast-error]="t.variant === 'error'"
+    role="status"
+    aria-live="polite"
+  >
+    <span class="material-symbols-outlined text-base">
+      {{ t.variant === 'error' ? 'error' : 'check_circle' }}
+    </span>
+    <span class="text-sm font-medium">{{ t.text }}</span>
+  </div>
+}

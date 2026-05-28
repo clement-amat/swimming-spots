@@ -4,10 +4,27 @@
 
   <app-map-filters></app-map-filters>
 
+  <!-- Bouton info pour ouvrir la légende sur mobile -->
+  <button type="button"
+    class="legend-toggle hidden max-md:flex items-center justify-center w-8 h-8 rounded-sm border-none cursor-pointer shadow-md"
+    [class.active]="isLegendOpen" (click)="toggleLegend()" [attr.aria-expanded]="isLegendOpen"
+    aria-controls="legend-panel" aria-label="Afficher la légende des types de spots">
+    <span class="material-symbols-outlined text-lg">info</span>
+  </button>
+
+  <!-- Backdrop mobile -->
+  <div class="legend-backdrop" [class.open]="isLegendOpen" (click)="closeLegend()" aria-hidden="true"></div>
+
   <!-- Panel de légende -->
-  <div class="legend-panel">
+  <div id="legend-panel" class="legend-panel" [class.open]="isLegendOpen" role="region"
+    aria-label="Légende des types de spots">
     <div class="legend-header">
       <h3 class="legend-title">Types de spots</h3>
+      <button type="button"
+        class="legend-close hidden max-md:flex items-center justify-center w-8 h-8 rounded-full border-none bg-transparent text-slate-500 cursor-pointer p-0"
+        (click)="closeLegend()" aria-label="Fermer la légende">
+        <span class="material-symbols-outlined text-xl">close</span>
+      </button>
     </div>
     <div class="legend-items">
       @for (item of legendItems; track item.label) {
@@ -17,6 +34,11 @@
       </div>
       }
     </div>
+    <p class="legend-source text-xs text-slate-500">
+      Source :
+      <a href="https://baignades.sante.gouv.fr/baignades/homeMap.do#a" target="_blank"
+        rel="noopener noreferrer">Ministère des Solidarités et de la Santé</a>
+    </p>
   </div>
 
   <app-drawer [swimmingSpot]="selectedSpot" (closeDrawer)="closeDrawer()">

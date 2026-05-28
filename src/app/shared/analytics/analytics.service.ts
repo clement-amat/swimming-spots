@@ -3,6 +3,8 @@ import { isPlatformBrowser } from '@angular/common';
 import { SwimmingSpot } from '@app/shared/models/swimming-spot.model';
 
 type SpotViewSource = 'overlay' | 'detail_page';
+type SpotShareMethod = 'native' | 'clipboard';
+type SpotDirectionsSource = 'hero_gallery' | 'detail_card';
 
 declare global {
   interface Window {
@@ -21,6 +23,26 @@ export class AnalyticsService {
       slug: spot.slug,
       name: spot.name,
       department: spot.department,
+      source,
+    });
+  }
+
+  trackSpotShare(spot: SwimmingSpot, method: SpotShareMethod): void {
+    if (!this.isBrowser || typeof window.gtag !== 'function') return;
+
+    window.gtag('event', 'share_spot', {
+      slug: spot.slug,
+      name: spot.name,
+      method,
+    });
+  }
+
+  trackSpotDirections(spot: SwimmingSpot, source: SpotDirectionsSource): void {
+    if (!this.isBrowser || typeof window.gtag !== 'function') return;
+
+    window.gtag('event', 'get_directions', {
+      slug: spot.slug,
+      name: spot.name,
       source,
     });
   }
