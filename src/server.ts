@@ -84,7 +84,15 @@ app.get('**', (req, res, next) => {
         { provide: SERVER_RESPONSE, useValue: res },
       ],
     })
-    .then((html) => res.send(html))
+    .then((html) => {
+      if (!res.headersSent && res.statusCode < 400) {
+        res.setHeader(
+          'Cache-Control',
+          'public, s-maxage=3600, stale-while-revalidate=86400',
+        );
+      }
+      res.send(html);
+    })
     .catch((err) => next(err));
 });
 
