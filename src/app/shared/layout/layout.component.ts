@@ -8,7 +8,7 @@ import {
 } from '@app/shared/ui/forms/autocomplete-input/autocomplete-input.component';
 import { GeocodingService } from '@app/shared/data/geocoding.service';
 import { SwimmingSpotsService } from '@app/shared/data/swimming-spots.service';
-import { SwimmingSpot } from '@app/shared/models/swimming-spot.model';
+import { SwimmingSpotLight } from '@app/shared/models/swimming-spot-light.model';
 import { MapControlService } from '@app/shared/maps/map-control.service';
 import { ToastComponent } from '@app/shared/ui/toast/toast.component';
 
@@ -44,10 +44,10 @@ export class LayoutComponent {
     );
   };
 
-  private spotToOption(spot: SwimmingSpot): AutocompleteOption {
+  private spotToOption(spot: SwimmingSpotLight): AutocompleteOption {
     return {
       label: spot.name,
-      sublabel: [spot.city, spot.region].filter(Boolean).join(' · '),
+      sublabel: [spot.city, spot.department].filter(Boolean).join(' · '),
       icon: 'pool',
       kind: 'spot',
       value: spot,
@@ -69,7 +69,7 @@ export class LayoutComponent {
 
   onLocationSelected(option: AutocompleteOption): void {
     if (option.kind === 'spot') {
-      const spot = option.value as SwimmingSpot;
+      const spot = option.value as SwimmingSpotLight;
       this.router.navigate(['/spot', spot.slug]);
       return;
     }

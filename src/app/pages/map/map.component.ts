@@ -11,17 +11,16 @@ import { SwimmingSpotsService } from '@data/swimming-spots.service';
 import { isPlatformBrowser } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { takeUntilDestroyed as takeUntilDestroyedRxjs } from '@angular/core/rxjs-interop';
+import { BreakpointObserver } from '@angular/cdk/layout';
 import type { Map, MapboxOptions, default as MapboxGl } from 'mapbox-gl';
 import { environment } from '../../../environments/environment';
 import { spotTypeMapping } from './spot-type-mapping';
+import { SwimmingSpot } from '@app/shared/models/swimming-spot.model';
 import {
-  SwimmingSpotType,
-  SwimmingSpot,
-} from '@app/shared/models/swimming-spot.model';
+  SwimmingSpotLight,
+  SwimmingSpotLightGeoJSON,
+} from '@app/shared/models/swimming-spot-light.model';
 import { SwimmingSpotDrawerComponent } from './swimming-spot-drawer/swimming-spot-drawer.component';
-import { SwimmingSpotGeoJSON } from '@app/shared/models/swimming-spot-geojson.model';
 import { MapControlService } from '@app/shared/maps/map-control.service';
 import { MapFiltersComponent } from '@app/shared/ui/map-filters/map-filters.component';
 import { MapFiltersService } from '@app/shared/services/map-filters.service';
@@ -62,10 +61,13 @@ function loadMapboxGl(): Promise<typeof MapboxGl> {
 })
 export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   private map!: Map;
-  private swimmingSpotsGeoJSON: SwimmingSpotGeoJSON | null = null;
+  private swimmingSpotsGeoJSON: SwimmingSpotLightGeoJSON | null = null;
   private mapInitialized = false;
+  private mapLoaded = false;
+  private layerAdded = false;
   private isMobile = false;
 
+  selectedLight: SwimmingSpotLight | null = null;
   selectedSpot: SwimmingSpot | null = null;
 
   legendItems: Array<{ color: string; label: string }> = [];
@@ -103,14 +105,14 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.breakpointObserver
       .observe(['(max-width: 768px)'])
-      .pipe(takeUntilDestroyedRxjs())
+      .pipe(takeUntilDestroyed())
       .subscribe((result) => {
         this.isMobile = result.matches;
       });
 
     effect(() => {
       const activeFilters = this.mapFiltersService.activeFilters();
-      if (this.mapInitialized && this.swimmingSpotsGeoJSON) {
+      if (this.layerAdded) {
         this.applyFilters();
       }
     });
@@ -162,13 +164,13 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     this.swimmingSpotsService.getSwimmingSpots().subscribe({
       next: (geoJSON) => {
         console.log(
-          `GeoJSON récupéré: ${geoJSON.features.length} points de baignade`,
+          `GeoJSON light récupéré: ${geoJSON.features.length} points de baignade`,
         );
         this.swimmingSpotsGeoJSON = geoJSON;
-        this.addSwimmingSpotsLayer();
+        this.tryAddLayer();
       },
       error: (error) => {
-        console.error('Erreur lors de la récupération du GeoJSON :', error);
+        console.error('Erreur lors de la récupération du GeoJSON light :', error);
       },
     });
   }
@@ -206,18 +208,20 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     this.mapInitialized = true;
 
     this.map.on('load', () => {
-      this.addSwimmingSpotsLayer();
+      this.mapLoaded = true;
       this.map.resize();
+      this.tryAddLayer();
       this.mapControlService.setMapReady(true);
     });
   }
 
-  private addSwimmingSpotsLayer(): void {
-    if (!this.map || !this.swimmingSpotsGeoJSON) return;
+  private tryAddLayer(): void {
+    if (this.layerAdded) return;
+    if (!this.mapLoaded || !this.swimmingSpotsGeoJSON) return;
 
     this.map.addSource('swimming-spots', {
       type: 'geojson',
-      data: this.swimmingSpotsGeoJSON,
+      data: this.swimmingSpotsGeoJSON as any,
     });
 
     const colorArray = Object.entries(spotTypeMapping).flatMap(
@@ -243,22 +247,8 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.map.on('click', 'swimming-spots-circles', (e: any) => {
       if (e.features.length > 0) {
-        const feature = e.features[0];
-        const properties = feature.properties;
-
-        const swimmingSpot: SwimmingSpot = {
-          ...properties,
-          images:
-            typeof properties.images === 'string'
-              ? JSON.parse(properties.images)
-              : properties.images,
-          siteDetails:
-            typeof properties.images === 'string'
-              ? JSON.parse(properties.siteDetails)
-              : properties.siteDetails,
-        };
-
-        this.openDrawer(swimmingSpot);
+        const light = e.features[0].properties as SwimmingSpotLight;
+        this.openDrawer(light);
       }
     });
 
@@ -269,35 +259,51 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     this.map.on('mouseleave', 'swimming-spots-circles', () => {
       this.map.getCanvas().style.cursor = '';
     });
+
+    this.layerAdded = true;
+    this.applyFilters();
   }
 
-  openDrawer(spot: SwimmingSpot): void {
+  openDrawer(light: SwimmingSpotLight): void {
     if (this.isMobile) {
-      this.router.navigate(['/spot', spot.slug], {
-        state: { swimmingSpot: spot },
-      });
-    } else {
-      this.selectedSpot = spot;
-      this.analytics.trackSpotView(spot, 'overlay');
+      this.router.navigate(['/spot', light.slug]);
+      return;
     }
+
+    this.selectedLight = light;
+    this.selectedSpot = null;
+
+    this.swimmingSpotsService.getSwimmingSpotBySlug(light.slug).subscribe({
+      next: (spot) => {
+        if (spot && this.selectedLight?.slug === light.slug) {
+          this.selectedSpot = spot;
+          this.analytics.trackSpotView(spot, 'overlay');
+        }
+      },
+      error: () => {
+        if (this.selectedLight?.slug === light.slug) {
+          this.selectedSpot = null;
+        }
+      },
+    });
   }
 
   closeDrawer(): void {
+    this.selectedLight = null;
     this.selectedSpot = null;
   }
 
   private applyFilters(): void {
-    if (!this.map || !this.swimmingSpotsGeoJSON) return;
+    if (!this.layerAdded) return;
 
     const activeFilters = this.mapFiltersService.activeFilters();
-    const filteredGeoJSON = this.swimmingSpotsService.filteredGeoJSON(
-      this.swimmingSpotsGeoJSON,
-      activeFilters,
+    const exprs = activeFilters.map(
+      (f) => ['==', ['get', f.id], true] as any,
     );
 
-    const source = this.map.getSource('swimming-spots') as any;
-    if (source) {
-      source.setData(filteredGeoJSON);
-    }
+    this.map.setFilter(
+      'swimming-spots-circles',
+      exprs.length ? (['all', ...exprs] as any) : null,
+    );
   }
 }

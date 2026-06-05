@@ -1,10 +1,10 @@
-<div class="drawer-overlay" [class.open]="swimmingSpot()" (click)="closeDrawer.emit()">
+<div class="drawer-overlay" [class.open]="isOpen()" (click)="closeDrawer.emit()">
   <div
     class="drawer-container w-[440px] bg-sidebar-bg dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 overflow-y-auto custom-scrollbar flex flex-col z-10"
-    [class.open]="swimmingSpot()" (click)="$event.stopPropagation()">
-    @if (swimmingSpot(); as spot) {
+    [class.open]="isOpen()" (click)="$event.stopPropagation()">
+    @if (lightSpot(); as light) {
     <div class="absolute z-[1] right-0 flex justify-end p-6">
-      <a class="btn-tonal mr-2" [routerLink]="['/spot', spot.slug]" [state]="{ swimmingSpot: spot }" aria-label="Ouvrir la page détail">
+      <a class="btn-tonal mr-2" [routerLink]="['/spot', light.slug]" aria-label="Ouvrir la page détail">
         <span class="material-symbols-outlined text-sm">open_in_new</span>
       </a>
       <button class="btn-tonal" (click)="onCloseClick($event)" aria-label="Fermer">
@@ -15,7 +15,22 @@
       </button>
     </div>
 
-    <app-swimming-spot-detail [swimmingSpot]="spot"></app-swimming-spot-detail>
+    @defer (when !!swimmingSpot(); prefetch on idle) {
+      @if (swimmingSpot(); as spot) {
+        <app-swimming-spot-detail [swimmingSpot]="spot"></app-swimming-spot-detail>
+      }
+    } @placeholder {
+      <div class="p-6 pt-20 animate-pulse" aria-busy="true" aria-live="polite">
+        <div class="h-7 w-3/4 bg-slate-200 dark:bg-slate-700 rounded mb-2"></div>
+        <div class="h-4 w-1/2 bg-slate-200 dark:bg-slate-700 rounded mb-6">
+        </div>
+        <div class="h-48 w-full bg-slate-200 dark:bg-slate-700 rounded mb-4"></div>
+        <div class="h-4 w-full bg-slate-200 dark:bg-slate-700 rounded mb-2"></div>
+        <div class="h-4 w-5/6 bg-slate-200 dark:bg-slate-700 rounded mb-2"></div>
+        <div class="h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded"></div>
+        <p class="sr-only">Chargement des détails de {{ light.name }}…</p>
+      </div>
+    }
     }
   </div>
 </div>

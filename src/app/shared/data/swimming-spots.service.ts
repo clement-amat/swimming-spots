@@ -1,39 +1,41 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, map, of, shareReplay, catchError, throwError } from 'rxjs';
-import { SwimmingSpot, SiteDetails } from '@models/swimming-spot.model';
-import { SwimmingSpotGeoJSON } from '@models/swimming-spot-geojson.model';
-import { MapFilter } from '@app/shared/services/map-filters.service';
+import { SwimmingSpot } from '@models/swimming-spot.model';
+import {
+  SwimmingSpotLight,
+  SwimmingSpotLightGeoJSON,
+} from '@models/swimming-spot-light.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SwimmingSpotsService {
   private http = inject(HttpClient);
-  private geoJSONCache$: Observable<SwimmingSpotGeoJSON> | null = null;
+  private lightGeoJSONCache$: Observable<SwimmingSpotLightGeoJSON> | null =
+    null;
 
-  getSwimmingSpots(): Observable<SwimmingSpotGeoJSON> {
-    if (!this.geoJSONCache$) {
-      this.geoJSONCache$ = this.http
-        .get<SwimmingSpotGeoJSON>('/geojson.json')
+  getSwimmingSpots(): Observable<SwimmingSpotLightGeoJSON> {
+    if (!this.lightGeoJSONCache$) {
+      this.lightGeoJSONCache$ = this.http
+        .get<SwimmingSpotLightGeoJSON>('/spots-light.geojson')
         .pipe(catchError(this.handleError), shareReplay(1));
     }
-    return this.geoJSONCache$;
+    return this.lightGeoJSONCache$;
   }
 
   getSwimmingSpotBySlug(slug: string): Observable<SwimmingSpot | null> {
-    return this.getSwimmingSpots().pipe(
-      map((geoJSON) => {
-        const feature = geoJSON.features.find(
-          (f) => f.properties.slug === slug,
-        );
-        return feature ? feature.properties : null;
+    return this.http.get<SwimmingSpot>(`/spots/${slug}.json`).pipe(
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === 404) {
+          return of(null);
+        }
+        return this.handleError(error);
       }),
-      catchError(this.handleError),
     );
   }
 
-  searchSpotsByName(query: string, limit = 5): Observable<SwimmingSpot[]> {
+  searchSpotsByName(query: string, limit = 5): Observable<SwimmingSpotLight[]> {
     const normalized = this.normalize(query);
     if (normalized.length < 2) {
       return of([]);
@@ -41,7 +43,7 @@ export class SwimmingSpotsService {
 
     return this.getSwimmingSpots().pipe(
       map((geoJSON) => {
-        const matches: Array<{ spot: SwimmingSpot; rank: number }> = [];
+        const matches: Array<{ spot: SwimmingSpotLight; rank: number }> = [];
         for (const feature of geoJSON.features) {
           const spot = feature.properties;
           const rank = this.matchRank(normalized, spot);
@@ -58,11 +60,14 @@ export class SwimmingSpotsService {
           .slice(0, limit)
           .map((m) => m.spot);
       }),
-      catchError(() => of([] as SwimmingSpot[])),
+      catchError(() => of([] as SwimmingSpotLight[])),
     );
   }
 
-  private matchRank(normalizedQuery: string, spot: SwimmingSpot): number {
+  private matchRank(
+    normalizedQuery: string,
+    spot: SwimmingSpotLight,
+  ): number {
     const name = this.normalize(spot.name);
     if (name.startsWith(normalizedQuery)) return 2;
     if (name.includes(normalizedQuery)) return 1;
@@ -75,53 +80,6 @@ export class SwimmingSpotsService {
       .replace(/[\u0300-\u036f]/g, '')
       .toLowerCase()
       .trim();
-  }
-
-  filteredGeoJSON(
-    geoJSON: SwimmingSpotGeoJSON,
-    activeFilters: MapFilter[],
-  ): SwimmingSpotGeoJSON {
-    if (activeFilters.length === 0) {
-      return geoJSON;
-    }
-
-    return {
-      ...geoJSON,
-      features: geoJSON.features.filter((feature) => {
-        const siteDetails = this.parseSiteDetails(
-          feature.properties.siteDetails,
-        );
-
-        if (!siteDetails) return false;
-
-        return activeFilters.every((filter) =>
-          this.matchesFilter(filter.id, siteDetails),
-        );
-      }),
-    };
-  }
-
-  private parseSiteDetails(siteDetails: any): SiteDetails | null {
-    if (!siteDetails) return null;
-
-    return typeof siteDetails === 'string'
-      ? JSON.parse(siteDetails)
-      : siteDetails;
-  }
-
-  private matchesFilter(filterId: string, siteDetails: SiteDetails): boolean {
-    switch (filterId) {
-      case 'comfort':
-        return !!siteDetails.toilets && !!siteDetails.showers;
-      case 'wheelchair':
-        return !!siteDetails.wheelchairAccess;
-      case 'lifeguard':
-        return !!siteDetails.surveillance || !!siteDetails.lifeguard;
-      case 'dogs':
-        return !!siteDetails.animalsAllowed;
-      default:
-        return true;
-    }
   }
 
   private handleError(error: HttpErrorResponse): Observable<never> {

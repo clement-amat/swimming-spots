@@ -2,7 +2,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { CommonEngine, isMainModule } from '@angular/ssr/node';
 import express from 'express';
 import { readFileSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
+import { dirname, join, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import bootstrap from './main.server';
 import { SERVER_RESPONSE } from './app/shared/seo/server-response.token';
@@ -18,17 +18,12 @@ const codeToSlug = loadCodeToSlugMap();
 
 function loadCodeToSlugMap(): Map<string, string> {
   try {
-    const raw = readFileSync(join(browserDistFolder, 'geojson.json'), 'utf-8');
-    const geo = JSON.parse(raw) as {
-      features: Array<{ properties: { code: string; slug: string } }>;
-    };
-    const map = new Map<string, string>();
-    for (const f of geo.features) {
-      if (f.properties.code && f.properties.slug) {
-        map.set(f.properties.code, f.properties.slug);
-      }
-    }
-    return map;
+    const raw = readFileSync(
+      join(browserDistFolder, 'code-to-slug.json'),
+      'utf-8',
+    );
+    const obj = JSON.parse(raw) as Record<string, string>;
+    return new Map(Object.entries(obj));
   } catch {
     return new Map();
   }
@@ -62,8 +57,16 @@ app.get(/^\/spot\/([^/]+)(\/gallery)?\/?$/, (req, res, next) => {
 app.get(
   '**',
   express.static(browserDistFolder, {
-    maxAge: '1y',
-    index: 'index.html'
+    maxAge: '1w',
+    index: 'index.html',
+    setHeaders(res, filePath) {
+      if (filePath.includes(`${sep}spots${sep}`) && filePath.endsWith('.json')) {
+        res.setHeader(
+          'Cache-Control',
+          'public, max-age=300, s-maxage=604800, stale-while-revalidate=604800',
+        );
+      }
+    },
   }),
 );
 
