@@ -16,10 +16,7 @@ import type { Map, MapboxOptions, default as MapboxGl } from 'mapbox-gl';
 import { environment } from '../../../environments/environment';
 import { spotTypeMapping } from './spot-type-mapping';
 import { SwimmingSpot } from '@app/shared/models/swimming-spot.model';
-import {
-  SwimmingSpotLight,
-  SwimmingSpotLightGeoJSON,
-} from '@app/shared/models/swimming-spot-light.model';
+import { SwimmingSpotLight } from '@app/shared/models/swimming-spot-light.model';
 import { SwimmingSpotDrawerComponent } from './swimming-spot-drawer/swimming-spot-drawer.component';
 import { MapControlService } from '@app/shared/maps/map-control.service';
 import { MapFiltersComponent } from '@app/shared/ui/map-filters/map-filters.component';
@@ -61,9 +58,7 @@ function loadMapboxGl(): Promise<typeof MapboxGl> {
 })
 export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   private map!: Map;
-  private swimmingSpotsGeoJSON: SwimmingSpotLightGeoJSON | null = null;
   private mapInitialized = false;
-  private mapLoaded = false;
   private layerAdded = false;
   private isMobile = false;
 
@@ -128,7 +123,6 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       structuredData: this.seoService.buildHomepageStructuredData(HOMEPAGE_DESCRIPTION),
     });
     this.generateLegendItems();
-    this.loadSwimmingSpotsGeoJSON();
   }
 
   private centerMapOn(lon: number, lat: number): void {
@@ -158,21 +152,6 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
         label: type,
       }),
     );
-  }
-
-  private loadSwimmingSpotsGeoJSON(): void {
-    this.swimmingSpotsService.getSwimmingSpots().subscribe({
-      next: (geoJSON) => {
-        console.log(
-          `GeoJSON light récupéré: ${geoJSON.features.length} points de baignade`,
-        );
-        this.swimmingSpotsGeoJSON = geoJSON;
-        this.tryAddLayer();
-      },
-      error: (error) => {
-        console.error('Erreur lors de la récupération du GeoJSON light :', error);
-      },
-    });
   }
 
   ngOnDestroy(): void {
@@ -208,20 +187,18 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     this.mapInitialized = true;
 
     this.map.on('load', () => {
-      this.mapLoaded = true;
       this.map.resize();
-      this.tryAddLayer();
+      this.addSwimmingSpotsLayer();
       this.mapControlService.setMapReady(true);
     });
   }
 
-  private tryAddLayer(): void {
+  private addSwimmingSpotsLayer(): void {
     if (this.layerAdded) return;
-    if (!this.mapLoaded || !this.swimmingSpotsGeoJSON) return;
 
     this.map.addSource('swimming-spots', {
       type: 'geojson',
-      data: this.swimmingSpotsGeoJSON as any,
+      data: '/spots-light.json',
     });
 
     const colorArray = Object.entries(spotTypeMapping).flatMap(

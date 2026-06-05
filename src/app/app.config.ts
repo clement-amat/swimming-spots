@@ -6,13 +6,19 @@ import { routes } from './app.routes';
 import {
   provideClientHydration,
   withEventReplay,
+  withHttpTransferCacheOptions,
 } from '@angular/platform-browser';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideClientHydration(withEventReplay()),
+    provideClientHydration(
+      withEventReplay(),
+      withHttpTransferCacheOptions({
+        filter: (req) => !req.url.includes('spots-light'),
+      }),
+    ),
     provideHttpClient(withFetch()),
   ],
 };

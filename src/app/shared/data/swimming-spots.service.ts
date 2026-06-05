@@ -18,7 +18,7 @@ export class SwimmingSpotsService {
   getSwimmingSpots(): Observable<SwimmingSpotLightGeoJSON> {
     if (!this.lightGeoJSONCache$) {
       this.lightGeoJSONCache$ = this.http
-        .get<SwimmingSpotLightGeoJSON>('/spots-light.geojson')
+        .get<SwimmingSpotLightGeoJSON>('/spots-light.json')
         .pipe(catchError(this.handleError), shareReplay(1));
     }
     return this.lightGeoJSONCache$;
