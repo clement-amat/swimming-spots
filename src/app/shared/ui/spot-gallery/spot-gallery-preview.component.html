@@ -9,10 +9,11 @@
     }
   </div>
   <div class="grid grid-cols-3 gap-3">
-    @for (entry of displayedImages(); track entry.image.url; let last = $last) {
+    @for (image of displayedImages(); track image.url; let last = $last) {
     @if (last && hasMoreImages() && spotSlug()) {
     <a [routerLink]="['/spot', spotSlug(), 'gallery']" class="relative group cursor-pointer h-48 block">
-      <img [alt]="entry.image.title || spotName()" [src]="entry.src"
+      <img [alt]="image.title || spotName()" [appSpotImage]="image" [displayWidth]="480"
+        sizes="(max-width: 768px) 33vw, 260px" loading="lazy"
         class="w-full h-full object-cover rounded-xl shadow-sm hover:opacity-90 transition-opacity" />
       <div
         class="absolute inset-0 bg-black/40 rounded-xl flex items-center justify-center text-white font-bold group-hover:bg-black/50 transition-all">
@@ -21,7 +22,8 @@
     </a>
     } @else {
     <div class="relative group h-48">
-      <img [alt]="entry.image.title || spotName()" [src]="entry.src"
+      <img [alt]="image.title || spotName()" [appSpotImage]="image" [displayWidth]="480"
+        sizes="(max-width: 768px) 33vw, 260px" loading="lazy"
         class="w-full h-full object-cover rounded-xl shadow-sm" />
     </div>
     }

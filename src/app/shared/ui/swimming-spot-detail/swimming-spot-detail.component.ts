@@ -10,6 +10,7 @@ import { SpotWaterQualityChipComponent } from '@app/shared/ui/spot-water-quality
 import { getSpotLabel } from '@app/shared/tools/spot-label.tool';
 import { ShareService } from '@app/shared/services/share.service';
 import { AnalyticsService } from '@app/shared/analytics/analytics.service';
+import { SpotImageDirective } from '@app/shared/ui/spot-image/spot-image.directive';
 
 @Component({
   selector: 'app-swimming-spot-detail',
@@ -21,6 +22,7 @@ import { AnalyticsService } from '@app/shared/analytics/analytics.service';
     GoogleMapsUrlPipe,
     SpotLocationPipe,
     SpotWaterQualityChipComponent,
+    SpotImageDirective,
   ],
   templateUrl: './swimming-spot-detail.component.html',
   styleUrl: './swimming-spot-detail.component.css',

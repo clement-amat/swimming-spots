@@ -23,9 +23,12 @@
   <main class="max-w-screen-xl w-full mx-auto px-4 md:px-6 py-6 md:py-8">
     @if (swimmingSpot()!.images?.length) {
     <div class="gap-2" [ngClass]="columnClass()">
-      @for (image of swimmingSpot()!.images; track trackByUrl($index, image)) {
+      @for (image of swimmingSpot()!.images; track trackByUrl($index, image); let i = $index) {
       <div class="break-inside-avoid mb-2 rounded-lg overflow-hidden shadow-md">
-        <img [alt]="image.title || spotName()" [src]="image.url" class="w-full h-auto block align-middle" loading="lazy" />
+        <img [alt]="image.title || spotName()" [appSpotImage]="image" [displayWidth]="960"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
+          [attr.fetchpriority]="i === 0 ? 'high' : null" [attr.loading]="i === 0 ? null : 'lazy'"
+          class="w-full h-auto block align-middle" />
       </div>
       }
     </div>

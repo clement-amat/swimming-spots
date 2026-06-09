@@ -13,11 +13,12 @@ import {
   SwimmingSpot,
   SwimmingSpotImage,
 } from '@app/shared/models/swimming-spot.model';
+import { SpotImageDirective } from '@app/shared/ui/spot-image/spot-image.directive';
 
 @Component({
   selector: 'app-spot-gallery',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SpotImageDirective],
   templateUrl: './spot-gallery.component.html',
   styleUrl: './spot-gallery.component.css',
 })

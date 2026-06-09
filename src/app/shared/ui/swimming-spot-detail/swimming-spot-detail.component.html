@@ -4,7 +4,9 @@
   <div class="p-4">
     <div class="images-grid" [attr.data-count]="images().length">
       <div class="image-item" *ngFor="let image of images(); let i = index" (click)="navigateToGallery()">
-        <img [alt]="image.title || spot.name" [src]="image.url" />
+        <img [alt]="image.title || spot.name" [appSpotImage]="image" [displayWidth]="i === 0 ? 640 : 480"
+          [sizes]="i === 0 ? '(max-width: 768px) 66vw, 400px' : '(max-width: 768px) 33vw, 200px'"
+          [attr.fetchpriority]="i === 0 ? 'high' : null" [attr.loading]="i === 0 ? null : 'lazy'" />
         @if (spot.images && spot.images.length > 3 && i === 0) {
         <div class="image-badge cursor-pointer">
           <span class="material-symbols-outlined">photo_library</span>

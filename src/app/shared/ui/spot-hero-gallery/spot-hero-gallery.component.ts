@@ -6,6 +6,7 @@ import { SpotLocationPipe } from '@app/shared/pipes/spot-location.pipe';
 import { SpotWaterQualityChipComponent } from '@app/shared/ui/spot-water-quality-chip/spot-water-quality-chip.component';
 import { ShareService } from '@app/shared/services/share.service';
 import { AnalyticsService } from '@app/shared/analytics/analytics.service';
+import { SpotImageDirective } from '@app/shared/ui/spot-image/spot-image.directive';
 
 @Component({
   selector: 'app-spot-hero-gallery',
@@ -15,6 +16,7 @@ import { AnalyticsService } from '@app/shared/analytics/analytics.service';
     GoogleMapsUrlPipe,
     SpotLocationPipe,
     SpotWaterQualityChipComponent,
+    SpotImageDirective,
   ],
   templateUrl: './spot-hero-gallery.component.html',
   styleUrl: './spot-hero-gallery.component.css',

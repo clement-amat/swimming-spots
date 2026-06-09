@@ -8,7 +8,8 @@
       <div class="lg:col-span-8">
         @if (spot().image) {
         <div class="rounded-lg overflow-hidden shadow-xl mb-8 bg-neutral-sand h-[450px]">
-          <img [src]="spot().image" [alt]="spot().name"
+          <img [appSpotImage]="spot().image!" [alt]="spot().name" [displayWidth]="960"
+            sizes="(max-width: 1024px) 100vw, 650px" loading="lazy"
             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
         </div>
         }

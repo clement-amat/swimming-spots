@@ -65,6 +65,21 @@ app.get(
           'Cache-Control',
           'public, max-age=300, s-maxage=604800, stale-while-revalidate=604800',
         );
+      } else if (/-[A-Z0-9]{8,}\.[a-z0-9]+$/i.test(filePath)) {
+        res.setHeader(
+          'Cache-Control',
+          'public, max-age=31536000, immutable',
+        );
+      } else if (filePath.endsWith('.html')) {
+        res.setHeader(
+          'Cache-Control',
+          'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400',
+        );
+      } else {
+        res.setHeader(
+          'Cache-Control',
+          'public, max-age=300, s-maxage=604800, stale-while-revalidate=604800',
+        );
       }
     },
   }),
