@@ -38,6 +38,8 @@ import {
 let mapboxgl: typeof MapboxGl | undefined;
 let mapboxglPromise: Promise<typeof MapboxGl> | undefined;
 
+const TAP_TOLERANCE_PX = 12;
+
 function loadMapboxGl(): Promise<typeof MapboxGl> {
   if (mapboxgl) return Promise.resolve(mapboxgl);
   if (!mapboxglPromise) {
@@ -181,6 +183,8 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       center: savedState?.center ?? [2.2137, 46.2276],
       zoom: savedState?.zoom ?? 5,
       attributionControl: false,
+      // Default (3px) turns most mobile taps into micro-pans, swallowing the click
+      clickTolerance: 10,
     };
 
     this.map = new mapbox.Map(mapOptions);
@@ -222,11 +226,30 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       },
     });
 
-    this.map.on('click', 'swimming-spots-circles', (e: any) => {
-      if (e.features.length > 0) {
-        const light = e.features[0].properties as SwimmingSpotLight;
-        this.openDrawer(light);
+    this.map.on('click', (e: any) => {
+      const { x, y } = e.point;
+      const features = this.map.queryRenderedFeatures(
+        [
+          [x - TAP_TOLERANCE_PX, y - TAP_TOLERANCE_PX],
+          [x + TAP_TOLERANCE_PX, y + TAP_TOLERANCE_PX],
+        ],
+        { layers: ['swimming-spots-circles'] },
+      );
+      if (!features.length) return;
+
+      let nearest = features[0];
+      let minDist = Infinity;
+      for (const feature of features) {
+        const coords = (feature.geometry as any).coordinates;
+        const projected = this.map.project(coords);
+        const dist = Math.hypot(projected.x - x, projected.y - y);
+        if (dist < minDist) {
+          minDist = dist;
+          nearest = feature;
+        }
       }
+
+      this.openDrawer(nearest.properties as SwimmingSpotLight);
     });
 
     this.map.on('mouseenter', 'swimming-spots-circles', () => {
