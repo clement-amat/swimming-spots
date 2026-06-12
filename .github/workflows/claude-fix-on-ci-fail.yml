@@ -1,0 +1,121 @@
+name: Claude Fix (auto on CI failure)
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  id-token: write
+  actions: read
+  checks: read
+
+jobs:
+  gate:
+    name: gate
+    if: |
+      github.event.workflow_run.conclusion == 'failure' &&
+      github.event.workflow_run.event == 'pull_request'
+    runs-on: ubuntu-latest
+    outputs:
+      should_run: ${{ steps.decide.outputs.should_run }}
+      pr_number: ${{ steps.decide.outputs.pr_number }}
+      error_context: ${{ steps.decide.outputs.error_context }}
+    steps:
+      - name: Decide whether to run claude-fix
+        id: decide
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const run = context.payload.workflow_run;
+            const headSha = run.head_sha;
+            const headBranch = run.head_branch;
+
+            const setOut = (k, v) => core.setOutput(k, typeof v === 'string' ? v : String(v));
+            const skip = (reason) => {
+              core.info(`Skipping: ${reason}`);
+              setOut('should_run', 'false');
+            };
+
+            // Find the PR for this head SHA
+            const { data: prs } = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              head: `${context.repo.owner}:${headBranch}`,
+              per_page: 5,
+            });
+            const pr = prs.find(p => p.head.sha === headSha) || prs[0];
+            if (!pr) return skip(`no open PR found for ${headBranch}@${headSha.slice(0, 8)}`);
+
+            // Same-repo only (workflow_run can't push to fork heads anyway)
+            const isFork = pr.head.repo.full_name !== `${context.repo.owner}/${context.repo.repo}`;
+            if (isFork) return skip('PR is from a fork');
+
+            // Dependabot only for now — broaden later if desired
+            if (pr.user.login !== 'dependabot[bot]') {
+              return skip(`PR author is ${pr.user.login}, only dependabot[bot] is auto-fixed`);
+            }
+
+            // One-shot guard: if claude already touched this PR, don't re-trigger
+            const labels = (pr.labels || []).map(l => l.name);
+            if (labels.includes('claude-touched')) {
+              return skip('claude-touched label already present (one-shot guard)');
+            }
+
+            // Belt-and-braces: skip if the last commit was authored by Claude itself
+            const { data: commits } = await github.rest.pulls.listCommits({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number,
+              per_page: 100,
+            });
+            const last = commits[commits.length - 1];
+            const lastAuthor = (last?.author?.login || last?.commit?.author?.name || '').toLowerCase();
+            if (lastAuthor.includes('claude')) {
+              return skip(`last commit authored by ${lastAuthor} — skipping to avoid loop`);
+            }
+
+            // Gather failed jobs from the failing workflow run
+            const { data: jobs } = await github.rest.actions.listJobsForWorkflowRun({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id: run.id,
+              per_page: 100,
+            });
+            const failedJobs = jobs.jobs.filter(j => j.conclusion === 'failure');
+
+            const lines = [];
+            lines.push(`Auto-trigger: CI run #${run.run_number} failed on PR #${pr.number} (Dependabot).`);
+            lines.push(`Head: ${headSha.slice(0, 8)} on \`${headBranch}\``);
+            lines.push(`PR title: ${pr.title}`);
+            lines.push(`Workflow run URL: ${run.html_url}`);
+            lines.push('');
+            if (failedJobs.length === 0) {
+              lines.push('No failed jobs in the run payload — inspect the run URL above.');
+            } else {
+              lines.push('## Failed jobs');
+              for (const j of failedJobs) {
+                lines.push(`- ${j.name} — ${j.html_url}`);
+                const failedSteps = (j.steps || []).filter(s => s.conclusion === 'failure');
+                for (const s of failedSteps) {
+                  lines.push(`    - step: ${s.name}`);
+                }
+              }
+            }
+
+            setOut('should_run', 'true');
+            setOut('pr_number', pr.number);
+            setOut('error_context', lines.join('\n'));
+
+  run-fix:
+    needs: gate
+    if: needs.gate.outputs.should_run == 'true'
+    uses: ./.github/workflows/claude-fix.yml
+    with:
+      pr_number: ${{ fromJSON(needs.gate.outputs.pr_number) }}
+      error_context: ${{ needs.gate.outputs.error_context }}
+    secrets: inherit
