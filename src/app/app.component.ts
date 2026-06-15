@@ -10,5 +10,5 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'swimming-spots';
-  appVersion: string = 42;
+  appVersion: string = '42';
 }
