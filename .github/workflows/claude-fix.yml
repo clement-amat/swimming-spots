@@ -106,14 +106,15 @@ jobs:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           allowed_bots: 'dependabot'
           show_full_output: 'true'
+          timeout_minutes: '10'
           prompt: |
-            You are fixing a failing CI on pull request #${{ inputs.pr_number }} in the swimming-spots Angular 19 app.
+            You are proposing a fix for a failing CI on pull request #${{ inputs.pr_number }} in the swimming-spots Angular 19 app.
 
             ## Failure context (read this FIRST)
 
             ${{ inputs.error_context }}
 
-            The failure logs above are the source of truth. Do NOT re-run `yarn build` to discover the problem — it is already in the context. Use the logs to identify the failing file(s) and the exact error message.
+            The failure logs above are the source of truth. **Do NOT run `yarn build`, `yarn test`, or any other verification command.** CI will re-run after you push. You are a proposer, not a validator.
 
             ## Hard constraints — read these BEFORE planning a fix
 
@@ -141,15 +142,13 @@ jobs:
             - The exact change needed
             - Why the allowed scope cannot fix it
 
-            Then exit. Do not run `yarn build`, do not edit, do not commit.
+            Then exit. Do not edit, do not commit, do not run any command.
 
             ### If YES (fix is genuinely in `src/**` / `api/**` / `scripts/**` / `public/**`)
 
-            1. Apply the minimal code edit.
-            2. Run `yarn build` ONCE to verify the fix compiles.
-            3. If `yarn build` still fails, do NOT iterate more than twice. If still red after a second attempt, follow the NO path and comment about it.
-            4. Commit and push to the PR head branch (`${{ steps.pr.outputs.head_ref }}`).
-            5. Post one short PR comment summarising what you changed and why.
+            1. Apply the minimal code edit, in one shot if possible.
+            2. Commit and push to the PR head branch (`${{ steps.pr.outputs.head_ref }}`). Do NOT run `yarn build` or any other verifier first.
+            3. Post one short PR comment summarising what you changed and why, and note explicitly that this fix is **unverified locally — the CI will validate**.
 
             ## Style
 
