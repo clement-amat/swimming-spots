@@ -60,25 +60,15 @@ jobs:
             const m = body.match(/@claude fix\s*([\s\S]*)/i);
             const userHint = (m && m[1] ? m[1].trim() : '');
 
-            // Failing check runs on the PR head
-            const { data: checkData } = await github.rest.checks.listForRef({
+            // Most recent failed workflow run on this head SHA
+            const { data: wfRuns } = await github.rest.actions.listWorkflowRunsForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              ref: headSha,
-              per_page: 100,
+              head_sha: headSha,
+              status: 'failure',
+              per_page: 5,
             });
-
-            const failing = (checkData.check_runs || []).filter(
-              cr => cr.conclusion && ['failure', 'cancelled', 'timed_out', 'action_required'].includes(cr.conclusion)
-            );
-
-            // Failing statuses (older API, still common for some CIs)
-            const { data: statusData } = await github.rest.repos.getCombinedStatusForRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: headSha,
-            });
-            const failingStatuses = (statusData.statuses || []).filter(s => s.state === 'failure' || s.state === 'error');
+            const lastFailedRun = (wfRuns.workflow_runs || [])[0] || null;
 
             const lines = [];
             lines.push(`PR #${prNumber} — head ${headSha.substring(0, 8)} on \`${pr.head.ref}\``);
@@ -89,16 +79,53 @@ jobs:
               lines.push(userHint);
               lines.push('');
             }
-            if (failing.length === 0 && failingStatuses.length === 0) {
-              lines.push('No failing check runs or statuses detected on the head commit.');
-              lines.push('Try running `yarn build` and `yarn test` locally and address whatever fails.');
+
+            if (!lastFailedRun) {
+              lines.push('No failed workflow run found on the head commit. Inspect the PR checks directly.');
             } else {
-              lines.push('## Failing checks');
-              for (const cr of failing) {
-                lines.push(`- ${cr.name} (conclusion: ${cr.conclusion}) — ${cr.html_url}`);
+              lines.push(`## Failed workflow run`);
+              lines.push(`- ${lastFailedRun.name} #${lastFailedRun.run_number} — ${lastFailedRun.html_url}`);
+
+              const { data: jobs } = await github.rest.actions.listJobsForWorkflowRun({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                run_id: lastFailedRun.id,
+                per_page: 100,
+              });
+              const failedJobs = (jobs.jobs || []).filter(j => j.conclusion === 'failure');
+
+              lines.push('');
+              lines.push('## Failed jobs');
+              for (const j of failedJobs) {
+                lines.push(`- ${j.name} — ${j.html_url}`);
+                for (const s of (j.steps || []).filter(s => s.conclusion === 'failure')) {
+                  lines.push(`    - step: ${s.name}`);
+                }
               }
-              for (const s of failingStatuses) {
-                lines.push(`- ${s.context} (state: ${s.state}) — ${s.target_url || 'no url'}`);
+
+              const MAX_LINES_PER_JOB = 200;
+              const MAX_CHARS_TOTAL = 12000;
+              let charBudget = MAX_CHARS_TOTAL;
+              for (const j of failedJobs) {
+                if (charBudget <= 0) break;
+                lines.push('');
+                lines.push(`## Log tail — job \`${j.name}\``);
+                lines.push('```');
+                try {
+                  const r = await github.rest.actions.downloadJobLogsForWorkflowRun({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    job_id: j.id,
+                  });
+                  const text = typeof r.data === 'string' ? r.data : Buffer.from(r.data).toString('utf8');
+                  let tail = text.split('\n').slice(-MAX_LINES_PER_JOB).join('\n');
+                  if (tail.length > charBudget) tail = tail.slice(tail.length - charBudget);
+                  charBudget -= tail.length;
+                  lines.push(tail);
+                } catch (e) {
+                  lines.push(`(could not fetch logs: ${e.message})`);
+                }
+                lines.push('```');
               }
             }
 

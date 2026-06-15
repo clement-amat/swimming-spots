@@ -105,6 +105,34 @@ jobs:
                   lines.push(`    - step: ${s.name}`);
                 }
               }
+
+              // Fetch + tail logs for each failed job
+              const MAX_LINES_PER_JOB = 200;
+              const MAX_CHARS_TOTAL = 12000;
+              let charBudget = MAX_CHARS_TOTAL;
+              for (const j of failedJobs) {
+                if (charBudget <= 0) break;
+                lines.push('');
+                lines.push(`## Log tail — job \`${j.name}\``);
+                lines.push('```');
+                try {
+                  const r = await github.rest.actions.downloadJobLogsForWorkflowRun({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    job_id: j.id,
+                  });
+                  const text = typeof r.data === 'string' ? r.data : Buffer.from(r.data).toString('utf8');
+                  let tail = text.split('\n').slice(-MAX_LINES_PER_JOB).join('\n');
+                  if (tail.length > charBudget) {
+                    tail = tail.slice(tail.length - charBudget);
+                  }
+                  charBudget -= tail.length;
+                  lines.push(tail);
+                } catch (e) {
+                  lines.push(`(could not fetch logs: ${e.message})`);
+                }
+                lines.push('```');
+              }
             }
 
             setOut('should_run', 'true');

@@ -105,21 +105,17 @@ jobs:
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           allowed_bots: 'dependabot'
+          show_full_output: 'true'
           prompt: |
             You are fixing a failing CI on pull request #${{ inputs.pr_number }} in the swimming-spots Angular 19 app.
 
-            ## Failure context
+            ## Failure context (read this FIRST)
 
             ${{ inputs.error_context }}
 
-            ## Your job
+            The failure logs above are the source of truth. Do NOT re-run `yarn build` to discover the problem — it is already in the context. Use the logs to identify the failing file(s) and the exact error message.
 
-            1. Reproduce the failure locally if useful (`yarn build`, `yarn test`, or any narrower command from `package.json`).
-            2. Apply the minimal code fix so CI passes.
-            3. Commit and push to the PR head branch (`${{ steps.pr.outputs.head_ref }}`).
-            4. Post one short PR comment summarising what you changed and why.
-
-            ## Hard constraints — read carefully
+            ## Hard constraints — read these BEFORE planning a fix
 
             **You may only modify files under these paths:**
             - `src/**`     (Angular app code)
@@ -134,17 +130,30 @@ jobs:
             - `vercel.json`, `.postcssrc.json`   (deploy / postcss config)
             - any other file at the repo root not listed in the allowed paths
 
-            ## Fallback protocol
+            ## Decide first: is this fix in scope?
 
-            If fixing the failure genuinely requires touching a forbidden file (e.g. dep version mismatch, broken build config, workflow bug):
-            1. Do NOT modify any file.
-            2. Post a PR comment explaining exactly which forbidden file would need to change, what change is needed, and why the allowed scope cannot fix it.
-            3. Stop. Do not push any commit.
+            Read the failure log and answer YES or NO to: "can I fix this by changing only files under the allowed paths?"
+
+            ### If NO (fix requires forbidden files — e.g. dep bump fallout, broken config, missing dep)
+
+            STOP. Do not modify anything. Post a single PR comment with:
+            - The file(s) that would need to change
+            - The exact change needed
+            - Why the allowed scope cannot fix it
+
+            Then exit. Do not run `yarn build`, do not edit, do not commit.
+
+            ### If YES (fix is genuinely in `src/**` / `api/**` / `scripts/**` / `public/**`)
+
+            1. Apply the minimal code edit.
+            2. Run `yarn build` ONCE to verify the fix compiles.
+            3. If `yarn build` still fails, do NOT iterate more than twice. If still red after a second attempt, follow the NO path and comment about it.
+            4. Commit and push to the PR head branch (`${{ steps.pr.outputs.head_ref }}`).
+            5. Post one short PR comment summarising what you changed and why.
 
             ## Style
 
             - Follow `AGENTS.md` conventions (Angular signals, standalone components, no comments in code, mobile + desktop, SEO-aware).
-            - Make the smallest possible diff. No refactors, no drive-by cleanups.
-            - Use the existing yarn scripts to verify (`yarn build`, `yarn test`).
+            - Smallest possible diff. No refactors, no drive-by cleanups.
           claude_args: |
             --allowed-tools "Bash,Edit,Read,Write,Glob,Grep"
