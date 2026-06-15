@@ -55,9 +55,11 @@ jobs:
             const isFork = pr.head.repo.full_name !== `${context.repo.owner}/${context.repo.repo}`;
             if (isFork) return skip('PR is from a fork');
 
-            // Dependabot only for now — broaden later if desired
-            if (pr.user.login !== 'dependabot[bot]') {
-              return skip(`PR author is ${pr.user.login}, only dependabot[bot] is auto-fixed`);
+            // Dependabot only for now — broaden later if desired.
+            // clement-amat allowed temporarily to simulate the Dependabot flow end-to-end.
+            const ALLOWED_AUTHORS = ['dependabot[bot]', 'clement-amat'];
+            if (!ALLOWED_AUTHORS.includes(pr.user.login)) {
+              return skip(`PR author is ${pr.user.login}, not in allow-list (${ALLOWED_AUTHORS.join(', ')})`);
             }
 
             // One-shot guard: if claude already touched this PR, don't re-trigger
