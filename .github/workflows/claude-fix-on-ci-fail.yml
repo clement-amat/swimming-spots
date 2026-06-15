@@ -56,8 +56,7 @@ jobs:
             if (isFork) return skip('PR is from a fork');
 
             // Dependabot only for now — broaden later if desired.
-            // clement-amat allowed temporarily to simulate the Dependabot flow end-to-end.
-            const ALLOWED_AUTHORS = ['dependabot[bot]', 'clement-amat'];
+            const ALLOWED_AUTHORS = ['dependabot[bot]'];
             if (!ALLOWED_AUTHORS.includes(pr.user.login)) {
               return skip(`PR author is ${pr.user.login}, not in allow-list (${ALLOWED_AUTHORS.join(', ')})`);
             }
