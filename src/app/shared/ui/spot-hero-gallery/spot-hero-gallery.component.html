@@ -36,7 +36,7 @@
       class="absolute bottom-10 left-10 right-10 flex flex-col md:flex-row md:items-end justify-between gap-6 pointer-events-auto">
       <div class="flex-1 max-w-2xl">
         <div class="flex flex-wrap gap-2 mb-4">
-          <app-spot-water-quality-chip [quality]="spot.siteDetails?.lastWaterQuality"></app-spot-water-quality-chip>
+          <app-spot-water-quality-chip [quality]="spot.siteDetails?.lastWaterQuality" [lastTestDate]="spot.siteDetails?.lastTestDate"></app-spot-water-quality-chip>
         </div>
 
         <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-2 font-display drop-shadow-lg">

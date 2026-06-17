@@ -20,7 +20,7 @@
 
   <div class="px-6 pb-28 flex-1" [class.pt-8]="images().length === 0">
     <div class="flex flex-wrap gap-2 mb-4">
-      <app-spot-water-quality-chip [quality]="spot.siteDetails?.lastWaterQuality"></app-spot-water-quality-chip>
+      <app-spot-water-quality-chip [quality]="spot.siteDetails?.lastWaterQuality" [lastTestDate]="spot.siteDetails?.lastTestDate"></app-spot-water-quality-chip>
     </div>
     <h1 class="text-2xl font-extrabold text-slate-800 dark:text-white mb-2 leading-tight font-display">
       {{ spot.name }}
