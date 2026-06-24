@@ -21,7 +21,7 @@ export class SwimmingSpotsService {
         .get<SwimmingSpotLightGeoJSON>('/spots-light.json')
         .pipe(
           catchError(this.handleError),
-          shareReplay({ bufferSize: 1, refCount: 'yes' }),
+          shareReplay({ bufferSize: 1, refCount: true }),
         );
     }
     return this.lightGeoJSONCache$;
