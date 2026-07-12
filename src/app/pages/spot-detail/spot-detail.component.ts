@@ -1,12 +1,14 @@
 import {
   Component,
+  DestroyRef,
   OnInit,
   signal,
   inject,
 } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { toSignal, takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
-import { CommonModule, Location } from '@angular/common';
+import { CommonModule, DOCUMENT, Location, isPlatformBrowser } from '@angular/common';
+import { PLATFORM_ID } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { map } from 'rxjs';
 import { SwimmingSpot } from '@app/shared/models/swimming-spot.model';
@@ -45,6 +47,9 @@ export class SpotDetailComponent implements OnInit {
   private seoService = inject(SeoService);
   private breakpointObserver = inject(BreakpointObserver);
   private analytics = inject(AnalyticsService);
+  private destroyRef = inject(DestroyRef);
+  private document = inject(DOCUMENT);
+  private platformId = inject(PLATFORM_ID);
 
   swimmingSpot = signal<SwimmingSpot | null>(null);
   loading = signal(true);
@@ -57,15 +62,32 @@ export class SpotDetailComponent implements OnInit {
   );
 
   ngOnInit(): void {
-    const spot: SwimmingSpot | null = this.route.snapshot.data['spot'];
+    this.route.data
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((data) => {
+        const spot: SwimmingSpot | null = data['spot'] ?? null;
+        this.swimmingSpot.set(spot);
+        if (spot) {
+          this.applySpotSeo(spot);
+          this.analytics.trackSpotView(spot, 'detail_page');
+          this.scrollMainToTop();
+        }
+        this.loading.set(false);
+      });
+  }
 
-    if (spot) {
-      this.swimmingSpot.set(spot);
-      this.applySpotSeo(spot);
-      this.analytics.trackSpotView(spot, 'detail_page');
-    }
-
-    this.loading.set(false);
+  private scrollMainToTop(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+    const scroll = () => {
+      const selectors = ['.spot-detail-desktop', '.spot-detail-page', '.layout-main'];
+      for (const sel of selectors) {
+        const el = this.document.querySelector(sel) as HTMLElement | null;
+        if (el) el.scrollTop = 0;
+      }
+      this.document.defaultView?.scrollTo({ top: 0 });
+    };
+    scroll();
+    this.document.defaultView?.requestAnimationFrame(scroll);
   }
 
   private applySpotSeo(spot: SwimmingSpot): void {

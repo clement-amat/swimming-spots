@@ -32,6 +32,7 @@ export const routes: Routes = [
         resolve: {
           spot: spotDetailResolver,
         },
+        runGuardsAndResolvers: 'paramsChange',
       },
       {
         path: 'spot/:slug/gallery',
