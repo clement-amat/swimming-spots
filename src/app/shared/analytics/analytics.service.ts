@@ -16,14 +16,14 @@ declare global {
 export class AnalyticsService {
   private isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
-  trackSpotView(spot: SwimmingSpot, source: SpotViewSource): void {
+  trackSpotView(spot: SwimmingSpot, openFrom: SpotViewSource): void {
     if (!this.isBrowser || typeof window.gtag !== 'function') return;
 
     window.gtag('event', 'view_spot', {
       slug: spot.slug,
       name: spot.name,
       department: spot.department,
-      source,
+      open_from: openFrom,
     });
   }
 
@@ -37,13 +37,13 @@ export class AnalyticsService {
     });
   }
 
-  trackSpotDirections(spot: SwimmingSpot, source: SpotDirectionsSource): void {
+  trackSpotDirections(spot: SwimmingSpot, openFrom: SpotDirectionsSource): void {
     if (!this.isBrowser || typeof window.gtag !== 'function') return;
 
     window.gtag('event', 'get_directions', {
       slug: spot.slug,
       name: spot.name,
-      source,
+      open_from: openFrom,
     });
   }
 }

@@ -36,6 +36,18 @@ export interface SiteDetails {
   lastTestDate?: string;
 }
 
+export interface NearbySpotRef {
+  slug: string;
+  name: string;
+  city: string;
+  department?: string;
+  type: SwimmingSpotType | string;
+  distanceKm: number;
+  score?: number;
+  lastWaterQuality?: WaterQuality | string | null;
+  thumbUrl?: string;
+}
+
 export interface SwimmingSpot {
   region: string;
   department: string;
@@ -52,4 +64,5 @@ export interface SwimmingSpot {
   score?: number;
   images?: SwimmingSpotImage[];
   siteDetails?: SiteDetails;
+  nearbySpots?: NearbySpotRef[];
 }

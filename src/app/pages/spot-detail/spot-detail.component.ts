@@ -17,6 +17,7 @@ import { SpotFacilitiesComponent } from '@app/shared/ui/spot-facilities/spot-fac
 import { SpotAboutComponent } from '@app/shared/ui/spot-about/spot-about.component';
 import { SpotGalleryPreviewComponent } from '@app/shared/ui/spot-gallery/spot-gallery-preview.component';
 import { SpotMapCardComponent } from '@app/shared/ui/spot-map-card/spot-map-card.component';
+import { SpotNearbyComponent } from '@app/shared/ui/spot-nearby/spot-nearby.component';
 import { NotFoundComponent } from '@app/pages/not-found/not-found.component';
 import { AnalyticsService } from '@app/shared/analytics/analytics.service';
 
@@ -31,6 +32,7 @@ import { AnalyticsService } from '@app/shared/analytics/analytics.service';
     SpotAboutComponent,
     SpotGalleryPreviewComponent,
     SpotMapCardComponent,
+    SpotNearbyComponent,
     NotFoundComponent,
   ],
   providers: [SeoService],
