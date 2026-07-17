@@ -272,12 +272,13 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.selectedLight = light;
     this.selectedSpot = null;
+    const mapZoom = Math.round(this.map.getZoom() * 10) / 10;
 
     this.swimmingSpotsService.getSwimmingSpotBySlug(light.slug).subscribe({
       next: (spot) => {
         if (spot && this.selectedLight?.slug === light.slug) {
           this.selectedSpot = spot;
-          this.analytics.trackSpotView(spot, 'overlay');
+          this.analytics.trackSpotView(spot, 'overlay', mapZoom);
         }
       },
       error: () => {

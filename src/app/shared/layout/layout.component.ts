@@ -5,12 +5,14 @@ import { map } from 'rxjs/operators';
 import {
   AutocompleteInputComponent,
   AutocompleteOption,
+  AutocompleteSearchOutcome,
 } from '@app/shared/ui/forms/autocomplete-input/autocomplete-input.component';
 import { GeocodingService } from '@app/shared/data/geocoding.service';
 import { SwimmingSpotsService } from '@app/shared/data/swimming-spots.service';
 import { SwimmingSpotLight } from '@app/shared/models/swimming-spot-light.model';
 import { MapControlService } from '@app/shared/maps/map-control.service';
 import { ToastComponent } from '@app/shared/ui/toast/toast.component';
+import { AnalyticsService } from '@app/shared/analytics/analytics.service';
 
 @Component({
   selector: 'app-layout',
@@ -24,6 +26,7 @@ export class LayoutComponent {
     private swimmingSpotsService: SwimmingSpotsService,
     private mapControlService: MapControlService,
     private router: Router,
+    private analytics: AnalyticsService,
   ) {}
 
   searchLocations = (query: string): Observable<AutocompleteOption[]> => {
@@ -65,6 +68,15 @@ export class LayoutComponent {
   goHome(): void {
     this.mapControlService.clearMapState();
     this.router.navigate(['/']);
+  }
+
+  onSearchOutcome(outcome: AutocompleteSearchOutcome): void {
+    this.analytics.trackSearch(
+      outcome.query,
+      outcome.resultsCount,
+      outcome.outcome,
+      outcome.option?.kind,
+    );
   }
 
   onLocationSelected(option: AutocompleteOption): void {

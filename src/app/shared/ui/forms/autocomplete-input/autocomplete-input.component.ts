@@ -13,6 +13,13 @@ export interface AutocompleteOption {
   sublabel?: string;
 }
 
+export interface AutocompleteSearchOutcome {
+  query: string;
+  resultsCount: number;
+  outcome: 'selected' | 'abandoned';
+  option?: AutocompleteOption;
+}
+
 @Component({
   selector: 'app-autocomplete-input',
   standalone: true,
@@ -32,15 +39,21 @@ export class AutocompleteInputComponent implements ControlValueAccessor {
   placeholder = input<string>('Rechercher');
   minChars = input<number>(3);
   optionSelected = output<AutocompleteOption>();
+  searchOutcome = output<AutocompleteSearchOutcome>();
 
   searchControl = new FormControl('');
   options: AutocompleteOption[] = [];
   showDropdown = false;
   isLoading = false;
   selectedIndex = -1;
-  
+
   private onChange: (value: any) => void = () => {};
   private onTouched: () => void = () => {};
+
+  private lastQuery = '';
+  private lastResultsCount = 0;
+  private outcomePending = false;
+  private searchActive = false;
 
   constructor(private elementRef: ElementRef) {
     this.searchControl.valueChanges.pipe(
@@ -49,11 +62,13 @@ export class AutocompleteInputComponent implements ControlValueAccessor {
       takeUntilDestroyed(),
       switchMap(query => {
         if (!query || query.length < this.minChars()) {
+          this.endSearchSession();
           this.options = [];
           this.showDropdown = false;
           return of([]);
         }
 
+        this.beginSearchSession(query);
         this.isLoading = true;
         return this.searchFn()(query).pipe(
           catchError(() => {
@@ -67,6 +82,43 @@ export class AutocompleteInputComponent implements ControlValueAccessor {
       this.isLoading = false;
       this.showDropdown = options.length > 0;
       this.selectedIndex = -1;
+      this.recordSearchResults(options.length);
+    });
+  }
+
+  private beginSearchSession(query: string): void {
+    this.lastQuery = query;
+    this.searchActive = true;
+  }
+
+  private endSearchSession(): void {
+    this.flushAbandoned();
+    this.searchActive = false;
+  }
+
+  private recordSearchResults(count: number): void {
+    if (!this.searchActive) return;
+    this.lastResultsCount = count;
+    this.outcomePending = true;
+  }
+
+  private reportSelected(option: AutocompleteOption): void {
+    this.outcomePending = false;
+    this.searchOutcome.emit({
+      query: this.lastQuery,
+      resultsCount: this.lastResultsCount,
+      outcome: 'selected',
+      option,
+    });
+  }
+
+  private flushAbandoned(): void {
+    if (!this.outcomePending) return;
+    this.outcomePending = false;
+    this.searchOutcome.emit({
+      query: this.lastQuery,
+      resultsCount: this.lastResultsCount,
+      outcome: 'abandoned',
     });
   }
 
@@ -75,10 +127,18 @@ export class AutocompleteInputComponent implements ControlValueAccessor {
     this.searchControl.setValue(option.label, { emitEvent: false });
     this.showDropdown = false;
     this.onChange(option.value);
+    this.reportSelected(option);
     this.optionSelected.emit(option);
   }
 
   onKeyDown(event: KeyboardEvent): void {
+    if (event.key === 'Escape') {
+      this.showDropdown = false;
+      this.selectedIndex = -1;
+      this.flushAbandoned();
+      return;
+    }
+
     if (!this.showDropdown || this.options.length === 0) {
       return;
     }
@@ -100,11 +160,6 @@ export class AutocompleteInputComponent implements ControlValueAccessor {
           this.selectOption(this.options[this.selectedIndex], this.selectedIndex);
         }
         break;
-      case 'Escape':
-        event.preventDefault();
-        this.showDropdown = false;
-        this.selectedIndex = -1;
-        break;
     }
   }
 
@@ -124,6 +179,7 @@ export class AutocompleteInputComponent implements ControlValueAccessor {
     if (!this.elementRef.nativeElement.contains(event.target)) {
       this.showDropdown = false;
       this.selectedIndex = -1;
+      this.flushAbandoned();
     }
   }
 

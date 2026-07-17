@@ -24,7 +24,7 @@
         <app-spot-about [swimmingSpot]="swimmingSpot()!"></app-spot-about>
         <app-spot-gallery-preview [images]="swimmingSpot()!.images || []" [spotName]="swimmingSpot()!.name"
           [spotSlug]="swimmingSpot()!.slug"></app-spot-gallery-preview>
-        <app-spot-nearby [spots]="swimmingSpot()!.nearbySpots" variant="page"></app-spot-nearby>
+        <app-spot-nearby [spots]="swimmingSpot()!.nearbySpots" [fromSlug]="swimmingSpot()!.slug" variant="page"></app-spot-nearby>
       </div>
 
       <div class="col-span-12 lg:col-span-4">

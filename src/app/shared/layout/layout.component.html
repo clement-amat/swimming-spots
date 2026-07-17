@@ -19,7 +19,8 @@
       </a>
       <app-autocomplete-input class="flex-1 md:flex-initial" [searchFn]="searchLocations"
         [placeholder]="'Rechercher une ville, un lieu'" [minChars]="3"
-        (optionSelected)="onLocationSelected($event)"></app-autocomplete-input>
+        (optionSelected)="onLocationSelected($event)"
+        (searchOutcome)="onSearchOutcome($event)"></app-autocomplete-input>
     </div>
     <div class="hidden sm:flex items-center gap-4">
     </div>
